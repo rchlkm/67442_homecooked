@@ -1,10 +1,11 @@
 import UIKit
 import Firebase
 import XCPlayground
+
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
 var root = Firebase(url:"https://docs-examples.firebaseio.com/")
-var hcRef = myRootRef.childByAppendingPath("users/ayuan/name")
+var hcRef = root.childByAppendingPath("users/ayuan/name")
 
 // save
 
