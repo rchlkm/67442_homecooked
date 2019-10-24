@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:firebase_example.playground">
+      location = "group:homecooked_firebase.playground">
    </FileRef>
    <FileRef
       location = "group:HomeCooked.xcodeproj">

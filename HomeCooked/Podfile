@@ -1,5 +1,7 @@
 target 'HomeCooked' do
   use_frameworks!
   pod 'Firebase'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
   pod 'SwiftyJSON'
 end
