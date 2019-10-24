@@ -6604,6 +6604,7 @@
 		01CF314FFD32DE184E1C47C7EDDE9210 /* sync_windows.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sync_windows.h; path = include/grpc/impl/codegen/sync_windows.h; sourceTree = "<group>"; };
 		01D131A08A419F9A311281F299038FC0 /* GoogleUtilities-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GoogleUtilities-Info.plist"; sourceTree = "<group>"; };
 		01D57DA4641D688542B901109CC564AC /* hexdump.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = hexdump.c; path = crypto/bio/hexdump.c; sourceTree = "<group>"; };
+		02044F5323621F1D005F20AA /* homecooked_firebase.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = homecooked_firebase.playground; path = ../homecooked_firebase.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		02364D79007539E39BBE5C39C1AE2C29 /* slice_weak_hash_table.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = slice_weak_hash_table.h; path = src/core/lib/slice/slice_weak_hash_table.h; sourceTree = "<group>"; };
 		0240970393C107C5BD9CF27E6F261925 /* custom_extensions.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = custom_extensions.cc; path = ssl/custom_extensions.cc; sourceTree = "<group>"; };
 		02475414CA3E431485BF7BB8F0E07323 /* string_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = string_util.h; path = include/grpc/support/string_util.h; sourceTree = "<group>"; };
@@ -11673,6 +11674,7 @@
 			isa = PBXGroup;
 			children = (
 				3FBAE67823617A5200E9B9FE /* homecooked_firebase.playground */,
+				02044F5323621F1D005F20AA /* homecooked_firebase.playground */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1D3C81C79E82FC4B654BF319DB1303BC /* Frameworks */,
 				C469CEE342CD75D90D20D4706374CF2A /* Pods */,

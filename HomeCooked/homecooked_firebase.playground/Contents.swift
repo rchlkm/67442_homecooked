@@ -22,7 +22,7 @@ let guest = guestswiftyjson["documents"]
   
 print(guest)
 
-let reservationURL: NSURL = NSURL(string: "https://firestore.googleapis.com/v1/projects/homecooked-b0581/databases/(default)/documents/guest/")!
+let reservationURL: NSURL = NSURL(string: "https://firestore.googleapis.com/v1/projects/homecooked-b0581/databases/(default)/documents/reservation/")!
 
 let reservationdata = NSData(contentsOf: reservationURL as URL)!
 
@@ -31,3 +31,14 @@ let reservationswiftyjson = try JSON(data: reservationdata as Data)
 let reservation = reservationswiftyjson["documents"]
   
 print(reservation)
+
+
+let mealURL: NSURL = NSURL(string: "https://firestore.googleapis.com/v1/projects/homecooked-b0581/databases/(default)/documents/meal/")!
+
+let mealdata = NSData(contentsOf: mealURL as URL)!
+
+let mealswiftyjson = try JSON(data: mealdata as Data)
+
+let meal = mealswiftyjson["documents"]
+  
+print(meal)
