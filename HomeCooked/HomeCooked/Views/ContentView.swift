@@ -10,7 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        TabView(selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
+        SearchView().tabItem { Text("Search") }.tag(1)
+        MealsView().tabItem { Text("Meals") }.tag(2)
+        }
     }
 }
 
