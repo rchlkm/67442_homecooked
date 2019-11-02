@@ -10,7 +10,182 @@ import SwiftUI
 
 struct MealsView: View {
     var body: some View {
-        Text("Meals View")
+
+        VStack {
+            VStack(alignment: .leading) {
+                Rectangle() // Image(meal.image)
+                   .frame(height: 250.0)
+            
+                Section {
+                    Section {
+                        Text("meal.name")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            
+                        Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
+//                        Text(meal.description)
+                            .multilineTextAlignment(.leading)
+//                            .lineLimit(10)
+                    }
+                    
+                    Spacer().frame(height: 20.0)
+                    
+                    Reservations()
+                    Spacer().frame(height: 20.0)
+                    
+                    Reviews()
+                    Spacer().frame(height: 20.0)
+                    
+                    Location()
+                    Spacer().frame(height: 20.0)
+                        
+                    AdditionalInfo()
+                    Spacer().frame(height: 20.0)
+                    
+                    ReserveButton()
+                        
+                }.padding(.leading).padding(.trailing)
+            
+            }
+        }
+    }
+}
+
+
+struct Reservations: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Reserve Meal")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            ReservationFilter()
+            AvailableTimes()
+        }
+    }
+    
+}
+
+struct ReservationFilter: View {
+    var body: some View {
+        HStack {
+            Button(action: {
+                DatePicker(selection: /*@START_MENU_TOKEN@*/.constant(Date())/*@END_MENU_TOKEN@*/, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
+            }) {
+                Text("Party of 3 | Fri 11/8")
+                    .font(.caption)
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.orange, lineWidth: 2)
+                    )
+            }
+        }
+        .padding(.top, 10)
+    }
+}
+
+struct AvailableTimes: View {
+    var body: some View {
+        HStack {
+            Text("6 PM")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.orange, lineWidth: 2)
+                )
+            
+            Text("8 PM")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.orange, lineWidth: 2)
+            )
+            
+        }
+        .padding(.top, 10)
+        
+    }
+}
+
+
+struct Reviews: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Reviews" + " (5)")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Section {
+                Text("4.7")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.orange)
+                }
+            }.padding(.top, 5)
+    }
+}
+
+struct Location: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Location")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Section {
+                Text("Nord, Hamburg")
+                    .font(.body)
+                    .fontWeight(.bold)
+                Text("5 minute walk from")
+                    .font(.body)
+            }.padding(.top, 5)
+        }
+    }
+}
+
+
+
+struct AdditionalInfo: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Additional Information")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Text("Food Policy")
+                .font(.headline)
+                .fontWeight(.bold)
+                .padding(.top, 5)
+    
+            Text("This is another multiline text block with lots of information asdfgtyjuk.")
+                .font(.subheadline)
+            
+            
+            Text("Cancellation Policy")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                .padding(.top, 5)
+            
+            Text("This is another multiline text block with lots of information asdfgtyjuk.")
+                .font(.subheadline)
+        }
+    }
+}
+
+
+struct ReserveButton(): View {
+    var body: some View {
+        VStack {
+            Text("Reserve Meal | $12 per person")
+        }
     }
 }
 
