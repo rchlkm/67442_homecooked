@@ -12,11 +12,11 @@ struct SearchView: View {
   @State private var city: String = ""
   
   var body: some View {
-    VStack{
-      TextField("City", text: $city)
-        .border(Color.black)
-        .padding()
-      Text("Search View")
+    NavigationView {
+      ScrollView {
+        Spacer()
+        
+      }.navigationBarTitle("Search", displayMode: .large)
     }
   }
 }

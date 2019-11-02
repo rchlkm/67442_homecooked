@@ -99,6 +99,7 @@
 		4533B5EE236A59B400D99E25 /* HomeCooked */ = {
 			isa = PBXGroup;
 			children = (
+				4533B644236E195400D99E25 /* Models */,
 				4533B61C236A651B00D99E25 /* Views */,
 				4533B5EF236A59B400D99E25 /* AppDelegate.swift */,
 				4533B5F1236A59B400D99E25 /* SceneDelegate.swift */,
@@ -136,6 +137,13 @@
 				4533B61F236A65BF00D99E25 /* MealsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4533B644236E195400D99E25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5AAA8D667E96D1B489FB6F58 /* Pods */ = {
