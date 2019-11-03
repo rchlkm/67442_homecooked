@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var city: String = ""
+    @State private var city: String = "Hamburg"
     
     var body: some View {
         NavigationView {
             ScrollView {
                 Spacer()
-                
                 VStack(alignment: .leading) {
                     ForEach(search_items, id: \.id) { meal in
                         SearchItemView(name: meal.name)
@@ -25,7 +24,7 @@ struct SearchView: View {
             .navigationBarItems(leading:
                 VStack (alignment: .leading) {
                     Spacer()
-                    Text("Hamburg").font(.largeTitle)
+                    Text(city).font(.largeTitle)
                         .padding(.leading)
                         .padding(.trailing)
                         .overlay(
@@ -48,34 +47,6 @@ struct SearchView: View {
 }
 
 
-
-struct AvailableTime: View {
-    
-    var body: some View {
-        HStack {
-            Text("6 PM")
-                .font(.caption)
-                .multilineTextAlignment(.center)
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.orange, lineWidth: 2)
-            )
-            
-            Text("8 PM")
-                .font(.caption)
-                .multilineTextAlignment(.center)
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.orange, lineWidth: 2)
-            )
-            
-        }
-        .padding(.top, 10)
-        
-    }
-}
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {

@@ -17,18 +17,18 @@ struct SearchItemView: View {
     
     var body: some View {
         VStack {
-            
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Text(name)
             }
-                
-                .padding(30)
+                .frame(height: 80)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.orange, lineWidth: 2)
                 )
         
-        }
+        }.padding(.trailing, 20)
     }
 }
 
