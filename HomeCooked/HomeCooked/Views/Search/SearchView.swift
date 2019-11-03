@@ -67,6 +67,39 @@ struct SearchView: View {
   }
 }
 
+
+
+struct AvailableTime: View {
+        
+    var body: some View {
+        HStack {
+            Text("6 PM")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.orange, lineWidth: 2)
+                )
+            
+            Text("8 PM")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.orange, lineWidth: 2)
+            )
+            
+        }
+        .padding(.top, 10)
+        
+    }
+}
+
+
+
+
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()

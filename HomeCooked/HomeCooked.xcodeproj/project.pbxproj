@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028331CB236F7C4700643923 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CA236F7C4700643923 /* Meal.swift */; };
+		028331CE236F7D1600643923 /* MealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CD236F7D1600643923 /* MealTime.swift */; };
+		028331D0236F7D6600643923 /* Reviews in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews */; };
 		4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5EF236A59B400D99E25 /* AppDelegate.swift */; };
 		4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5F1236A59B400D99E25 /* SceneDelegate.swift */; };
 		4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5F3236A59B400D99E25 /* ContentView.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		028331CA236F7C4700643923 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		028331CD236F7D1600643923 /* MealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTime.swift; sourceTree = "<group>"; };
+		028331CF236F7D6600643923 /* Reviews */ = {isa = PBXFileReference; lastKnownFileType = text; path = Reviews; sourceTree = "<group>"; };
 		20F11A672C2B248BB6ECD616 /* Pods-HomeCooked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCooked.debug.xcconfig"; path = "Target Support Files/Pods-HomeCooked/Pods-HomeCooked.debug.xcconfig"; sourceTree = "<group>"; };
 		43BA74505A12E2F54D8BB11A /* Pods-HomeCooked-HomeCookedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCooked-HomeCookedTests.release.xcconfig"; path = "Target Support Files/Pods-HomeCooked-HomeCookedTests/Pods-HomeCooked-HomeCookedTests.release.xcconfig"; sourceTree = "<group>"; };
 		4533B5EC236A59B400D99E25 /* HomeCooked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeCooked.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		028331CC236F7CBC00643923 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				028331CA236F7C4700643923 /* Meal.swift */,
+				028331CD236F7D1600643923 /* MealTime.swift */,
+				028331CF236F7D6600643923 /* Reviews */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
 		4533B5E3236A59B400D99E25 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +150,7 @@
 		4533B61C236A651B00D99E25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				028331CC236F7CBC00643923 /* Structs */,
 				4533B5F3236A59B400D99E25 /* ContentView.swift */,
 				45AF0ECC236E21810080D29D /* Search */,
 				4533B61F236A65BF00D99E25 /* MealsView.swift */,
@@ -368,10 +385,13 @@
 			files = (
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
 				45AF0ECE236E21B00080D29D /* SearchListItemView.swift in Sources */,
+				028331CB236F7C4700643923 /* Meal.swift in Sources */,
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,
 				4533B620236A65BF00D99E25 /* MealsView.swift in Sources */,
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,
 				4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */,
+				028331D0236F7D6600643923 /* Reviews in Sources */,
+				028331CE236F7D1600643923 /* MealTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

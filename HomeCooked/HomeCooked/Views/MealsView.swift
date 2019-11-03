@@ -91,14 +91,6 @@ struct ReservationFilter: View {
 }
 
 
-struct MealTime {
-//    let uuid = UUID()
-    var meal_id: Int
-    var meal_time: timeval
-    var max_guest_count: Int
-    var is_reserved: Bool
-}
-
 struct AvailableTimes: View {
     
     @State private var times = [MealTime]()
@@ -142,7 +134,7 @@ struct Reviews: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.orange)
                 }
-            }.padding(.top, 5)
+        }.padding(.top, 5)
     }
 }
 
