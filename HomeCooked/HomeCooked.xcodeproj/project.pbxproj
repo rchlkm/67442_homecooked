@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0207ABA8236F86A900057F25 /* SearchItemView.swift */; };
 		028331CB236F7C4700643923 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CA236F7C4700643923 /* Meal.swift */; };
 		028331CE236F7D1600643923 /* MealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CD236F7D1600643923 /* MealTime.swift */; };
 		028331D0236F7D6600643923 /* Reviews in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0207ABA8236F86A900057F25 /* SearchItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemView.swift; sourceTree = "<group>"; };
 		028331CA236F7C4700643923 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		028331CD236F7D1600643923 /* MealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTime.swift; sourceTree = "<group>"; };
 		028331CF236F7D6600643923 /* Reviews */ = {isa = PBXFileReference; lastKnownFileType = text; path = Reviews; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				4533B61A236A650B00D99E25 /* SearchView.swift */,
+				0207ABA8236F86A900057F25 /* SearchItemView.swift */,
 				45AF0ECD236E21B00080D29D /* SearchListItemView.swift */,
 			);
 			path = Search;
@@ -386,6 +389,7 @@
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
 				45AF0ECE236E21B00080D29D /* SearchListItemView.swift in Sources */,
 				028331CB236F7C4700643923 /* Meal.swift in Sources */,
+				0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */,
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,
 				4533B620236A65BF00D99E25 /* MealsView.swift in Sources */,
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,

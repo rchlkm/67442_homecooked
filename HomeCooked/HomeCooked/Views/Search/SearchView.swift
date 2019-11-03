@@ -9,68 +9,48 @@
 import SwiftUI
 
 struct SearchView: View {
-  @State private var city: String = ""
-  
-  var body: some View {
-    NavigationView {
-      ScrollView {
-        Spacer()
-        VStack {
-          Text("item 1")
-            .padding()
-            .padding(.leading, 100)
-            .padding(.trailing, 100)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black)
+    @State private var city: String = ""
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                Spacer()
+                
+                VStack(alignment: .leading) {
+                    ForEach(search_items, id: \.id) { meal in
+                        SearchItemView(name: meal.name)
+                    }
+                }
+            }
+            .navigationBarItems(leading:
+                VStack (alignment: .leading) {
+                    Spacer()
+                    Text("Hamburg").font(.largeTitle)
+                        .padding(.leading)
+                        .padding(.trailing)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black)
+                    )
+                    Spacer()
+                    Text("3P   Sat Nov 2")
+                        .padding(.leading)
+                        .padding(.trailing)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black)
+                    )
+                }
             )
-          Text("item 2")
-            .padding()
-            .padding(.leading, 100)
-            .padding(.trailing, 100)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black)
-            )
-          Text("item 3")
-            .padding()
-            .padding(.leading, 100)
-            .padding(.trailing, 100)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black)
-            )
+            
         }
-      }
-      .navigationBarItems(leading:
-        VStack (alignment: .leading) {
-          Spacer()
-          Text("Hamburg").font(.largeTitle)
-            .padding(.leading)
-            .padding(.trailing)
-            .overlay(
-              RoundedRectangle(cornerRadius: 10)
-                  .stroke(Color.black)
-            )
-          Spacer()
-          Text("3P   Sat Nov 2")
-            .padding(.leading)
-            .padding(.trailing)
-            .overlay(
-              RoundedRectangle(cornerRadius: 10)
-                  .stroke(Color.black)
-            )
-        }
-      )
-      
     }
-  }
 }
 
 
 
 struct AvailableTime: View {
-        
+    
     var body: some View {
         HStack {
             Text("6 PM")
@@ -80,7 +60,7 @@ struct AvailableTime: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.orange, lineWidth: 2)
-                )
+            )
             
             Text("8 PM")
                 .font(.caption)
@@ -96,9 +76,6 @@ struct AvailableTime: View {
         
     }
 }
-
-
-
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
