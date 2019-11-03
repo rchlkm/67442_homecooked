@@ -10,44 +10,46 @@ import SwiftUI
 
 struct MealsView: View {
     var body: some View {
-
-        VStack {
+        ZStack {
             VStack(alignment: .leading) {
                 Rectangle() // Image(meal.image)
-                   .frame(height: 250.0)
-            
+                   .frame(height: 250)
+                
                 Section {
-                    Section {
-                        Text("meal.name")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
-                            
-                        Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
-//                        Text(meal.description)
-                            .multilineTextAlignment(.leading)
-//                            .lineLimit(10)
-                    }
-                    
+                    MealDetails()
+
                     Spacer().frame(height: 20.0)
-                    
+
                     Reservations()
                     Spacer().frame(height: 20.0)
-                    
+
                     Reviews()
                     Spacer().frame(height: 20.0)
-                    
+
                     Location()
                     Spacer().frame(height: 20.0)
-                        
+
                     AdditionalInfo()
                     Spacer().frame(height: 20.0)
-                    
-                    ReserveButton()
-                        
+
                 }.padding(.leading).padding(.trailing)
-            
+                    
             }
+            
+             ReserveButton()
+        }
+    }
+}
+
+
+struct MealDetails: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("MealName")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                    
+            Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
         }
     }
 }
@@ -88,7 +90,19 @@ struct ReservationFilter: View {
     }
 }
 
+
+struct MealTime {
+//    let uuid = UUID()
+    var meal_id: Int
+    var meal_time: timeval
+    var max_guest_count: Int
+    var is_reserved: Bool
+}
+
 struct AvailableTimes: View {
+    
+    @State private var times = [MealTime]()
+    
     var body: some View {
         HStack {
             Text("6 PM")
@@ -114,7 +128,6 @@ struct AvailableTimes: View {
         
     }
 }
-
 
 struct Reviews: View {
     var body: some View {
@@ -152,7 +165,6 @@ struct Location: View {
 }
 
 
-
 struct AdditionalInfo: View {
     var body: some View {
         VStack(alignment: .leading) {
@@ -163,28 +175,53 @@ struct AdditionalInfo: View {
             Text("Food Policy")
                 .font(.headline)
                 .fontWeight(.bold)
-                .padding(.top, 5)
+                .padding(.top, 10)
     
             Text("This is another multiline text block with lots of information asdfgtyjuk.")
                 .font(.subheadline)
             
-            
             Text("Cancellation Policy")
-                    .font(.headline)
+                .font(.body)
                     .fontWeight(.bold)
-                .padding(.top, 5)
+                .padding(.top, 15)
             
             Text("This is another multiline text block with lots of information asdfgtyjuk.")
                 .font(.subheadline)
         }
+        .padding(.top, 10)
+        
     }
 }
 
-
-struct ReserveButton(): View {
+struct ReserveButton: View {
+    
+// https://medium.com/programming-with-swift/create-a-floating-action-button-with-swiftui-4d05dcddc365
+//    var meal_price = 13
     var body: some View {
         VStack {
-            Text("Reserve Meal | $12 per person")
+            Spacer()
+            HStack {
+               Spacer()
+                Button(action: {
+                    print("Hello world")
+    //                self.items.append(Item(value: "Item"))
+                }, label: {
+//                    Text("Reserve Meal\n$\(meal_price) per person")
+                    Text("Reserve Meal\n$12 per person")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .frame(width: 200, height: 70)
+                        .foregroundColor(Color.white)
+                })
+                .background(Color.blue)
+                .cornerRadius(38.5)
+                .padding()
+                .shadow(color: Color.black.opacity(0.3),
+                        radius: 3,
+                        x: 3,
+                        y: 3)
+            }
+            
         }
     }
 }
