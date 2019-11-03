@@ -9,35 +9,30 @@
 import SwiftUI
 
 struct SearchItemView: View {
-    let name: String
+    let meal: Meal
+    let chef_name: String
     
-    init(name: String) {
-        self.name = name
+    init(meal: Meal) {
+        self.meal = meal
+        self.chef_name = getChefsById(chef_id: meal.chef_id).firstname
     }
     
     var body: some View {
         VStack {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text(name)
+                Text("\(meal.name) by Chef \(chef_name)")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black)
             }
-                .frame(height: 80)
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.orange, lineWidth: 2)
-                )
-        
-        }.padding(.trailing, 20)
+            .frame(width: 350, height: 120)
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 1)
+            )
+            
+        }
     }
 }
-
-
-//Text("item 1")
-//.padding()
-//.padding(.leading, 100)
-//.padding(.trailing, 100)
-//.overlay(
-//    RoundedRectangle(cornerRadius: 10)
-//        .stroke(Color.black)
-//)

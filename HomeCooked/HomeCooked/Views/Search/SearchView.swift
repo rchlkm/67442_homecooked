@@ -10,6 +10,8 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var city: String = "Hamburg"
+    var party_size = 3
+    var search_date = "Sat Nov 2"
     
     var body: some View {
         NavigationView {
@@ -17,36 +19,33 @@ struct SearchView: View {
                 Spacer()
                 VStack(alignment: .leading) {
                     ForEach(search_items, id: \.id) { meal in
-                        SearchItemView(name: meal.name)
+                        SearchItemView(meal: meal)
+                            .padding(.bottom, 20)
                     }
                 }
             }
+                
             .navigationBarItems(leading:
                 VStack (alignment: .leading) {
                     Spacer()
                     Text(city).font(.largeTitle)
-                        .padding(.leading)
-                        .padding(.trailing)
+                        .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black)
-                    )
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.gray)
+                        )
                     Spacer()
-                    Text("3P   Sat Nov 2")
-                        .padding(.leading)
-                        .padding(.trailing)
+                    Text("Party of \(party_size) | \(search_date)")
+                        .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.black)
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.gray)
                     )
                 }
             )
-            
         }
     }
 }
-
-
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {

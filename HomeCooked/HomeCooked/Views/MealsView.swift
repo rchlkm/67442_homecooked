@@ -23,7 +23,7 @@ struct MealsView: View {
                     Reservations()
                     Spacer().frame(height: 20.0)
 
-                    Reviews()
+                    ReviewsView()
                     Spacer().frame(height: 20.0)
 
                     Location()
@@ -121,7 +121,7 @@ struct AvailableTimes: View {
     }
 }
 
-struct Reviews: View {
+struct ReviewsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Reviews" + " (5)")

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Chef {
+    let id: Int
+    let firstname: String
+    let lastname: String
+    let address: String
+    let phone_number: Int
+}
