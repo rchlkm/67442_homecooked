@@ -86,7 +86,7 @@ struct AvailableTimesView: View {
             Text("6 PM")
                 .font(.caption)
                 .multilineTextAlignment(.center)
-                .paddinug(10)
+                .padding(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.orange, lineWidth: 2)

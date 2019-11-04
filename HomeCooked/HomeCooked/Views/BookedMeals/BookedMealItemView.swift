@@ -19,7 +19,7 @@ struct BookedMealItemView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("\(meal.name)")
                 .font(.headline)
                 .fontWeight(.bold)
@@ -30,12 +30,10 @@ struct BookedMealItemView: View {
                 .foregroundColor(Color.gray)
                 .padding(.top, 5)
             
-            
-            Text("$\(meal.price) per person")
-                .font(.body)
-            .foregroundColor(Color.black)
-                .padding(.top, 10)
+            BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
             
         }
+//        .frame(width: 180)
+//        .border(Color.blue)
     }
 }

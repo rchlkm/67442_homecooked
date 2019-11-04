@@ -77,7 +77,7 @@ let reservation1 = Reservation (
 let reservation2 = Reservation (
     id: 2,
     guest_id: 1,
-    mealtime_id: 1,
+    mealtime_id: 2,
     payment_info: "",
     guest_count: 2
 )

@@ -21,7 +21,10 @@ struct MealListItemView: View {
     
     var body: some View {
         ZStack {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: {
+                
+                
+            }) {
                
                 HStack(spacing: 0) {
                     //  Image(systemName: "rectangle.grid.1x2.fill")
@@ -31,6 +34,7 @@ struct MealListItemView: View {
                     
                     mealView()
                         .frame(width: 180)
+//                        .border(Color.red)
                 }
             }
             .frame(width: 360, height: 180)

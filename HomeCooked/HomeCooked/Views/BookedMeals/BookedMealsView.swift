@@ -30,7 +30,7 @@ struct BookedMealsView: View {
                         MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
                             .padding(.bottom, 20)
                     }
-                
+                    
                 }.padding(20)
             }
             .navigationBarTitle("Meals")
