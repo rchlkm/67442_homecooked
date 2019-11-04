@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct BookedMealDetailComponentView: View {
     let meal_date: String
     let meal_time: String

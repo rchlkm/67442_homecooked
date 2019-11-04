@@ -15,22 +15,24 @@ struct BookedMealDetailView: View {
                 
                 VStack(alignment: .leading) {
                     HStack(alignment: .top) {
-                        Rectangle() // Image(meal.image)
-                            .frame(width: 220, height: 140)
+//                        Rectangle() // Image(meal.image)
+//                            .frame(width: 220, height: 140)
                         BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
-                            .padding(.leading, 10)
-                    }
-                    Spacer().frame(height: 20.0)
+                    }//.border(Color.green)
+                    Spacer().frame(height: 30.0)
                     
                     LocationView(lat: 34.011286, lng: -116.166868, marker: true)
-                    Spacer().frame(height: 20.0)
+                    Spacer().frame(height:30.0)
                     
                     ChefInfoView(chef: chef1)
                     
-                }.padding(.leading).padding(.trailing)
-                //.border(Color.red)
+                }
+//                .border(Color.purple)
             }
             .navigationBarTitle("Meal.Name")
+            .navigationBarItems(leading: BackButtonView())
+            .border(Color.red)
+            .padding(.leading,20).padding(.trailing,20)
         }
         
     }

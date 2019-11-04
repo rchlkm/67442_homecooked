@@ -20,7 +20,7 @@ struct BookedMealsView: View {
                     ForEach(bookedMeal_items, id: \.id) { reservation in
                         MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
                             .padding(.bottom, 20)
-                                            }
+                    }
                     
                     Divider()
                     
@@ -30,10 +30,14 @@ struct BookedMealsView: View {
                         MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
                             .padding(.bottom, 20)
                     }
-                
-                }.padding(20)
+                    
+                }
             }
             .navigationBarTitle("Meals")
+            .padding(.leading,20).padding(.trailing,20)
+//            .border(Color.purple)
+            
+            
             
         }
     }

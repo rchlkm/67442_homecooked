@@ -19,14 +19,14 @@ struct IconTextView: View {
         
         HStack {
             Rectangle()
-                .frame(width: 15, height: 15)
+                .frame(width: 20, height: 20)
                 .foregroundColor(Color.orange)
             Text("\(self.text)")
                 .font(.body)
                 .foregroundColor(Color.black)
         }
 //        .padding(5) //10
-//        .border(Color.red)
+//        .border(Color.åred)
 //        .overlay(
 //            RoundedRectangle(cornerRadius: 20)
 //                .stroke(Color.gray, lineWidth: 0.5)

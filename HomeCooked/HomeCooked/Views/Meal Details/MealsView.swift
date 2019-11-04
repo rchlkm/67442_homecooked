@@ -12,39 +12,41 @@ struct MealsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ZStack {
-                    VStack(alignment: .leading) {
-                        Rectangle() // Image(meal.image)
-                            .frame(height: 250)
-                        
-                        Section {
-                            MealDetailsView()
-                            Spacer().frame(height: 20.0)
-                            
-                            ReservationsView()
-                            Spacer().frame(height: 20.0)
-                            
-                            ReviewsView()
-                            Spacer().frame(height: 20.0)
-                            
-                            LocationView(lat: 34.011286, lng: -116.166868)
-                            Spacer().frame(height: 20.0)
-                            
-                            AdditionalInfoView()
-                            Spacer().frame(height: 20.0)
-                        }.padding(.leading).padding(.trailing)
-                        
-                    }
+                //                ZStack {
+                VStack(alignment: .leading) {
+                    Rectangle() // Image(meal.image)
+//                        .frame(height: 250)
+                        .border(Color.orange)
                     
-                    ReserveButton()
+                    Section {
+                        MealDetailsView()
+                        Spacer().frame(height: 20.0)
+                        
+                        ReservationsView()
+                        Spacer().frame(height: 20.0)
+                        
+                        ReviewsView()
+                        Spacer().frame(height: 20.0)
+                        
+                        LocationView(lat: 34.011286, lng: -116.166868)
+                        Spacer().frame(height: 20.0)
+                        
+                        AdditionalInfoView()
+                        Spacer().frame(height: 20.0)
+                    }.padding(.leading,20).padding(.trailing,20)
+                    
+                    
                 }
+                
+                //                    ReserveButton()
+                //                }
             }
-            .navigationBarItems(leading:
-                Button(action: {}) {
-                    Text("Back")
-                }
-            ).border(Color.green)
-    
+//            .navigationBarHidden(true)
+                
+                //            .navigationBarTitle("hithere")
+                                .navigationBarItems(leading: BackButtonView())
+                .border(Color.purple)
+            
         }
     }
 }
