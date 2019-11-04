@@ -20,7 +20,7 @@ struct SearchView: View {
                 VStack(alignment: .leading) {
                     ForEach(search_items, id: \.id) { meal in
                         SearchItemView(meal: meal)
-                            .padding(.bottom, 20)
+                          .padding(.bottom, 20)
                     }
                 }
             }
