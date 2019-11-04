@@ -13,5 +13,5 @@ struct Chef {
     let firstname: String
     let lastname: String
     let address: String
-    let phone_number: Int
+    let phone_number: String
 }

@@ -12,15 +12,18 @@ import MapKit
 struct MapView: UIViewRepresentable {
     let lat: Double
     let lng: Double
+    let marker: Bool
     
-    init(lat: Double, lng: Double) {
+    init(lat: Double, lng: Double, marker: Bool) {
         self.lat = lat
         self.lng = lng
+        self.marker = marker
     }
     
     func makeUIView(context: Context) -> MKMapView {
         MKMapView(frame: .zero)
     }
+    
     
     func updateUIView(_ view: MKMapView, context: Context) {
         let coordinate = CLLocationCoordinate2D(
@@ -29,10 +32,16 @@ struct MapView: UIViewRepresentable {
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
         
-        
-        let annotation = MKPointAnnotation()
         let centerCoordinate = CLLocationCoordinate2D(latitude: self.lat, longitude:self.lng)
-        annotation.coordinate = centerCoordinate
-        view.addAnnotation(annotation)
+        if marker {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = centerCoordinate
+            view.addAnnotation(annotation)
+        }
+        else {
+            let circle = MKCircle(center: centerCoordinate, radius: 5)
+            view.addOverlay(circle)
+        }
+        
     }
 }

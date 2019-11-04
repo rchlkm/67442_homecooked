@@ -22,7 +22,7 @@ struct IconTextView: View {
                 .frame(width: 15, height: 15)
                 .foregroundColor(Color.orange)
             Text("\(self.text)")
-                .font(.caption)
+                .font(.body)
                 .foregroundColor(Color.black)
         }
 //        .padding(5) //10

@@ -27,7 +27,7 @@ struct MealsView: View {
                             ReviewsView()
                             Spacer().frame(height: 20.0)
                             
-                            LocationView()
+                            LocationView(lat: 34.011286, lng: -116.166868)
                             Spacer().frame(height: 20.0)
                             
                             AdditionalInfoView()
@@ -125,21 +125,30 @@ struct ReviewsView: View {
 }
 
 struct LocationView: View {
+    let lat: Double
+    let lng: Double
+    let marker: Bool
+    init(lat: Double, lng: Double, marker: Bool = false) {
+        self.lat = lat
+        self.lng = lng
+        self.marker = marker
+    }
     var body: some View {
+        
         VStack(alignment: .leading) {
             Text("Location")
                 .font(.title)
                 .fontWeight(.bold)
             
             Section {
-                Text("Nord, Hamburg")
+                Text("Meal City")
                     .font(.body)
                     .fontWeight(.bold)
                 //                Text("5 minute walk from")
                 //                    .font(.body)
             }.padding(.top, 5)
             
-            MapView(lat: 34.011286, lng: -116.166868)
+            MapView(lat: self.lat, lng: self.lng, marker: self.marker)
                 .frame(height: 150)
         }
     }

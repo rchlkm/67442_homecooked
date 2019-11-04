@@ -37,7 +37,7 @@ let chef1 = Chef (
     firstname: "John",
     lastname: "Doe",
     address: "Hamburg",
-    phone_number: 1234567890
+    phone_number: "1234567890"
 )
 
 var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]

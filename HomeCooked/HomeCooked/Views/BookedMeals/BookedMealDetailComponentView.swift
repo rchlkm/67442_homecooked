@@ -55,5 +55,4 @@ struct MealTimeView: View {
     }
     var body: some View {
         IconTextView(text: "\(self.meal_time)", img: "")
-    }
-}
+    }}
