@@ -24,7 +24,7 @@ struct SearchView: View {
                     }
                 }
             }
-                
+        
             .navigationBarItems(leading:
                 VStack (alignment: .leading) {
                     Spacer()
@@ -35,16 +35,12 @@ struct SearchView: View {
                                 .stroke(Color.gray)
                         )
                     Spacer()
+                    
                     ReservationFilterView()
-//
-//                    Text("Party of \(party_size) | \(search_date)")
-//                        .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
-//                        .overlay(
-//                            RoundedRectangle(cornerRadius: 30)
-//                                .stroke(Color.gray)
-//                        )
-                }
+                }.padding(.top, 50)
+
             )
+            
         }
     }
 }

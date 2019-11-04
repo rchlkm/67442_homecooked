@@ -160,6 +160,7 @@
 				020C8641236F9DF9002618A4 /* Assets */,
 				4533B644236E195400D99E25 /* Models */,
 				4533B61C236A651B00D99E25 /* Views */,
+				028331CC236F7CBC00643923 /* Structs */,
 				4533B5EF236A59B400D99E25 /* AppDelegate.swift */,
 				4533B5F1236A59B400D99E25 /* SceneDelegate.swift */,
 				4533B5F5236A59B800D99E25 /* Assets.xcassets */,
@@ -191,7 +192,6 @@
 		4533B61C236A651B00D99E25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				028331CC236F7CBC00643923 /* Structs */,
 				4533B5F3236A59B400D99E25 /* ContentView.swift */,
 				020C864B236FAB7A002618A4 /* Meal Details */,
 				45AF0ECC236E21810080D29D /* Search */,
