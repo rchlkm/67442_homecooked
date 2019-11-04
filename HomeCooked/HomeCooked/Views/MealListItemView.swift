@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MealListItemView: View {
-    var listItemViewType: String = "search"
+    var listItemViewType: String// = "search"
     let meal: Meal
     let chef_name: String
     
@@ -24,7 +24,7 @@ struct MealListItemView: View {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                
                 HStack(spacing: 0) {
-                    //                    Image(systemName: "rectangle.grid.1x2.fill")
+                    //  Image(systemName: "rectangle.grid.1x2.fill")
                     Rectangle()
                         .frame(width: 180.0)
                         .foregroundColor(Color.orange)
@@ -45,7 +45,7 @@ struct MealListItemView: View {
     func mealView() -> AnyView {
         switch listItemViewType {
             case "search": return AnyView(SearchItemView(meal: self.meal))
-            case "bookedMeal": return AnyView(SearchItemView(meal: self.meal))
+            case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal))
             default: return AnyView(SearchItemView(meal: self.meal))
         }
     }

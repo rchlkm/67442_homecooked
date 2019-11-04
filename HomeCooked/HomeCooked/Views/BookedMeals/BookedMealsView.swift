@@ -11,13 +11,29 @@ import SwiftUI
 struct BookedMealsView: View {
     var body: some View {
         NavigationView {
-        ScrollView {
-            ZStack {
-                Text("Upcoming Meals")
+            ScrollView {
+                Spacer()
+                VStack(alignment: .leading) {
+                    
+                    Text("Upcoming Meals")
+                        .font(.title)
+                    ForEach(bookedMeal_items, id: \.id) { reservation in
+                        MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
+                            .padding(.bottom, 20)
+                    }
+                    
+                    Divider()
+                    
+                    Text("Past Meals")
+                        .font(.title)
+                    ForEach(pastMeal_items, id: \.id) { reservation in
+                        MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
+                            .padding(.bottom, 20)
+                    }
+                
+                }.padding(20)
             }
-            
-            }
-        .navigationBarTitle("Meals")
+            .navigationBarTitle("Meals")
             
         }
     }

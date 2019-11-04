@@ -9,7 +9,9 @@ import Foundation
 
 struct MealTime {
     let id: Int
-    let meal_time: time_value
+    let meal_id: Int
+    let meal_date: String
+    let meal_time: String
     let max_guest_count: Int
     let is_reserved: Bool
 }

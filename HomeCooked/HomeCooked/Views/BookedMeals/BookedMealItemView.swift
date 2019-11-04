@@ -1,14 +1,15 @@
 //
-//  SearchItemView.swift
+//  BookedMealItemView.swift
 //  HomeCooked
 //
-//  Created by Rachel Kim on 11/3/19.
+//  Created by Rachel Kim on 11/4/19.
 //  Copyright © 2019 67442. All rights reserved.
 //
 
+
 import SwiftUI
 
-struct SearchItemView: View {
+struct BookedMealItemView: View {
     let meal: Meal
     let chef_name: String
     
