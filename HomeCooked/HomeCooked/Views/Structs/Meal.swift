@@ -17,4 +17,5 @@ struct Meal {
     let ingredients: [String]
     let allergens: [String]
     let images: [String]
+    let price: Int
 }

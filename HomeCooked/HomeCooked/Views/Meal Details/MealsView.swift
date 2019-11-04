@@ -16,20 +16,19 @@ struct MealsView: View {
                    .frame(height: 250)
                 
                 Section {
-                    MealDetails()
-
+                    MealDetailsView()
                     Spacer().frame(height: 20.0)
 
-                    Reservations()
+                    ReservationsView()
                     Spacer().frame(height: 20.0)
 
                     ReviewsView()
                     Spacer().frame(height: 20.0)
 
-                    Location()
+                    LocationView()
                     Spacer().frame(height: 20.0)
 
-                    AdditionalInfo()
+                    AdditionalInfoView()
                     Spacer().frame(height: 20.0)
 
                 }.padding(.leading).padding(.trailing)
@@ -42,7 +41,7 @@ struct MealsView: View {
 }
 
 
-struct MealDetails: View {
+struct MealDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("MealName")
@@ -55,43 +54,21 @@ struct MealDetails: View {
 }
 
 
-struct Reservations: View {
+struct ReservationsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Reserve Meal")
                 .font(.title)
                 .fontWeight(.bold)
             
-            ReservationFilter()
-            AvailableTimes()
+            ReservationFilterView()
+            AvailableTimesView()
         }
     }
     
 }
 
-struct ReservationFilter: View {
-    var body: some View {
-        HStack {
-            Button(action: {
-                DatePicker(selection: /*@START_MENU_TOKEN@*/.constant(Date())/*@END_MENU_TOKEN@*/, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
-            }) {
-                Text("Party of 3 | Fri 11/8")
-                    .font(.caption)
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .padding(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.orange, lineWidth: 2)
-                    )
-            }
-        }
-        .padding(.top, 10)
-    }
-}
-
-
-struct AvailableTimes: View {
+struct AvailableTimesView: View {
     
     @State private var times = [MealTime]()
     
@@ -138,7 +115,7 @@ struct ReviewsView: View {
     }
 }
 
-struct Location: View {
+struct LocationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Location")
@@ -149,15 +126,18 @@ struct Location: View {
                 Text("Nord, Hamburg")
                     .font(.body)
                     .fontWeight(.bold)
-                Text("5 minute walk from")
-                    .font(.body)
+//                Text("5 minute walk from")
+//                    .font(.body)
             }.padding(.top, 5)
+            
+            MapView(lat: 34.011286, lng: -116.166868)
+                .frame(height: 150)
         }
     }
 }
 
 
-struct AdditionalInfo: View {
+struct AdditionalInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Additional Information")

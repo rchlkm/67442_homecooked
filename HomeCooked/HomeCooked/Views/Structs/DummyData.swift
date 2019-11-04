@@ -16,7 +16,8 @@ let meal1 = Meal(
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
-    images: []
+    images: [],
+    price: 12
 )
 
 let meal2 = Meal(
@@ -27,7 +28,8 @@ let meal2 = Meal(
     cuisine: ["Asian", "Korean"],
     ingredients: [],
     allergens: [],
-    images: []
+    images: [],
+    price: 15
 )
 
 let chef1 = Chef (
@@ -38,7 +40,7 @@ let chef1 = Chef (
     phone_number: 1234567890
 )
 
-var search_items: [Meal] = [meal1, meal2]
+var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]
 var chefs: [Chef] = [chef1]
 
 func getChefsById(chef_id: Int) -> Chef {
