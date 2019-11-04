@@ -16,10 +16,10 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Spacer()
+                Spacer()    
                 VStack(alignment: .leading) {
                     ForEach(search_items, id: \.id) { meal in
-                        SearchItemView(meal: meal)
+                        MealListItemView(type: "search", meal: meal)
                             .padding(.bottom, 20)
                     }
                 }

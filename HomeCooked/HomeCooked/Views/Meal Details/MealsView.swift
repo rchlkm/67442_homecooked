@@ -10,32 +10,41 @@ import SwiftUI
 
 struct MealsView: View {
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Rectangle() // Image(meal.image)
-                   .frame(height: 250)
-                
-                Section {
-                    MealDetailsView()
-                    Spacer().frame(height: 20.0)
-
-                    ReservationsView()
-                    Spacer().frame(height: 20.0)
-
-                    ReviewsView()
-                    Spacer().frame(height: 20.0)
-
-                    LocationView()
-                    Spacer().frame(height: 20.0)
-
-                    AdditionalInfoView()
-                    Spacer().frame(height: 20.0)
-
-                }.padding(.leading).padding(.trailing)
+        NavigationView {
+            ScrollView {
+                ZStack {
+                    VStack(alignment: .leading) {
+                        Rectangle() // Image(meal.image)
+                            .frame(height: 250)
+                        
+                        Section {
+                            MealDetailsView()
+                            Spacer().frame(height: 20.0)
+                            
+                            ReservationsView()
+                            Spacer().frame(height: 20.0)
+                            
+                            ReviewsView()
+                            Spacer().frame(height: 20.0)
+                            
+                            LocationView()
+                            Spacer().frame(height: 20.0)
+                            
+                            AdditionalInfoView()
+                            Spacer().frame(height: 20.0)
+                        }.padding(.leading).padding(.trailing)
+                        
+                    }
                     
+                    ReserveButton()
+                }
             }
-            
-             ReserveButton()
+            .navigationBarItems(leading:
+                Button(action: {}) {
+                    Text("Back")
+                }
+            ).border(Color.green)
+    
         }
     }
 }
@@ -47,7 +56,7 @@ struct MealDetailsView: View {
             Text("MealName")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                    
+            
             Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
         }
     }
@@ -70,7 +79,7 @@ struct ReservationsView: View {
 
 struct AvailableTimesView: View {
     
-    @State private var times = [MealTime]()
+    //    @State private var times = [MealTime]()
     
     var body: some View {
         HStack {
@@ -81,7 +90,7 @@ struct AvailableTimesView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.orange, lineWidth: 2)
-                )
+            )
             
             Text("8 PM")
                 .font(.caption)
@@ -110,7 +119,7 @@ struct ReviewsView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.orange)
-                }
+            }
         }.padding(.top, 5)
     }
 }
@@ -126,8 +135,8 @@ struct LocationView: View {
                 Text("Nord, Hamburg")
                     .font(.body)
                     .fontWeight(.bold)
-//                Text("5 minute walk from")
-//                    .font(.body)
+                //                Text("5 minute walk from")
+                //                    .font(.body)
             }.padding(.top, 5)
             
             MapView(lat: 34.011286, lng: -116.166868)
@@ -148,13 +157,13 @@ struct AdditionalInfoView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.top, 10)
-    
+            
             Text("This is another multiline text block with lots of information asdfgtyjuk.")
                 .font(.subheadline)
             
             Text("Cancellation Policy")
                 .font(.body)
-                    .fontWeight(.bold)
+                .fontWeight(.bold)
                 .padding(.top, 15)
             
             Text("This is another multiline text block with lots of information asdfgtyjuk.")
@@ -167,31 +176,31 @@ struct AdditionalInfoView: View {
 
 struct ReserveButton: View {
     
-// https://medium.com/programming-with-swift/create-a-floating-action-button-with-swiftui-4d05dcddc365
-//    var meal_price = 13
+    // https://medium.com/programming-with-swift/create-a-floating-action-button-with-swiftui-4d05dcddc365
+    //    var meal_price = 13
     var body: some View {
         VStack {
             Spacer()
             HStack {
-               Spacer()
+                Spacer()
                 Button(action: {
                     print("Hello world")
-    //                self.items.append(Item(value: "Item"))
+                    //                self.items.append(Item(value: "Item"))
                 }, label: {
-//                    Text("Reserve Meal\n$\(meal_price) per person")
-                    Text("Reserve Meal\n$12 per person")
+                    //                    Text("Reserve Meal\n$\(meal_price) per person")
+                    Text("Reserve\n$12")
                         .font(.title)
                         .multilineTextAlignment(.center)
                         .frame(width: 200, height: 70)
                         .foregroundColor(Color.white)
                 })
-                .background(Color.blue)
-                .cornerRadius(38.5)
-                .padding()
-                .shadow(color: Color.black.opacity(0.3),
-                        radius: 3,
-                        x: 3,
-                        y: 3)
+                    .background(Color.blue)
+                    .cornerRadius(38.5)
+                    .padding()
+                    .shadow(color: Color.black.opacity(0.3),
+                            radius: 3,
+                            x: 3,
+                            y: 3)
             }
             
         }
