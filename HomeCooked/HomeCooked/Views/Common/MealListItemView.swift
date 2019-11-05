@@ -25,7 +25,7 @@ struct MealListItemView: View {
                 
                 
             }) {
-               
+                
                 HStack(spacing: 0) {
                     //  Image(systemName: "rectangle.grid.1x2.fill")
                     Rectangle()

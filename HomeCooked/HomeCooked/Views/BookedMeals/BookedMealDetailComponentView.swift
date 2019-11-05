@@ -32,7 +32,7 @@ struct PartySizeView: View {
         self.party_size = party_size
     }
     var body: some View {
-        IconTextView(text: "Party of \(self.party_size)", img: "")
+        IconTextView(text: "Party of \(self.party_size)", img: "person")
         
     }
 }
@@ -42,8 +42,9 @@ struct MealDateView: View {
     init(meal_date: String) {
         self.meal_date = meal_date
     }
+    
     var body: some View {
-        IconTextView(text: "\(self.meal_date)", img: "")
+        IconTextView(text: "\(self.meal_date)", img: "calendar")
     }
 }
 
@@ -53,5 +54,5 @@ struct MealTimeView: View {
         self.meal_time = meal_time
     }
     var body: some View {
-        IconTextView(text: "\(self.meal_time)", img: "")
+        IconTextView(text: "\(self.meal_time)", img: "clock")
     }}
