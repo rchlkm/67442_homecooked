@@ -119,13 +119,13 @@
 			path = "Meal Details";
 			sourceTree = "<group>";
 		};
-		0239A9C32370A9E0004954F9 /* Styles */ = {
+		0239A9C32370A9E0004954F9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				02D1749B2370796300F3F6C6 /* MealListItemView.swift */,
 				0239A9C42370A9ED004954F9 /* IconTextView.swift */,
 			);
-			path = Styles;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0239A9C82370B8B4004954F9 /* Chef */ = {
@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				0239A9C82370B8B4004954F9 /* Chef */,
-				0239A9C32370A9E0004954F9 /* Styles */,
+				0239A9C32370A9E0004954F9 /* Common */,
 				02D17498237077F500F3F6C6 /* BookedMeals */,
 				4533B5F3236A59B400D99E25 /* ContentView.swift */,
 				02AB28E6236FD6DF007AB3AD /* Reservation */,
