@@ -92,4 +92,4 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
 }
 
 var bookedMeal_items: [Reservation] = [reservation1]
-var pastMeal_items: [Reservation] = [reservation2]
+var pastMeal_items: [Reservation] = []

@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct MealsView: View {
+    let meal: Meal
+    init(meal: Meal) {
+        self.meal = meal
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,7 +24,7 @@ struct MealsView: View {
                         .border(Color.orange)
                     
                     Section {
-                        MealDetailsView()
+                        MealDetailsView(meal: meal)
                         Spacer().frame(height: 20.0)
                         
                         ReservationsView()
@@ -44,7 +49,7 @@ struct MealsView: View {
 //            .navigationBarHidden(true)
                 
                 //            .navigationBarTitle("hithere")
-                                .navigationBarItems(leading: BackButtonView())
+                               
                 .border(Color.purple)
             
         }
@@ -53,9 +58,13 @@ struct MealsView: View {
 
 
 struct MealDetailsView: View {
+    let meal: Meal
+    init(meal: Meal) {
+        self.meal = meal
+    }
     var body: some View {
         VStack(alignment: .leading) {
-            Text("MealName")
+            Text(meal.name)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
@@ -63,7 +72,6 @@ struct MealDetailsView: View {
         }
     }
 }
-
 
 struct ReservationsView: View {
     var body: some View {
@@ -220,6 +228,6 @@ struct ReserveButton: View {
 
 struct MealsView_Previews: PreviewProvider {
     static var previews: some View {
-        MealsView()
+        MealsView(meal: meal1)
     }
 }

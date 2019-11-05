@@ -9,6 +9,12 @@
 import SwiftUI
 
 struct BookedMealDetailView: View {
+    
+    let meal: Meal
+    init(meal: Meal) {
+        self.meal = meal
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -29,9 +35,8 @@ struct BookedMealDetailView: View {
                 }
 //                .border(Color.purple)
             }
-            .navigationBarTitle("Meal.Name")
-            .navigationBarItems(leading: BackButtonView())
-            .border(Color.red)
+            .navigationBarTitle(meal.name)
+//            .border(Color.red)
             .padding(.leading,20).padding(.trailing,20)
         }
         
@@ -41,6 +46,6 @@ struct BookedMealDetailView: View {
 
 struct BookedMealDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookedMealDetailView()
+        BookedMealDetailView(meal: meal1)
     }
 }

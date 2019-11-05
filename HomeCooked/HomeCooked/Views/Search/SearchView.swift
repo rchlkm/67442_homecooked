@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var city: String = "Hamburg"
+    @State var selectedView = 1
+    
+    @State private var city: String = "Pittsburgh"
     var party_size = 3
     var search_date = "Sat Nov 2"
-    
+     
     var body: some View {
         NavigationView {
             ScrollView {

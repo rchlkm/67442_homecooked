@@ -39,7 +39,6 @@ struct ReservationFilterView: View {
                     )
             }
         }
-//        .padding(.top, 5)
     }
 }
 

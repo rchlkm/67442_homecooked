@@ -20,37 +20,44 @@ struct MealListItemView: View {
     }
     
     var body: some View {
-        ZStack {
-            Button(action: {
-                
-                
-            }) {
-               
-                HStack(spacing: 0) {
-                    //  Image(systemName: "rectangle.grid.1x2.fill")
-                    Rectangle()
-                        .frame(width: 180.0)
-                        .foregroundColor(Color.orange)
-                    
-                    mealView()
-                        .frame(width: 180)
-//                        .border(Color.red)
-                }
-            }
-            .frame(width: 360, height: 180)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 1)
-            )
+        //        VStack {
+        
+        NavigationLink(destination: getItemDesinationView()) {
             
+            HStack(spacing: 0) {
+                //  Image(systemName: "rectangle.grid.1x2.fill")
+                Rectangle()
+                    .frame(width: 180.0)
+                    .foregroundColor(Color.orange)
+                
+                mealInfoText()
+                    .frame(width: 180)
+//                    .border(Color.red)
+            }
+            
+            
+        }
+        .frame(width: 360, height: 180)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 0.5)
+        )
+    }
+    
+    func getItemDesinationView() -> AnyView {
+        switch listItemViewType {
+        case "search": return AnyView(MealsView(meal: self.meal))
+        case "bookedMeal": return AnyView(BookedMealDetailView(meal: self.meal))
+        default: return AnyView(SearchItemView(meal: self.meal))
         }
     }
     
-    func mealView() -> AnyView {
+    
+    func mealInfoText() -> AnyView {
         switch listItemViewType {
-            case "search": return AnyView(SearchItemView(meal: self.meal))
-            case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal))
-            default: return AnyView(SearchItemView(meal: self.meal))
+        case "search": return AnyView(SearchItemView(meal: self.meal))
+        case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal))
+        default: return AnyView(SearchItemView(meal: self.meal))
         }
     }
     
