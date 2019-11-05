@@ -20,8 +20,6 @@ struct MealListItemView: View {
     }
     
     var body: some View {
-        //        VStack {
-        
         NavigationLink(destination: getItemDesinationView()) {
             
             HStack(spacing: 0) {
@@ -30,27 +28,10 @@ struct MealListItemView: View {
                     .frame(width: 180.0)
                     .foregroundColor(Color.orange)
                 
-<<<<<<< HEAD:HomeCooked/HomeCooked/Views/Styles/MealListItemView.swift
                 mealInfoText()
                     .frame(width: 180)
 //                    .border(Color.red)
-=======
-            }) {
-                
-                HStack(spacing: 0) {
-                    //  Image(systemName: "rectangle.grid.1x2.fill")
-                    Rectangle()
-                        .frame(width: 180.0)
-                        .foregroundColor(Color.orange)
-                    
-                    mealView()
-                        .frame(width: 180)
-//                        .border(Color.red)
-                }
->>>>>>> master:HomeCooked/HomeCooked/Views/Common/MealListItemView.swift
             }
-            
-            
         }
         .frame(width: 360, height: 180)
         .overlay(
