@@ -14,7 +14,6 @@ struct ReservationFilterView: View {
             Button(action: {
                 DatePicker(selection: /*@START_MENU_TOKEN@*/.constant(Date())/*@END_MENU_TOKEN@*/, label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
             }) {
-                
                 HStack {
                     Rectangle()
                         .frame(width: 15, height: 15)

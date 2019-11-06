@@ -17,31 +17,30 @@ struct BookedMealDetailView: View {
     
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                    
-                VStack(alignment: .leading) {
-                    HStack(alignment: .top) {
-                        //                        Rectangle() // Image(meal.image)
-                        //                            .frame(width: 220, height: 140)
-                        BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
-                    }//.border(Color.green)
-                    Spacer().frame(height: 30.0)
-                    
-                    LocationView(lat: 34.011286, lng: -116.166868, marker: true)
-                    Spacer().frame(height:30.0)
-                    
-                    ChefInfoView(chef: chef1)
-                    Spacer().frame(height:30.0)
-                    
-                    RateMealAlert()
-                    
-                }
+        ScrollView {
+            VStack(alignment: .leading) {
+                
+                Text(meal.name)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                HStack(alignment: .top) {
+                    //                        Rectangle() // Image(meal.image)
+                    //                            .frame(width: 220, height: 140)
+                    BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
+                }//.border(Color.green)
+                Spacer().frame(height: 30.0)
+                
+                LocationView(lat: 34.011286, lng: -116.166868, marker: true)
+                Spacer().frame(height:30.0)
+                
+                ChefInfoView(chef: chef1)
+                Spacer().frame(height:30.0)
+                
+                RateMealAlert()
             }
-            .navigationBarTitle(meal.name)
-                .padding(.leading,20).padding(.trailing,20)
         }
-        
+        .navigationBarTitle(meal.name)
+        .padding(.leading,20).padding(.trailing,20)
     }
 }
 
@@ -65,7 +64,7 @@ struct RateMealAlert: View {
         }
         .padding(10)
         .overlay(
-        RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.gray, lineWidth: 0.5)
         )
     }

@@ -32,7 +32,7 @@ struct PartySizeView: View {
         self.party_size = party_size
     }
     var body: some View {
-        IconTextView(text: "\(self.party_size)", img: "person")
+        IconTextView(text: "\(self.party_size)", img: "person.fill")
         
     }
 }

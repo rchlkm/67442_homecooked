@@ -1,5 +1,5 @@
 //
-//  MealsView.swift
+//  MealDetailsView.swift
 //  HomeCooked
 //
 //  Created by Albert Yuan on 10/30/19.
@@ -8,23 +8,23 @@
 
 import SwiftUI
 
-struct MealsView: View {
+struct MealDetailsView: View {
     let meal: Meal
     init(meal: Meal) {
         self.meal = meal
+//        UINavigationBar.appearance().backgroundColor = .blue
     }
     
     var body: some View {
         NavigationView {
             ScrollView {
-                //                ZStack {
                 VStack(alignment: .leading) {
                     Rectangle() // Image(meal.image)
-//                        .frame(height: 250)
-                        .border(Color.orange)
+                        .frame(height: 250)
+                        .offset(y:-20)
                     
                     Section {
-                        MealDetailsView(meal: meal)
+                        MealDescView(meal: meal)
                         Spacer().frame(height: 20.0)
                         
                         ReservationsView()
@@ -39,34 +39,27 @@ struct MealsView: View {
                         AdditionalInfoView()
                         Spacer().frame(height: 20.0)
                     }.padding(.leading,20).padding(.trailing,20)
-                    
-                    
                 }
-                
                 //                    ReserveButton()
-                //                }
             }
-//            .navigationBarHidden(true)
-                
-                //            .navigationBarTitle("hithere")
-                               
-                .border(Color.purple)
-            
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+            .navigationBarTitle(Text(meal.name))
+            .edgesIgnoringSafeArea([.top])
         }
     }
 }
 
-
-struct MealDetailsView: View {
+struct MealDescView: View {
     let meal: Meal
     init(meal: Meal) {
         self.meal = meal
     }
     var body: some View {
         VStack(alignment: .leading) {
-            Text(meal.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                        Text(meal.name)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
             
             Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
         }
@@ -203,7 +196,7 @@ struct ReserveButton: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    print("Hello world")
+//                    print("Hello world")
                     //                self.items.append(Item(value: "Item"))
                 }, label: {
                     //                    Text("Reserve Meal\n$\(meal_price) per person")
@@ -228,6 +221,6 @@ struct ReserveButton: View {
 
 struct MealsView_Previews: PreviewProvider {
     static var previews: some View {
-        MealsView(meal: meal1)
+        MealDetailsView(meal: meal1)
     }
 }

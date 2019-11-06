@@ -12,7 +12,7 @@ struct BookedMealsView: View {
     @State var selectedView = 2
     
     init() {
-        UINavigationBar.appearance().backgroundColor = .blue
+//        UINavigationBar.appearance().backgroundColor = .blue
     }
     var body: some View {
         NavigationView {
@@ -46,23 +46,21 @@ struct BookedMealsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Meals")
             .padding(.leading,20).padding(.trailing,20)
-            //            .border(Color.purple)
-            
-            
-            
+            .navigationBarTitle("Meals")
+//            .navigationBarHidden(true)
         }
+    
     }
 }
 
 
 struct SearchForNewMealsView: View {
-//    let type: String
-     @State private var isPresented = false
+    //    let type: String
+    @State private var isPresented = false
     let text: String
     init(type: String) {
-//        self.type = type
+        //        self.type = type
         switch type {
         case "past":
             self.text = "You haven't booked meals with homecooked."
@@ -76,17 +74,17 @@ struct SearchForNewMealsView: View {
             Text(self.text)
                 .padding(.bottom,10)
             
-            NavigationLink(destination: SearchView(), isActive:$isPresented) {
-                Image(systemName: "magnifyingglass")
-                Text("Book a Meal")
-            }
-        .navigationBarBackButtonHidden(true)
-            .padding(10)
-            .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 0.5)
-            )
-            
+//            Section {
+//                NavigationLink(destination: SearchView(), isActive:$isPresented) {
+//                    Image(systemName: "magnifyingglass")
+//                    Text("Book a Meal")
+//                }
+//                .padding(10)
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 20)
+//                        .stroke(Color.gray, lineWidth: 0.5)
+//                )
+//            }
         }.padding(.top)
     }
 }
