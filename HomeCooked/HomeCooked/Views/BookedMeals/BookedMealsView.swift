@@ -11,7 +11,9 @@ import SwiftUI
 struct BookedMealsView: View {
     @State var selectedView = 2
     
-    
+    init() {
+        UINavigationBar.appearance().backgroundColor = .blue
+    }
     var body: some View {
         NavigationView {
             ScrollView {
@@ -57,6 +59,7 @@ struct BookedMealsView: View {
 
 struct SearchForNewMealsView: View {
 //    let type: String
+     @State private var isPresented = false
     let text: String
     init(type: String) {
 //        self.type = type
@@ -73,10 +76,12 @@ struct SearchForNewMealsView: View {
             Text(self.text)
                 .padding(.bottom,10)
             
-            NavigationLink(destination: SearchView()) {
+            NavigationLink(destination: SearchView(), isActive:$isPresented) {
                 Image(systemName: "magnifyingglass")
                 Text("Book a Meal")
-            }.padding(10)
+            }
+        .navigationBarBackButtonHidden(true)
+            .padding(10)
             .overlay(
             RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.gray, lineWidth: 0.5)

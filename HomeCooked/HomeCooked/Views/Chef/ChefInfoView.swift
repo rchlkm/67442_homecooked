@@ -19,7 +19,7 @@ struct ChefInfoView: View {
                 .font(.title)
                 .fontWeight(.bold)
 
-            IconTextView(text: chef.phone_number, img: "")
+            IconTextView(text: chef.phone_number, img: "phone.fill")
         }
     }
 }
