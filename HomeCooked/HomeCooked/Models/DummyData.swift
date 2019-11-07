@@ -100,14 +100,14 @@ func getChefsById(chef_id: Int) -> Chef {
 //)
 
 let reservation1 = Reservation (
-    id: 1,
+    id: "1",
     guest_id: 1,
     meal_id: 1,
     payment_info: "",
     guest_count: 2
 )
 let reservation2 = Reservation (
-    id: 2,
+    id: "2",
     guest_id: 1,
     meal_id: 2,
     payment_info: "",

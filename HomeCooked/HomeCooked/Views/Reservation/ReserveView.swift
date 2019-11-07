@@ -11,10 +11,18 @@ import SwiftUI
 struct ReserveView: View {
     let meal: Meal
     let party_size = 3
-    //    let vm = ReservationViewModel()
+    let reservation : Reservation
+    let vm : ReservationViewModel
+    
     
     init(meal: Meal) {
         self.meal = meal
+        func randomString(length: Int) -> String {
+          let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          return String((0..<length).map{ _ in letters.randomElement()! })
+        }
+        self.reservation = Reservation(id: randomString(length: 16), guest_id: 0, meal_id: self.meal.id, payment_info: "12345", guest_count: party_size)
+        self.vm = ReservationViewModel(reservation: self.reservation)
     }
     var body: some View {
         //        NavigationView {
@@ -47,12 +55,13 @@ struct ReserveView: View {
         .navigationBarTitle(Text("Reserve Meal"))
         
     }
+  
+
     
     
     func reserveMeal() {
-        let reservation = Reservation(id: 1, guest_id: 0, meal_id: self.meal.id, payment_info: "12345", guest_count: party_size)
         //        vm.setParams(params: reservation)
-        
+      self.vm.postReservation(reservation: self.reservation)
     }
     var reserveButton: some View {
         NavigationLink(destination: BookedMealDetailView(meal: meal)) {

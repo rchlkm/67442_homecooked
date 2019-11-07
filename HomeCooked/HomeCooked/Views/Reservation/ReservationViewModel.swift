@@ -30,7 +30,7 @@ class ReservationViewModel {
       "id": reservation.id,
       "guest_count": reservation.guest_count,
       "guest_id": reservation.guest_id,
-      "payment_info": "This is a credit card",
+      "payment_info": reservation.payment_info,
       "meal_id": reservation.meal_id,
       "reservation_time": "Now",
     ]) { err in

@@ -9,7 +9,7 @@
 import Foundation
 
 struct Reservation {
-    let id: Int
+    let id: String
     let guest_id: Int
     let meal_id: Int
     let payment_info: String
