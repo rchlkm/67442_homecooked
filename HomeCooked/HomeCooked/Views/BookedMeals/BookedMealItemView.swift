@@ -15,7 +15,7 @@ struct BookedMealItemView: View {
     
     init(meal: Meal) {
         self.meal = meal
-        self.chef_name = getChefsById(chef_id: meal.chef_id).firstname
+        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {

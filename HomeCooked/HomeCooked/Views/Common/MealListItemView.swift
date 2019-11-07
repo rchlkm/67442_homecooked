@@ -16,7 +16,7 @@ struct MealListItemView: View {
     init(type: String, meal: Meal) {
         self.listItemViewType = type
         self.meal = meal
-        self.chef_name = getChefsById(chef_id: meal.chef_id).firstname
+        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
