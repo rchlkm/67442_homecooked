@@ -12,7 +12,6 @@ import SwiftUI
 struct BookedMealItemView: View {
     let meal: Meal
 //    let chef_name: String
-    
     init(meal: Meal) {
         self.meal = meal
 //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name

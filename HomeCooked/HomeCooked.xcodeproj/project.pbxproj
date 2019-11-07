@@ -20,7 +20,7 @@
 		028331D0236F7D6600643923 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews.swift */; };
 		02936CF123709F8900C82DC5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936CF023709F8900C82DC5 /* Reservation.swift */; };
 		029D6E222373B50900F27366 /* SearchParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D6E212373B50900F27366 /* SearchParams.swift */; };
-		02AB28E8236FD6FA007AB3AD /* SelectMealTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB28E7236FD6FA007AB3AD /* SelectMealTimeView.swift */; };
+		02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB28E7236FD6FA007AB3AD /* ReserveView.swift */; };
 		02B7B9AC236F91C600743B6D /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B9AB236F91C600743B6D /* DummyData.swift */; };
 		02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B9AD236F91EB00743B6D /* Chef.swift */; };
 		02CF74EB23740E070028CAA4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CF74EA23740E070028CAA4 /* SearchBar.swift */; };
@@ -70,7 +70,7 @@
 		028331CF236F7D6600643923 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		02936CF023709F8900C82DC5 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		029D6E212373B50900F27366 /* SearchParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParams.swift; sourceTree = "<group>"; };
-		02AB28E7236FD6FA007AB3AD /* SelectMealTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMealTimeView.swift; sourceTree = "<group>"; };
+		02AB28E7236FD6FA007AB3AD /* ReserveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveView.swift; sourceTree = "<group>"; };
 		02B7B9AB236F91C600743B6D /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		02B7B9AD236F91EB00743B6D /* Chef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef.swift; sourceTree = "<group>"; };
 		02CF74EA23740E070028CAA4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		02AB28E6236FD6DF007AB3AD /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
-				02AB28E7236FD6FA007AB3AD /* SelectMealTimeView.swift */,
+				02AB28E7236FD6FA007AB3AD /* ReserveView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -514,7 +514,7 @@
 				02CF74EB23740E070028CAA4 /* SearchBar.swift in Sources */,
 				0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */,
 				4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */,
-				02AB28E8236FD6FA007AB3AD /* SelectMealTimeView.swift in Sources */,
+				02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */,
 				028331D0236F7D6600643923 /* Reviews.swift in Sources */,
 				02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */,
 				021A5218237376E500837A60 /* ModalView.swift in Sources */,

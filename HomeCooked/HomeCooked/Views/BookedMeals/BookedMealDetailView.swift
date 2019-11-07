@@ -26,7 +26,7 @@ struct BookedMealDetailView: View {
                 HStack(alignment: .top) {
                     //                        Rectangle() // Image(meal.image)
                     //                            .frame(width: 220, height: 140)
-                    BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
+                    BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, party_size: 3)
                 }//.border(Color.green)
                 Spacer().frame(height: 30.0)
                 
