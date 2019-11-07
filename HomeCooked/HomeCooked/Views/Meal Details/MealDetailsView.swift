@@ -12,11 +12,10 @@ struct MealDetailsView: View {
     let meal: Meal
     init(meal: Meal) {
         self.meal = meal
-//        UINavigationBar.appearance().backgroundColor = .blue
     }
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     Rectangle() // Image(meal.image)
@@ -42,11 +41,11 @@ struct MealDetailsView: View {
                 }
                 //                    ReserveButton()
             }
-            .navigationBarBackButtonHidden(true)
+//            .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
-            .navigationBarTitle(Text(meal.name))
+//            .navigationBarTitle(Text("Book Measl"))
             .edgesIgnoringSafeArea([.top])
-        }
+//        }
     }
 }
 

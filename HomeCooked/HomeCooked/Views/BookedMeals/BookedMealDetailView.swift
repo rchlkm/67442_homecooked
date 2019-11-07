@@ -20,9 +20,9 @@ struct BookedMealDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-                Text(meal.name)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+//                Text(meal.name)
+//                    .font(.largeTitle)
+//                    .fontWeight(.bold)
                 HStack(alignment: .top) {
                     //                        Rectangle() // Image(meal.image)
                     //                            .frame(width: 220, height: 140)
