@@ -28,3 +28,9 @@ struct Meal {
     let latitude: Double
     let is_booked: Bool
 }
+
+extension Meal {
+    func date() -> String {
+        return "\(self.month)/\(self.day)"
+    }
+}

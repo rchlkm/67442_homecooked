@@ -13,11 +13,13 @@ struct SearchView: View {
     @State var search_city: String = ""
     @State var party_size: Int = 2
     @State var search_month: Int = 11
-    @State var search_day: Int = 11
+    @State var search_day: Int = 8
+    let vm = SearchViewModel()
     
-//    let vm = SearchModelView()
     func submitSearch() {
         let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, party_size: self.party_size)
+//        vm.setParams(params: search_params)
+        
 //        vm.refresh(search_params: search_params)
     }
     
@@ -79,7 +81,7 @@ struct SearchView: View {
                     }
                 }
             }
-            .padding(.leading,20).padding(.trailing,20)              
+            .padding(.leading,20).padding(.trailing,20)
             .navigationBarHidden(true)
             .navigationBarTitle(Text("Search"))
         }.navigationBarBackButtonHidden(true)
