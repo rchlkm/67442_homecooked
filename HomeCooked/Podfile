@@ -1,5 +1,6 @@
 target 'HomeCooked' do
   use_frameworks!
+  pod 'Alamofire'
   pod 'Firebase'
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
@@ -7,6 +8,7 @@ target 'HomeCooked' do
   pod 'SwiftyJSON'
 
   target 'HomeCookedTests' do
+    pod 'Alamofire'
     pod 'Firebase'
     pod 'SwiftyJSON'
   end
