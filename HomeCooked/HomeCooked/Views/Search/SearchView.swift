@@ -14,6 +14,8 @@ struct SearchView: View {
     var party_size = 3
     var search_date = "Sat Nov 2"
     
+//    let vm = SearchModelView()
+    
     var searchEngine: some View {
         HStack {
             Image(systemName:"magnifyingglass")
@@ -62,6 +64,10 @@ struct SearchView: View {
                     filterButton
                     Spacer().frame(height: 30.0)
                     
+                    // let search_params = SearchParams(location: location, date: search_date party_size: party_size)
+                    //        vm.refresh(search_params: search_params)
+
+                    // let search_items = vm.meals
                     ForEach(search_items, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal)
                             .padding(.bottom, 20)
