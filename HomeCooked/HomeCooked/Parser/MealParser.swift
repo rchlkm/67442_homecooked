@@ -51,7 +51,16 @@ class MealParser {
       ingredients: dict["ingredients"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       allergens: dict["allergens"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       images: dict["images"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
-      price: dict["price"]["integerValue"].intValue
+      price: dict["price"]["integerValue"].intValue,
+      food_policy: dict["food_policy"]["stringValue"].stringValue,
+      cancellation_policy: dict["cancellation_policy"]["stringValue"].stringValue,
+      time: dict["time"]["stringValue"].stringValue,
+      month: dict["month"]["intValue"].intValue,
+      day: dict["day"]["intValue"].intValue,
+      city: dict["city"]["stringValue"].stringValue,
+      longitude: dict["longitude"]["doubleValue"].doubleValue,
+      latitude: dict["latitude"]["doubleValue"].doubleValue,
+      is_booked: dict["is_booked"]["booleanValue"].boolValue
     )
   }
 }
