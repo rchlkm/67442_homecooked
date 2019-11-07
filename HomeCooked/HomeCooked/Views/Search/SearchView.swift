@@ -10,29 +10,32 @@ import SwiftUI
 
 struct SearchView: View {
     @State var filterIsPresent = false
-    @State var city: String = "Pittsburgh"
-    @State var party_size: Int = 1
-    @State var search_date = "Date.today"
+    @State var search_city: String = ""
+    @State var party_size: Int = 2
+    @State var search_month: Int = 11
+    @State var search_day: Int = 11
     
 //    let vm = SearchModelView()
-    
-//    func submitSearch() {
-    // let search_params = SearchParams(location: location, date: search_date party_size: party_size)
-    //        vm.refresh(search_params: search_params)
-
-//}
-    
+    func submitSearch() {
+        let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, party_size: self.party_size)
+//        vm.refresh(search_params: search_params)
+    }
     
     var searchEngine: some View {
         HStack {
             Image(systemName:"magnifyingglass")
-            TextField("Pittsburgh", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                .font(.largeTitle)
+            TextField("Search", text: $search_city)
+                .font(.title)
+            
+            Button(action: {
+                self.submitSearch()
+            }) {
+                Text("Search")
+            }
         }
         .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
         .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
     }
-    
     
     
     var filterButton: some View {
@@ -57,10 +60,6 @@ struct SearchView: View {
         }
     }
     
-    init() {
-        //        UINavigationBar.appearance().backgroundColor = .green
-    }
-    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -73,16 +72,14 @@ struct SearchView: View {
                     filterButton
                     Spacer().frame(height: 30.0)
                     
-                    
-                    // let search_items = vm.meals
+                    // vm.meals
                     ForEach(search_items, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal)
                             .padding(.bottom, 20)
                     }
                 }
             }
-            .padding(.leading,20).padding(.trailing,20)
-                
+            .padding(.leading,20).padding(.trailing,20)              
             .navigationBarHidden(true)
             .navigationBarTitle(Text("Search"))
         }.navigationBarBackButtonHidden(true)

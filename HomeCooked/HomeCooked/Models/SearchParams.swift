@@ -10,6 +10,7 @@ import Foundation
 
 struct SearchParams {
     let city: String
-    let date: Date
+    let month: Int
+    let day: Int
     let party_size: Int
 }
