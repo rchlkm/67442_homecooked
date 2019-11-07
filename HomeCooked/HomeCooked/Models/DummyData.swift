@@ -34,10 +34,13 @@ let meal2 = Meal(
 
 let chef1 = Chef (
     id: 1,
-    firstname: "John",
-    lastname: "Doe",
-    address: "Hamburg",
-    phone_number: "1234567890"
+    first_name: "John",
+    last_name: "Doe",
+    address: "12345",
+    city: "Hamburg",
+    latitude: 34.011286,
+    longitude: -116.166868,
+    phone: "1234567890"
 )
 
 var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]

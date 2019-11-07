@@ -9,9 +9,12 @@
 import Foundation
 
 struct Chef {
-    let id: Int
-    let firstname: String
-    let lastname: String
-    let address: String
-    let phone_number: String
+  let id: Int
+  let first_name: String
+  let last_name: String
+  let address: String
+  let city: String
+  let latitude: Double
+  let longitude: Double
+  let phone: String
 }
