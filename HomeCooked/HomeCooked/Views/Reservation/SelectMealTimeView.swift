@@ -8,30 +8,49 @@
 
 import SwiftUI
 
-struct SelectMealTimeView: View {
+struct ReserveView: View {
+    let meal: Meal
+    init(meal: Meal) {
+        self.meal = meal
+    }
     var body: some View {
-        NavigationView {
+        //        NavigationView {
         
-            VStack(alignment: .leading) {
-                Text("MealName")
-                    .font(.title)
-                    .fontWeight(.bold)
-                ReservationFilterView()
-                Spacer()
-            }.border(Color.green)
+        VStack(alignment: .leading) {
+            Text("MealName")
+                .font(.title)
+                .fontWeight(.bold)
+            ReservationFilterView()
+            Spacer()
             
-        }
-        .navigationBarItems(leading:
-            Button(action: {}) {
-                Text("Back")
+            
+            NavigationLink(destination: BookedMealDetailView(meal: meal)) {
+                HStack {
+                   Text("Reserve")
+                        .padding(.trailing, 10)
+                }.font(.caption)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray, lineWidth: 0.5)
+                )
             }
-        )
+            
+            
+        }.border(Color.green)
+        
+        
+        
         
     }
+    
+    
+    
+    
 }
 
 struct SelectMealTimeView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectMealTimeView()
+        ReserveView(meal:meal1)
     }
 }

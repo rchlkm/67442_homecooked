@@ -45,3 +45,36 @@ struct MapView: UIViewRepresentable {
         
     }
 }
+
+
+
+struct LocationView: View {
+    
+    let meal: Meal
+    let marker: Bool
+    
+    init(meal: Meal, marker: Bool = false) {
+        self.meal = meal
+        self.marker = marker
+    }
+    
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            Text("Location")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Section {
+                Text(meal.city)
+                    .font(.body)
+                    .fontWeight(.bold)
+                //                Text("5 minute walk from")
+                //                    .font(.body)
+            }.padding(.top, 5)
+            
+            MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
+                .frame(height: 150)
+        }
+    }
+}

@@ -30,7 +30,7 @@ struct BookedMealDetailView: View {
                 }//.border(Color.green)
                 Spacer().frame(height: 30.0)
                 
-                LocationView(lat: 34.011286, lng: -116.166868, marker: true)
+                LocationView(meal: meal, marker: true)
                 Spacer().frame(height:30.0)
                 
                 ChefInfoView(chef: chef1)
