@@ -11,12 +11,12 @@ import SwiftUI
 struct MealListItemView: View {
     var listItemViewType: String// = "search"
     let meal: Meal
-    let chef_name: String
+//    let chef_name: String
     
     init(type: String, meal: Meal) {
         self.listItemViewType = type
         self.meal = meal
-        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
+//        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {

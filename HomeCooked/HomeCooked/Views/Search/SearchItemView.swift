@@ -10,11 +10,11 @@ import SwiftUI
 
 struct SearchItemView: View {
     let meal: Meal
-    let chef_name: String
+//    let chef_name: String
     
     init(meal: Meal) {
         self.meal = meal
-        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
+//        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
@@ -24,10 +24,10 @@ struct SearchItemView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
             
-            Text("by Chef \(self.chef_name)")
-                .font(.footnote)
-                .foregroundColor(Color.gray)
-                .padding(.top, 5)
+//            Text("by Chef \(self.chef_name)")
+//                .font(.footnote)
+//                .foregroundColor(Color.gray)
+//                .padding(.top, 5)
             
             
             Text("$\(meal.price) per person")

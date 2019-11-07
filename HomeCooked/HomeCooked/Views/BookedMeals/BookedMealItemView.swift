@@ -11,11 +11,11 @@ import SwiftUI
 
 struct BookedMealItemView: View {
     let meal: Meal
-    let chef_name: String
+//    let chef_name: String
     
     init(meal: Meal) {
         self.meal = meal
-        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
+//        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
@@ -25,10 +25,10 @@ struct BookedMealItemView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
             
-            Text("by Chef \(self.chef_name)")
-                .font(.footnote)
-                .foregroundColor(Color.gray)
-                .padding(.top, 5)
+//            Text("by Chef \(self.chef_name)")
+//                .font(.footnote)
+//                .foregroundColor(Color.gray)
+//                .padding(.top, 5)
             
             BookedMealDetailComponentView(meal_date: "Mon 11/11", meal_time: "6PM", party_size: 3)
             

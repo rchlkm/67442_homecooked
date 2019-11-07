@@ -10,7 +10,7 @@ import Foundation
 
 struct Reviews {
     let id: Int
-    let meal_id: Int
+    let chef_id: Int
     let stars: Int
     let description: String
     let guest_id: Int	

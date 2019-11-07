@@ -10,11 +10,18 @@ import SwiftUI
 
 struct SearchView: View {
     @State var filterIsPresent = false
-    @State private var city: String = "Pittsburgh"
-    var party_size = 3
-    var search_date = "Sat Nov 2"
+    @State var city: String = "Pittsburgh"
+    @State var party_size: Int = 1
+    @State var search_date = "Date.today"
     
 //    let vm = SearchModelView()
+    
+//    func submitSearch() {
+    // let search_params = SearchParams(location: location, date: search_date party_size: party_size)
+    //        vm.refresh(search_params: search_params)
+
+//}
+    
     
     var searchEngine: some View {
         HStack {
@@ -25,6 +32,8 @@ struct SearchView: View {
         .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
         .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
     }
+    
+    
     
     var filterButton: some View {
         Button(action: {
@@ -64,9 +73,7 @@ struct SearchView: View {
                     filterButton
                     Spacer().frame(height: 30.0)
                     
-                    // let search_params = SearchParams(location: location, date: search_date party_size: party_size)
-                    //        vm.refresh(search_params: search_params)
-
+                    
                     // let search_items = vm.meals
                     ForEach(search_items, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal)

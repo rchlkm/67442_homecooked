@@ -18,4 +18,11 @@ struct Meal {
     let allergens: [String]
     let images: [String]
     let price: Int
+    let food_policy: String
+    let cancellation_policy: String
+    let time: String
+    let date: Date
+    let city: String
+    let longitude: Double
+    let latitude: Double
 }
