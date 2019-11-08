@@ -35,7 +35,7 @@ let meal1 = Meal(
     day: 8,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: 79.9959,
+    latitude: -79.9959,
     is_booked: false
 )
 
@@ -57,7 +57,7 @@ let meal2 = Meal(
     day: 20,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: 79.9959,
+    latitude: -79.9959,
     is_booked: false
 )
 

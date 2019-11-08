@@ -55,6 +55,10 @@ struct MealDetailsView: View {
                 .fontWeight(.bold)
             
             Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
+            
+            Spacer().frame(height: 20.0)
+            
+            Text("By Chef")
         }
     }
     
