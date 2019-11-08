@@ -27,7 +27,7 @@ class ChefParser {
     if let chefDict = parseDictionary(data) {
       let dict = chefDict["fields"]
       return Chef(
-        id: dict["id"]["integerValue"].intValue,
+        id: dict["id"]["stringValue"].stringValue,
         first_name: dict["first_name"]["stringValue"].stringValue,
         last_name: dict["last_name"]["stringValue"].stringValue,
         address: dict["address"]["stringValue"].stringValue,

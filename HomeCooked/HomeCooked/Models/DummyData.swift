@@ -15,10 +15,10 @@ func date_formater(date_str: String) -> Date {
 }
 
 let meal1 = Meal(
-    id: 1,
+    id: "abcdefg",
     name: "Udon",
     description: "it's yummy! and traditional",
-    chef_id: 1,
+    chef_id: "abc",
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
@@ -27,20 +27,27 @@ let meal1 = Meal(
 //    food_policy: "",
 //    cancellation_policy: "",
     time: "6PM",
+    year: 2019,
     month: 11,
     day: 8,
     city: "Pittsburgh",
+<<<<<<< HEAD
     longitude: 40.44,
     latitude: -79.99,
     max_guest_count: 5,
+=======
+    longitude: 40.4406,
+    latitude: -79.9959,
+    max_guest_count: 3,
+>>>>>>> d2e5cd72d6f6a31b61de7988deec687f2c1b2405
     is_booked: false
 )
 
 let meal2 = Meal(
-    id: 2,
+    id: "efghijjkl",
     name: "Pierogies",
     description: "it's yummy! and traditional",
-    chef_id: 1,
+    chef_id: "abc",
     cuisine: ["Ukranian"],
     ingredients: [],
     allergens: [],
@@ -49,17 +56,23 @@ let meal2 = Meal(
 //    food_policy: "",
 //    cancellation_policy: "",
     time: "6PM",
+    year: 2019,
     month: 12,
     day: 20,
     city: "Pittsburgh",
     longitude: 40.4406,
+<<<<<<< HEAD
     latitude: 79.9959,
     max_guest_count: 10,
+=======
+    latitude: -79.9959,
+    max_guest_count: 3,
+>>>>>>> d2e5cd72d6f6a31b61de7988deec687f2c1b2405
     is_booked: false
 )
 
 let chef1 = Chef (
-    id: 1,
+    id: "abc",
     first_name: "John",
     last_name: "Doe",
     address: "12345",
@@ -72,21 +85,21 @@ let chef1 = Chef (
 var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]
 var chefs: [Chef] = [chef1]
 
-func getChefsById(chef_id: Int) -> Chef {
+func getChefsById(chef_id: String) -> Chef {
     return chefs.filter { $0.id == chef_id }[0]
 }
 
 let reservation1 = Reservation (
     id: "1",
     guest_id: 1,
-    meal_id: 1,
+    meal_id: "abc",
     payment_info: "",
     guest_count: 2
 )
 let reservation2 = Reservation (
     id: "2",
     guest_id: 1,
-    meal_id: 2,
+    meal_id: "def",
     payment_info: "",
     guest_count: 2
 )
