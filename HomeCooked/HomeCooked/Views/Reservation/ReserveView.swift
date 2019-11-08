@@ -19,6 +19,7 @@ struct ReserveView: View {
     
     init(meal: Meal) {
         self.meal = meal
+        
         func randomString(length: Int) -> String {
             let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             return String((0..<length).map{ _ in letters.randomElement()! })
@@ -26,7 +27,6 @@ struct ReserveView: View {
         self.reservation = Reservation(id: randomString(length: 16), guest_id: 0, meal_id: self.meal.id, payment_info: "12345", guest_count: party_size)
         self.vm = ReservationViewModel(reservation: self.reservation)
     }
-    
     
     
     var body: some View {
@@ -55,6 +55,7 @@ struct ReserveView: View {
                 Text("$\(meal.price) x \(guest_count) guests")
                 Spacer()
                 Text("$\(meal.price * guest_count)")
+                    .fontWeight(.bold)
                     .foregroundColor(Color.orange)
             }.padding()
             Divider()

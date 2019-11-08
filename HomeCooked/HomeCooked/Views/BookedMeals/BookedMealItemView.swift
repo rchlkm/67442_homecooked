@@ -29,7 +29,7 @@ struct BookedMealItemView: View {
 //                .foregroundColor(Color.gray)
 //                .padding(.top, 5)
             
-            BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, party_size: 3)
+            BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 3)
             
         }
 //        .frame(width: 180)

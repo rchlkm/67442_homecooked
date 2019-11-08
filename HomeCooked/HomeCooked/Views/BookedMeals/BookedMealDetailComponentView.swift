@@ -11,28 +11,28 @@ import SwiftUI
 struct BookedMealDetailComponentView: View {
     let meal_date: String
     let meal_time: String
-    let party_size: Int
-    init(meal_date: String, meal_time: String, party_size: Int) {
+    let guest_count: Int
+    init(meal_date: String, meal_time: String, guest_count: Int) {
         self.meal_date = meal_date
         self.meal_time = meal_time
-        self.party_size = party_size
+        self.guest_count = guest_count
     }
     var body: some View {
         VStack(alignment: .leading) {
             MealDateView(meal_date: self.meal_date)
             MealTimeView(meal_time: self.meal_time)
-            PartySizeView(party_size: self.party_size)
+            GuestCountView(guest_count: self.guest_count)
         }//.border(Color.green)
     }
 }
 
-struct PartySizeView: View {
-    let party_size: Int
-    init(party_size: Int) {
-        self.party_size = party_size
+struct GuestCountView: View {
+    let guest_count: Int
+    init(guest_count: Int) {
+        self.guest_count = guest_count
     }
     var body: some View {
-        IconTextView(text: "\(self.party_size)", img: "person.fill")
+        IconTextView(text: "\(self.guest_count)", img: "person.fill")
         
     }
 }

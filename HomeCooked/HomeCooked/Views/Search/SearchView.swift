@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
-    @State var party_size: Int = 2
+    @State var guest_count: Int = 2
     @State var search_month: Int = 11
     @State var search_day: Int = 8
     let vm = SearchViewModel()
@@ -20,7 +20,7 @@ struct SearchView: View {
     var search_results: [Meal] = [Meal]()
     
     func submitSearch() {
-      let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, party_size: self.party_size)
+      let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, guest_count: self.guest_count)
       // do something here with results
       let search_results = vm.search(params: search_params)
     }

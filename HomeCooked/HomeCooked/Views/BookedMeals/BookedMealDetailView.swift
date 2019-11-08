@@ -20,13 +20,8 @@ struct BookedMealDetailView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-//                Text(meal.name)
-//                    .font(.largeTitle)
-//                    .fontWeight(.bold)
                 HStack(alignment: .top) {
-                    //                        Rectangle() // Image(meal.image)
-                    //                            .frame(width: 220, height: 140)
-                    BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, party_size: 3)
+                    BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 3)
                 }//.border(Color.green)
                 Spacer().frame(height: 30.0)
                 
@@ -37,36 +32,15 @@ struct BookedMealDetailView: View {
                 Spacer().frame(height:30.0)
                 
                 RateMealAlert()
+                Spacer().frame(height:30.0)
+                
+                Text("Rate Meal")
+                    .fontWeight(.bold)
+                RatePicker()
             }
         }
         .navigationBarTitle(meal.name)
         .padding(.leading,20).padding(.trailing,20)
-    }
-}
-
-struct RateMealAlert: View {
-    @State var isPresented = false
-    let dismiss = Alert.Button.default(Text("OK")) {}
-    var alert: Alert {
-        Alert(title: Text("Rate the Meal"),
-              message: Text("How many stars do you give the meal?"),
-              dismissButton: dismiss)
-    }
-    
-    var body: some View {
-        Button(action: {
-            self.isPresented = true
-        }) {
-            Image(systemName: "star.fill")
-            Text("Rate Meal")
-        }.alert(isPresented: $isPresented) { () -> Alert in
-            alert
-        }
-        .padding(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth: 0.5)
-        )
     }
 }
 

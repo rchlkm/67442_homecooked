@@ -14,7 +14,7 @@ class SearchClient {
   var city: String = ""
   var month: Int = 0
   var day: Int = 0
-  var party_size: Int = 0
+  var guest_count: Int = 0
   
   let db = Firestore.firestore()
   
@@ -24,7 +24,7 @@ class SearchClient {
       .whereField("city", isEqualTo: city)
       .whereField("month", isEqualTo: month)
       .whereField("day", isEqualTo: day)
-      .whereField("party_size", isEqualTo: party_size)
+      .whereField("guest_count", isEqualTo: guest_count)
       .getDocuments() { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
@@ -62,6 +62,6 @@ class SearchClient {
     city = params.city
     month = params.month
     day = params.day
-    party_size = params.party_size
+    guest_count = params.guest_count
   }
 }

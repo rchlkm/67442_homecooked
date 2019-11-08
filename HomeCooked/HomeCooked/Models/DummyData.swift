@@ -9,11 +9,9 @@
 import Foundation
 
 func date_formater(date_str: String) -> Date {
-//    var asDate: Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat =  "yyyy-MM-dd"
-        return formatter.date(from: date_str) ?? Date()
-//    }
+    let formatter = DateFormatter()
+    formatter.dateFormat =  "yyyy-MM-dd"
+    return formatter.date(from: date_str) ?? Date()
 }
 
 
@@ -30,7 +28,6 @@ let meal1 = Meal(
     food_policy: "",
     cancellation_policy: "",
     time: "6PM",
-//    date: date_formater(date_str: "2019-11-08"),
     month: 11,
     day: 8,
     city: "Pittsburgh",
@@ -52,7 +49,6 @@ let meal2 = Meal(
     food_policy: "",
     cancellation_policy: "",
     time: "6PM",
-//    date: date_formater(date_str: "2019-11-08"),
     month: 12,
     day: 20,
     city: "Pittsburgh",
@@ -75,29 +71,9 @@ let chef1 = Chef (
 var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]
 var chefs: [Chef] = [chef1]
 
-
-
 func getChefsById(chef_id: Int) -> Chef {
     return chefs.filter { $0.id == chef_id }[0]
 }
-
-
-//let mealtime1 = MealTime (
-//    id: 1,
-//    meal_id: 1,
-//    meal_date: "Mon 10/4",
-//    meal_time: "10PM",
-//    max_guest_count: 4,
-//    is_reserved: true
-//)
-//let mealtime2 = MealTime (
-//    id: 2,
-//    meal_id: 2,
-//    meal_date: "Mon 10/4",
-//    meal_time: "10PM",
-//    max_guest_count: 4,
-//    is_reserved: true
-//)
 
 let reservation1 = Reservation (
     id: "1",
@@ -116,10 +92,8 @@ let reservation2 = Reservation (
 
 
 var meals: [Meal] = [meal1, meal2]
-//var mealtimes: [MealTime] = [mealtime1, mealtime2]
 
 func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
-//    let meal_id = mealtimes.filter { $0.id == reservation.mealtime_id }[0].meal_id
     return meals.filter { $0.id == reservation.meal_id }[0]
 }
 

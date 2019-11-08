@@ -12,5 +12,5 @@ struct SearchParams {
     let city: String
     let month: Int
     let day: Int
-    let party_size: Int
+    let guest_count: Int
 }
