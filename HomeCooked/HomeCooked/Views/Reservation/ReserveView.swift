@@ -60,7 +60,7 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
-        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: 0, meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
+        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
         let vm = ReservationViewModel(reservation: reservation)
         vm.postReservation(reservation: reservation)
     }

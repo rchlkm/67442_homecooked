@@ -22,7 +22,7 @@ let meal1 = Meal(
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
-    images: [],
+    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
     price: 12,
 //    food_policy: "",
 //    cancellation_policy: "",

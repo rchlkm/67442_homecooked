@@ -25,7 +25,7 @@ struct MealListItemView: View {
         NavigationLink(destination: getItemDesinationView()) {
             
             HStack(spacing: 0) {
-                //  Image(systemName: "rectangle.grid.1x2.fill")
+//                  Image(systemName: "rectangle.grid.1x2.fill")
                 Rectangle()
                     .frame(width: 180.0)
                     .foregroundColor(Color.orange)
