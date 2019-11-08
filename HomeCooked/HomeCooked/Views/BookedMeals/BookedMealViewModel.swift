@@ -11,7 +11,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-class ReservationViewModel {
+class BookedMeal {
   let reservation: Reservation
   var db: Firestore!
 

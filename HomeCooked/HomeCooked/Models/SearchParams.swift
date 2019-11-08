@@ -10,7 +10,8 @@ import Foundation
 
 struct SearchParams {
     let city: String
+    let year: Int
     let month: Int
     let day: Int
-    let guest_count: Int
+    let max_guest_count: Int
 }

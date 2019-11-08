@@ -9,7 +9,7 @@
 import Foundation
 
 struct Chef {
-  let id: Int
+  let id: String
   let first_name: String
   let last_name: String
   let address: String

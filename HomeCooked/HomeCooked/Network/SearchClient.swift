@@ -12,30 +12,34 @@ import Firebase
 class SearchClient {
   let urlString = "https://firestore.googleapis.com/v1/projects/homecooked-b0581/databases/(default)/documents/meal"
   var city: String = ""
+  var year: Int = 0
   var month: Int = 0
   var day: Int = 0
-  var guest_count: Int = 0
+  var max_guest_count: Int = 0
   
   let db = Firestore.firestore()
   
   func fetchMeals() -> [Meal] {
     var meals = [Meal]()
+ 
     db.collection("meal")
       .whereField("city", isEqualTo: city)
+      .whereField("year", isEqualTo: year)
       .whereField("month", isEqualTo: month)
       .whereField("day", isEqualTo: day)
-      .whereField("guest_count", isEqualTo: guest_count)
+      .whereField("max_guest_count", isGreaterThanOrEqualTo: max_guest_count)
       .getDocuments() { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
       } else {
+        print("hi")
         for document in querySnapshot!.documents {
           print("\(document.documentID) => \(document.data())")
           let meal = Meal(
-            id: document.get("id") as! Int,
+            id: document.get("id") as! String,
             name: document.get("name") as! String,
             description: document.get("description") as! String,
-            chef_id: document.get("chef_id") as! Int,
+            chef_id: document.get("chef_id") as! String,
             cuisine: document.get("cuisine") as! [String],
             ingredients: document.get("ingredients") as! [String],
             allergens: document.get("allergens") as! [String],
@@ -44,13 +48,17 @@ class SearchClient {
             food_policy: document.get("food_policy") as! String,
             cancellation_policy: document.get("cancellation_policy") as! String,
             time: document.get("time") as! String,
+            year: document.get("year") as! Int,
             month: document.get("month") as! Int,
             day: document.get("day") as! Int,
             city: document.get("city") as! String,
             longitude: document.get("longitude") as! Double,
             latitude: document.get("latitude") as! Double,
+            max_guest_count: document.get("max_guest_count") as! Int,
             is_booked: document.get("is_booked") as! Bool
           )
+          print("hi")
+          //print(meal)
           meals.append(meal)
         }
       }
@@ -60,8 +68,9 @@ class SearchClient {
   
   func setParams(params: SearchParams) {
     city = params.city
+    year = params.year
     month = params.month
     day = params.day
-    guest_count = params.guest_count
+    max_guest_count = params.max_guest_count
   }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
-    @State var guest_count: Int = 2
+    @State var max_guest_count: Int = 2
     @State var search_date = Date()
     
     let vm = SearchViewModel()
@@ -43,7 +43,7 @@ struct SearchView: View {
     }
     
     func submitSearch() {
-        let search_params = SearchParams(city: self.search_city, month: self.search_date.month, day: self.search_date.day, guest_count: self.guest_count)
+      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
         // do something here with results
         print("Hellooooo")
         self.search_results = vm.search(params: search_params)
@@ -78,7 +78,7 @@ struct SearchView: View {
             self.filterIsPresent.toggle()
         }) {
             HStack {
-                IconTextView(text: "\(guest_count)", img: "person.fill")
+                IconTextView(text: "\(max_guest_count)", img: "person.fill")
                     .padding(.trailing, 10)
                 
                 MealDateView(meal_date: formatDate(date: search_date))
@@ -103,9 +103,9 @@ struct SearchView: View {
                 .fontWeight(.bold)
                 .padding()
             
-            Stepper(value: $guest_count, in: 1...10, label: {
+            Stepper(value: $max_guest_count, in: 1...10, label: {
                 Image(systemName: "person.fill").foregroundColor(Color.orange)
-                Text("\(guest_count)")
+                Text("\(max_guest_count)")
             }).frame(width:200)
             .padding(30)
             

@@ -43,10 +43,10 @@ class MealParser {
     // Your code here
     let dict = mealDict["fields"]
     return Meal(
-      id: dict["id"]["integerValue"].intValue,
+      id: dict["id"]["stringValue"].stringValue,
       name: dict["name"]["stringValue"].stringValue,
       description: dict["description"]["stringValue"].stringValue,
-      chef_id: dict["chef_id"]["integerValue"].intValue,
+      chef_id: dict["chef_id"]["stringValue"].stringValue,
       cuisine: dict["cuisine"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       ingredients: dict["ingredients"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       allergens: dict["allergens"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
@@ -55,11 +55,13 @@ class MealParser {
       food_policy: dict["food_policy"]["stringValue"].stringValue,
       cancellation_policy: dict["cancellation_policy"]["stringValue"].stringValue,
       time: dict["time"]["stringValue"].stringValue,
+      year: dict["year"]["intValue"].intValue,
       month: dict["month"]["intValue"].intValue,
       day: dict["day"]["intValue"].intValue,
       city: dict["city"]["stringValue"].stringValue,
       longitude: dict["longitude"]["doubleValue"].doubleValue,
       latitude: dict["latitude"]["doubleValue"].doubleValue,
+      max_guest_count: dict["num_guests"]["intValue"].intValue,
       is_booked: dict["is_booked"]["booleanValue"].boolValue
     )
   }
