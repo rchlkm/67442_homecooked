@@ -32,7 +32,7 @@ class ReservationViewModel {
       "guest_id": reservation.guest_id,
       "payment_info": reservation.payment_info,
       "meal_id": reservation.meal_id,
-      "reservation_time": "Now", // Change this to current date/time
+      "reservation_time": Date(), // Change this to current date/time
     ]) { err in
         if let err = err {
             print("Error writing document: \(err)")
