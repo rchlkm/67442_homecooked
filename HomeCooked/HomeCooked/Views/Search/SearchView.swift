@@ -16,11 +16,13 @@ struct SearchView: View {
     @State var search_day: Int = 8
     let vm = SearchViewModel()
     
+    
+    var search_results: [Meal] = [Meal]()
+    
     func submitSearch() {
-        let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, party_size: self.party_size)
-//        vm.setParams(params: search_params)
-        
-//        vm.refresh(search_params: search_params)
+      let search_params = SearchParams(city: self.search_city, month: self.search_month, day: self.search_day, party_size: self.party_size)
+      // do something here with results
+      let search_results = vm.search(params: search_params)
     }
     
     var searchEngine: some View {
@@ -29,11 +31,11 @@ struct SearchView: View {
             TextField("Search", text: $search_city)
                 .font(.title)
             
-            Button(action: {
-                self.submitSearch()
-            }) {
-                Text("Search")
-            }
+                Button(action: {
+                    self.submitSearch()
+                }) {
+                    Text("Search")
+                }
         }
         .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
         .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
@@ -74,7 +76,7 @@ struct SearchView: View {
                     filterButton
                     Spacer().frame(height: 30.0)
                     
-                    // vm.meals
+//                     search_results
                     ForEach(search_items, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal)
                             .padding(.bottom, 20)
