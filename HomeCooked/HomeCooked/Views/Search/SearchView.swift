@@ -12,11 +12,10 @@ struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
     @State var guest_count: Int = 2
-    
     @State var search_date = Date()
     
     let vm = SearchViewModel()
-    var search_results: [Meal] = [Meal]()
+    @State var search_results: [Meal] = [Meal]()
     
     var body: some View {
         NavigationView {
@@ -31,7 +30,7 @@ struct SearchView: View {
                     Spacer().frame(height: 30.0)
                     
                     //                     search_results
-                    ForEach(search_items, id: \.id) { meal in
+                    ForEach(self.search_results, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal)
                             .padding(.bottom, 20)
                     }
@@ -46,7 +45,9 @@ struct SearchView: View {
     func submitSearch() {
         let search_params = SearchParams(city: self.search_city, month: self.search_date.month, day: self.search_date.day, guest_count: self.guest_count)
         // do something here with results
-        let search_results = vm.search(params: search_params)
+        print("Hellooooo")
+        self.search_results = vm.search(params: search_params)
+        print(self.search_results)
     }
     
     var searchEngine: some View {

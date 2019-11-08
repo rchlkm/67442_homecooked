@@ -30,32 +30,37 @@ struct ReserveView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            Text(meal.name)
-                .font(.title)
-                .fontWeight(.bold)
-            
-//            meal_details
-//            Divider()
-
-            guest_stepper.padding()
-            Divider()
-            
-            meal_price
-            Divider()
-            
-            payment
-            Divider()
-            
-            policy.padding(.bottom, 20)
-            
-            reserveButton
-            Spacer()
+        //        NavigationView {
+        ScrollView {
+            VStack(alignment: .leading) {
+                
+                Text(meal.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                //            meal_details
+                //            Divider()
+                
+                guest_stepper.padding()
+                Divider()
+                
+                meal_price
+                Divider()
+                
+                payment
+                Divider()
+                
+                policy.padding(.bottom, 20)
+                
+                reserveButton
+                Spacer()
+                
+            }
+            .padding(.leading,20).padding(.trailing,20)
+            .navigationBarTitle(Text("Reserve Meal"))
             
         }
-        .padding(.leading,20).padding(.trailing,20)
-        .navigationBarTitle(Text("Reserve Meal"))
+        //        }
         
     }
     
@@ -63,25 +68,49 @@ struct ReserveView: View {
         self.vm.postReservation(reservation: self.reservation)
     }
     
+    
     var reserveButton: some View {
+//        @State private var actionState: Int? = 0
+//        NavigationLink(destination: Text("Destination View"), tag: 1, selection: $actionState) {
+
         NavigationLink(destination: BookedMealDetailView(meal: meal)) {
             HStack {
-                Button(action: {
-                    self.reserveMeal()
-                }) {
-                    Text("Confirm")
-                        .foregroundColor(Color.orange)
-                }
-                    
-                .frame(width: 100)
-            }
-            .padding(10)
+                Text("Confirm")
+                    .padding(10)
+                    .foregroundColor(Color.orange)
+                    .onTapGesture {
+                        self.reserveMeal()
+                    }
+            }.frame(width: 100)
+
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.gray, lineWidth: 0.5)
             )
         }
+        
     }
+    
+    
+//    var reserveButton: some View {
+//        NavigationLink(destination: BookedMealDetailView(meal: meal)) {
+//            HStack {
+//                Button(action: {
+//                    self.reserveMeal()
+//                }) {
+//                    Text("Confirm")
+//                        .foregroundColor(Color.orange)
+//                }
+//
+//                .frame(width: 100)
+//            }
+//            .padding(10)
+//            .overlay(
+//                RoundedRectangle(cornerRadius: 20)
+//                    .stroke(Color.gray, lineWidth: 0.5)
+//            )
+//        }
+//    }
     
     var meal_details: some View {
         VStack {
