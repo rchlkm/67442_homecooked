@@ -53,13 +53,10 @@ struct ReserveView: View {
                 
                 policy.padding(.bottom, 20)
                 
-                
                 HStack {
                     reserveButton.padding(.trailing, 10)
                     viewReservation
-                    
                 }
-                //                Spacer()
                 
             }
             .padding(.leading,20).padding(.trailing,20)
@@ -71,7 +68,7 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
-        print(reservation)
+        print(self.reservation)
         self.vm.postReservation(reservation: self.reservation)
     }
     
