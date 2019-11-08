@@ -66,8 +66,7 @@ struct MapView: UIViewRepresentable {
             let annotation = MKPointAnnotation()
             annotation.coordinate = centerCoordinate
             view.addAnnotation(annotation)
-        }
-        else {
+        } else {
             let circle = MKCircle(center: centerCoordinate, radius: 5)
             view.addOverlay(circle)
         }

@@ -10,8 +10,11 @@ import SwiftUI
 
 struct MealDetailsView: View {
     let meal: Meal
-    init(meal: Meal) {
+    let search_guest_count: Int // used for default count when making reservation
+    
+    init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
+        self.search_guest_count = search_guest_count
     }
     
     var body: some View {
@@ -57,7 +60,7 @@ struct MealDetailsView: View {
     }
     
     var reserveButton: some View {
-        NavigationLink(destination: ReserveView(meal: meal1)) {
+        NavigationLink(destination: ReserveView(meal: meal, search_guest_count: search_guest_count)) {
             HStack {
                 MealDateView(meal_date: "\(meal.date()) \(meal.time)")
                     .padding(.trailing, 10)

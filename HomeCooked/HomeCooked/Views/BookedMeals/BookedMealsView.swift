@@ -23,7 +23,7 @@ struct BookedMealsView: View {
                     } else {
                         ForEach(bookedMeal_items, id: \.id) { reservation in
                             MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
-                                .padding(.bottom, 20)
+                                .padding(.bottom, 15)
                         }
                     }
                     

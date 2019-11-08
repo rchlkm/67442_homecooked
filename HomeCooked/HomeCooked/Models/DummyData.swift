@@ -30,8 +30,9 @@ let meal1 = Meal(
     month: 11,
     day: 8,
     city: "Pittsburgh",
-    longitude: 40.4406,
-    latitude: -79.9959,
+    longitude: 40.44,
+    latitude: -79.99,
+    max_guest_count: 5,
     is_booked: false
 )
 
@@ -52,7 +53,8 @@ let meal2 = Meal(
     day: 20,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: -79.9959,
+    latitude: 79.9959,
+    max_guest_count: 10,
     is_booked: false
 )
 
@@ -96,5 +98,5 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
     return meals.filter { $0.id == reservation.meal_id }[0]
 }
 
-var bookedMeal_items: [Reservation] = [reservation1]
+var bookedMeal_items: [Reservation] = [reservation1, reservation2]
 var pastMeal_items: [Reservation] = []

@@ -30,9 +30,9 @@ struct SearchView: View {
                     Spacer().frame(height: 30.0)
                     
                     //                     search_results
-                    ForEach(self.search_results, id: \.id) { meal in
-                        MealListItemView(type: "search", meal: meal)
-                            .padding(.bottom, 20)
+                    ForEach(search_items, id: \.id) { meal in
+                        MealListItemView(type: "search", meal: meal, search_guest_count: self.guest_count)
+                            .padding(.bottom, 15)
                     }
                 }
             }

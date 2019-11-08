@@ -275,9 +275,9 @@
 				02B7B9AD236F91EB00743B6D /* Chef.swift */,
 				028331CF236F7D6600643923 /* Reviews.swift */,
 				02936CF023709F8900C82DC5 /* Reservation.swift */,
-				02B7B9AB236F91C600743B6D /* DummyData.swift */,
 				029D6E212373B50900F27366 /* SearchParams.swift */,
 				0288B8A123756A71002A862E /* Date.swift */,
+				02B7B9AB236F91C600743B6D /* DummyData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

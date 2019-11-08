@@ -60,6 +60,7 @@ class MealParser {
       city: dict["city"]["stringValue"].stringValue,
       longitude: dict["longitude"]["doubleValue"].doubleValue,
       latitude: dict["latitude"]["doubleValue"].doubleValue,
+      max_guest_count: dict["max_guest_count"]["intValue"].intValue,
       is_booked: dict["is_booked"]["booleanValue"].boolValue
     )
   }

@@ -11,11 +11,13 @@ import SwiftUI
 struct MealListItemView: View {
     var listItemViewType: String// = "search"
     let meal: Meal
+    let search_guest_count: Int
 //    let chef_name: String
     
-    init(type: String, meal: Meal) {
+    init(type: String, meal: Meal, search_guest_count: Int = 1) {
         self.listItemViewType = type
         self.meal = meal
+        self.search_guest_count = search_guest_count
 //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
@@ -41,7 +43,7 @@ struct MealListItemView: View {
     
     func getItemDesinationView() -> AnyView {
         switch listItemViewType {
-        case "search": return AnyView(MealDetailsView(meal: self.meal))
+        case "search": return AnyView(MealDetailsView(meal: self.meal, search_guest_count: self.search_guest_count))
         case "bookedMeal": return AnyView(BookedMealDetailView(meal: self.meal))
         default: return AnyView(SearchItemView(meal: self.meal))
         }

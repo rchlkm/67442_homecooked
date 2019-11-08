@@ -17,8 +17,9 @@ struct ReserveView: View {
     let reservation : Reservation
     let vm : ReservationViewModel
     
-    init(meal: Meal) {
+    init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
+        //        self.guest_count = search_guest_count
         
         func randomString(length: Int) -> String {
             let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -52,8 +53,13 @@ struct ReserveView: View {
                 
                 policy.padding(.bottom, 20)
                 
-                reserveButton
-                Spacer()
+                
+                HStack {
+                    reserveButton.padding(.trailing, 10)
+                    viewReservation
+                    
+                }
+                //                Spacer()
                 
             }
             .padding(.leading,20).padding(.trailing,20)
@@ -65,52 +71,43 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
+        print(reservation)
         self.vm.postReservation(reservation: self.reservation)
     }
     
-    
     var reserveButton: some View {
-//        @State private var actionState: Int? = 0
-//        NavigationLink(destination: Text("Destination View"), tag: 1, selection: $actionState) {
-
+        HStack {
+            Button(action: {
+                self.reserveMeal()
+            }) {
+                Text("Confirm")
+                    .foregroundColor(Color.orange)
+            }
+                
+            .frame(width: 100)
+        }
+        .padding(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 0.5)
+        )
+    }
+    
+    var viewReservation: some View {
         NavigationLink(destination: BookedMealDetailView(meal: meal)) {
             HStack {
-                Text("Confirm")
+                Text("View Reservation")
                     .padding(10)
                     .foregroundColor(Color.orange)
-                    .onTapGesture {
-                        self.reserveMeal()
-                    }
-            }.frame(width: 100)
-
+            }
+            .frame(width: 200)
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.gray, lineWidth: 0.5)
             )
         }
-        
     }
     
-    
-//    var reserveButton: some View {
-//        NavigationLink(destination: BookedMealDetailView(meal: meal)) {
-//            HStack {
-//                Button(action: {
-//                    self.reserveMeal()
-//                }) {
-//                    Text("Confirm")
-//                        .foregroundColor(Color.orange)
-//                }
-//
-//                .frame(width: 100)
-//            }
-//            .padding(10)
-//            .overlay(
-//                RoundedRectangle(cornerRadius: 20)
-//                    .stroke(Color.gray, lineWidth: 0.5)
-//            )
-//        }
-//    }
     
     var meal_details: some View {
         VStack {
@@ -120,7 +117,7 @@ struct ReserveView: View {
     }
     
     var guest_stepper: some View {
-        Stepper(value: $guest_count, in: 1...10, label: {
+        Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
             Image(systemName: "person.fill").foregroundColor(Color.orange)
             Text("\(guest_count)")
         })

@@ -49,6 +49,7 @@ class SearchClient {
             city: document.get("city") as! String,
             longitude: document.get("longitude") as! Double,
             latitude: document.get("latitude") as! Double,
+            max_guest_count: document.get("max_guest_count") as! Int,
             is_booked: document.get("is_booked") as! Bool
           )
           meals.append(meal)
