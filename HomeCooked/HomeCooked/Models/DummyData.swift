@@ -31,15 +31,9 @@ let meal1 = Meal(
     month: 11,
     day: 8,
     city: "Pittsburgh",
-<<<<<<< HEAD
-    longitude: 40.44,
-    latitude: -79.99,
-    max_guest_count: 5,
-=======
     longitude: 40.4406,
     latitude: -79.9959,
     max_guest_count: 3,
->>>>>>> d2e5cd72d6f6a31b61de7988deec687f2c1b2405
     is_booked: false
 )
 
@@ -61,13 +55,8 @@ let meal2 = Meal(
     day: 20,
     city: "Pittsburgh",
     longitude: 40.4406,
-<<<<<<< HEAD
-    latitude: 79.9959,
-    max_guest_count: 10,
-=======
     latitude: -79.9959,
     max_guest_count: 3,
->>>>>>> d2e5cd72d6f6a31b61de7988deec687f2c1b2405
     is_booked: false
 )
 
