@@ -13,8 +13,8 @@ struct ReserveView: View {
     @State var guest_count: Int = 1
     
     var party_size: Int = 3
+    var guestString: String = "guest(s)" //= guest_count == 1 ? "guest" : "guests"
     let reservation : Reservation
-    //    var total_price: Double
     let vm : ReservationViewModel
     
     init(meal: Meal) {
@@ -30,43 +30,25 @@ struct ReserveView: View {
     
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             
             Text(meal.name)
                 .font(.title)
                 .fontWeight(.bold)
             
-            //            Section {
-            //                MealDateView(meal_date: meal.date())
-            //                MealTimeView(meal_time: meal.time)
-            //            }.padding()
-            //                        Divider()
-            
-            Section {
-                Stepper(value: $guest_count, in: 1...10, label: {
-                    Image(systemName: "person.fill").foregroundColor(Color.orange)
-                    Text("\(guest_count)")
-                })
-            }.padding()
+//            meal_details
+//            Divider()
+
+            guest_stepper.padding()
             Divider()
             
-            HStack {
-                Text("$\(meal.price) x \(guest_count) guests")
-                Spacer()
-                Text("$\(meal.price * guest_count)")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.orange)
-            }.padding()
+            meal_price
             Divider()
             
-            Section {
-                Text("VISA ******1234")
-            }.padding()
+            payment
             Divider()
             
-            policy
-                .padding(.bottom, 20)
+            policy.padding(.bottom, 20)
             
             reserveButton
             Spacer()
@@ -93,12 +75,42 @@ struct ReserveView: View {
                     
                 .frame(width: 100)
             }
-                .padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 0.5)
+            .padding(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 0.5)
             )
         }
+    }
+    
+    var meal_details: some View {
+        VStack {
+            MealDateView(meal_date: meal.date())
+            MealTimeView(meal_time: meal.time)
+        }.padding()
+    }
+    
+    var guest_stepper: some View {
+        Stepper(value: $guest_count, in: 1...10, label: {
+            Image(systemName: "person.fill").foregroundColor(Color.orange)
+            Text("\(guest_count)")
+        })
+    }
+    
+    var meal_price: some View {
+        HStack {
+            Text("$\(meal.price) x \(guest_count) \(guestString)")
+            Spacer()
+            Text("$\(meal.price * guest_count)")
+                .fontWeight(.bold)
+                .foregroundColor(Color.orange)
+        }.padding()
+    }
+    
+    var payment: some View {
+        Section {
+            Text("VISA ******1234")
+        }.padding()
     }
     
     var policy: some View {

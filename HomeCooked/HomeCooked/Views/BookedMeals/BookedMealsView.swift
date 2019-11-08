@@ -9,11 +9,6 @@
 import SwiftUI
 
 struct BookedMealsView: View {
-    @State var selectedView = 2
-    
-    init() {
-//        UINavigationBar.appearance().backgroundColor = .blue
-    }
     var body: some View {
         NavigationView {
             ScrollView {
@@ -48,22 +43,17 @@ struct BookedMealsView: View {
             }
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle("Meals")
-//            .navigationBarHidden(true)
         }
-    
     }
 }
 
-
 struct SearchForNewMealsView: View {
-    //    let type: String
     @State private var isPresented = false
     let text: String
     init(type: String) {
-        //        self.type = type
         switch type {
         case "past":
-            self.text = "You haven't booked meals with homecooked."
+            self.text = "You have no past meals with homecooked."
         default:
             self.text = "You have no upcoming meals."
         }
@@ -88,7 +78,6 @@ struct SearchForNewMealsView: View {
         }.padding(.top)
     }
 }
-
 
 struct BookedMealsView_Previews: PreviewProvider {
     static var previews: some View {

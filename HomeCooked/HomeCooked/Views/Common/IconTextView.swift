@@ -11,15 +11,10 @@ import SwiftUI
 struct IconTextView: View {
     let text: String
     let img: String
+    
     init(text: String, img: String) {
         self.text = text
-        
-        if img == "" {
-            self.img = "rectangle.fill"
-        }
-        else {
-            self.img = img
-        }
+        self.img = img == "" ? "rectangle.fill" : img
     }
     
     var body: some View {
@@ -31,6 +26,37 @@ struct IconTextView: View {
                 .font(.body)
                 .foregroundColor(Color.black)
         }
-//            .border(Color.red)
     }
 }
+
+
+struct GuestCountView: View {
+    let guest_count: Int
+    init(guest_count: Int) {
+        self.guest_count = guest_count
+    }
+    var body: some View {
+        IconTextView(text: "\(self.guest_count)", img: "person.fill")
+        
+    }
+}
+
+struct MealDateView: View {
+    let meal_date: String
+    init(meal_date: String) {
+        self.meal_date = meal_date
+    }
+    
+    var body: some View {
+        IconTextView(text: "\(self.meal_date)", img: "calendar")
+    }
+}
+
+struct MealTimeView: View {
+    let meal_time: String
+    init(meal_time: String) {
+        self.meal_time = meal_time
+    }
+    var body: some View {
+        IconTextView(text: "\(self.meal_time)", img: "clock")
+    }}

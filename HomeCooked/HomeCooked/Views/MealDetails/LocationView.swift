@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  LocationView.swift
 //  HomeCooked
 //
 //  Created by Rachel Kim on 11/3/19.
@@ -8,6 +8,36 @@
 
 import SwiftUI
 import MapKit
+
+struct LocationView: View {
+    let meal: Meal
+    let marker: Bool
+    
+    init(meal: Meal, marker: Bool = false) {
+        self.meal = meal
+        self.marker = marker
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Location")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            Section {
+                Text(meal.city)
+                    .font(.body)
+                    .fontWeight(.bold)
+                //                Text("5 minute walk from")
+                //                    .font(.body)
+            }.padding(.top, 5)
+            
+            MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
+                .frame(height: 170)
+        }
+    }
+}
+
 
 struct MapView: UIViewRepresentable {
     let lat: Double
@@ -23,7 +53,6 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         MKMapView(frame: .zero)
     }
-    
     
     func updateUIView(_ view: MKMapView, context: Context) {
         let coordinate = CLLocationCoordinate2D(
@@ -41,40 +70,6 @@ struct MapView: UIViewRepresentable {
         else {
             let circle = MKCircle(center: centerCoordinate, radius: 5)
             view.addOverlay(circle)
-        }
-        
-    }
-}
-
-
-
-struct LocationView: View {
-    
-    let meal: Meal
-    let marker: Bool
-    
-    init(meal: Meal, marker: Bool = false) {
-        self.meal = meal
-        self.marker = marker
-    }
-    
-    var body: some View {
-        
-        VStack(alignment: .leading) {
-            Text("Location")
-                .font(.title)
-                .fontWeight(.bold)
-            
-            Section {
-                Text(meal.city)
-                    .font(.body)
-                    .fontWeight(.bold)
-                //                Text("5 minute walk from")
-                //                    .font(.body)
-            }.padding(.top, 5)
-            
-            MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
-                .frame(height: 150)
         }
     }
 }

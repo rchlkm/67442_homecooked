@@ -9,20 +9,16 @@
 import SwiftUI
 
 struct BookedMealDetailView: View {
-    
     let meal: Meal
     init(meal: Meal) {
         self.meal = meal
     }
-    
-    
+        
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-                HStack(alignment: .top) {
-                    BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 3)
-                }//.border(Color.green)
+                BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 2)
                 Spacer().frame(height: 30.0)
                 
                 LocationView(meal: meal, marker: true)

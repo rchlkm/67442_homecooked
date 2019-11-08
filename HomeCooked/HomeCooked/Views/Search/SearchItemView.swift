@@ -29,12 +29,13 @@ struct SearchItemView: View {
 //                .foregroundColor(Color.gray)
 //                .padding(.top, 5)
             
-            
             Text("$\(meal.price) per person")
                 .font(.body)
             .foregroundColor(Color.black)
                 .padding(.top, 10)
             
+            MealDateView(meal_date: "\(meal.date())")
+            MealTimeView(meal_time: "\(meal.time)")
         }
     }
 }

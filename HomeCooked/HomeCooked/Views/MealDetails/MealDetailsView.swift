@@ -10,13 +10,11 @@ import SwiftUI
 
 struct MealDetailsView: View {
     let meal: Meal
-    @State var modalIsPresent = false
     init(meal: Meal) {
         self.meal = meal
     }
     
     var body: some View {
-        //        NavigationView {
         ScrollView {
             VStack(alignment: .leading) {
                 Rectangle() // Image(meal.image)
@@ -41,11 +39,8 @@ struct MealDetailsView: View {
                 }.padding(.leading,20).padding(.trailing,20)
             }
         }
-            //            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
-            //            .navigationBarTitle(Text("Book Measl"))
-            .edgesIgnoringSafeArea([.top])
-        //        }
+        .navigationBarHidden(true)
+        .edgesIgnoringSafeArea([.top])
     }
     
     var description: some View {
@@ -54,8 +49,7 @@ struct MealDetailsView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            Text("This is the meal description and it can be multiple lines long... so im just filling it in with random text just for demo purposes! it should be a max of 4 lines i think??")
-            
+            Text(meal.description)
             Spacer().frame(height: 20.0)
             
             Text("By Chef")
@@ -63,7 +57,6 @@ struct MealDetailsView: View {
     }
     
     var reserveButton: some View {
-        
         NavigationLink(destination: ReserveView(meal: meal1)) {
             HStack {
                 MealDateView(meal_date: "\(meal.date()) \(meal.time)")
@@ -75,23 +68,6 @@ struct MealDetailsView: View {
                         .stroke(Color.gray, lineWidth: 0.5)
             )
         }
-        
-        //        Button(action: {
-        //            self.modalIsPresent.toggle()
-        //        }) {
-        //            HStack {
-        //                MealDateView(meal_date: "\(meal.date()) \(meal.time)")
-        //                    .padding(.trailing, 10)
-        //            }.font(.caption)
-        //                .padding(10)
-        //                .overlay(
-        //                    RoundedRectangle(cornerRadius: 20)
-        //                        .stroke(Color.gray, lineWidth: 0.5)
-        //            )
-        //        }
-        //        .sheet(isPresented: $modalIsPresent) {
-        //            ReservationModalView(showModal: self.$modalIsPresent)
-        //        }
     }
     
     var reservations: some View {
@@ -129,56 +105,19 @@ struct MealDetailsView: View {
                 .font(.headline)
                 .fontWeight(.bold)
                 .padding(.top, 10)
-            
-            Text("This is another multiline text block with lots of information asdfgtyjuk.")
+            Text(meal.food_policy)
                 .font(.subheadline)
             
             Text("Cancellation Policy")
                 .font(.body)
                 .fontWeight(.bold)
                 .padding(.top, 15)
-            
-            Text("This is another multiline text block with lots of information asdfgtyjuk.")
+            Text(meal.cancellation_policy)
                 .font(.subheadline)
         }
         .padding(.top, 10)
     }
-    
 }
-
-
-
-struct ReservationModalView: View {
-    @Binding var showModal: Bool
-    //    let meal: Meal
-    //
-    //    init(meal: Meal) {
-    //        self.meal = meal
-    //    }
-    
-    var body: some View {
-        VStack {
-            Text("Reserve Meal")
-                .padding()
-            
-            NavigationLink(destination: BookedMealDetailView(meal: meal1)) {
-                //                Button("Reserve") {
-                //                    self.showModal.toggle()
-                //                }
-                Text("Pay Now")
-            }
-            
-            
-        }
-    }
-}
-//struct ModalView2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReservationModalView(showModal: .constant(true))
-//    }
-//}
-
-
 
 
 struct MealsView_Previews: PreviewProvider {

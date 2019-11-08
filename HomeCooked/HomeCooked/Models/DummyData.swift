@@ -14,7 +14,6 @@ func date_formater(date_str: String) -> Date {
     return formatter.date(from: date_str) ?? Date()
 }
 
-
 let meal1 = Meal(
     id: 1,
     name: "Udon",
@@ -25,8 +24,8 @@ let meal1 = Meal(
     allergens: [],
     images: [],
     price: 12,
-    food_policy: "",
-    cancellation_policy: "",
+//    food_policy: "",
+//    cancellation_policy: "",
     time: "6PM",
     month: 11,
     day: 8,
@@ -38,16 +37,16 @@ let meal1 = Meal(
 
 let meal2 = Meal(
     id: 2,
-    name: "Fried Chicken",
+    name: "Pierogies",
     description: "it's yummy! and traditional",
     chef_id: 1,
-    cuisine: ["Asian", "Korean"],
+    cuisine: ["Ukranian"],
     ingredients: [],
     allergens: [],
     images: [],
     price: 15,
-    food_policy: "",
-    cancellation_policy: "",
+//    food_policy: "",
+//    cancellation_policy: "",
     time: "6PM",
     month: 12,
     day: 20,

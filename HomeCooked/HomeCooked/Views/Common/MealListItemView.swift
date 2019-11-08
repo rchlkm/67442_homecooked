@@ -30,7 +30,6 @@ struct MealListItemView: View {
                 
                 mealInfoText()
                     .frame(width: 180)
-//                    .border(Color.red)
             }
         }
         .frame(width: 360, height: 180)
