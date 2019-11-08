@@ -15,7 +15,7 @@ func date_formater(date_str: String) -> Date {
 }
 
 let meal1 = Meal(
-    id: "abcdefg",
+    id: "taCufe3fXB",
     name: "Udon",
     description: "it's yummy! and traditional",
     chef_id: "abc",
@@ -80,15 +80,15 @@ func getChefsById(chef_id: String) -> Chef {
 
 let reservation1 = Reservation (
     id: "1",
-    guest_id: 1,
-    meal_id: "abc",
+    guest_id: "abc",
+    meal_id: "taCufe3fXB",
     payment_info: "",
     guest_count: 2
 )
 let reservation2 = Reservation (
     id: "2",
-    guest_id: 1,
-    meal_id: "def",
+    guest_id: "abc",
+    meal_id: "efghijjkl",
     payment_info: "",
     guest_count: 2
 )

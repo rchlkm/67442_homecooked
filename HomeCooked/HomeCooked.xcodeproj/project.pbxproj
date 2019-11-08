@@ -17,6 +17,8 @@
 		028331CB236F7C4700643923 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CA236F7C4700643923 /* Meal.swift */; };
 		028331D0236F7D6600643923 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews.swift */; };
 		0288B8A223756A71002A862E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288B8A123756A71002A862E /* Date.swift */; };
+		02905E8C237610B1008E9304 /* BookedMealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */; };
+		02905E8E237610CB008E9304 /* BookedMealsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02905E8D237610CB008E9304 /* BookedMealsClient.swift */; };
 		02936CF123709F8900C82DC5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02936CF023709F8900C82DC5 /* Reservation.swift */; };
 		029D6E222373B50900F27366 /* SearchParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D6E212373B50900F27366 /* SearchParams.swift */; };
 		02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB28E7236FD6FA007AB3AD /* ReserveView.swift */; };
@@ -66,6 +68,8 @@
 		028331CA236F7C4700643923 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		028331CF236F7D6600643923 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		0288B8A123756A71002A862E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsViewModel.swift; sourceTree = "<group>"; };
+		02905E8D237610CB008E9304 /* BookedMealsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsClient.swift; sourceTree = "<group>"; };
 		02936CF023709F8900C82DC5 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		029D6E212373B50900F27366 /* SearchParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParams.swift; sourceTree = "<group>"; };
 		02AB28E7236FD6FA007AB3AD /* ReserveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveView.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				02D174992370784300F3F6C6 /* BookedMealsView.swift */,
 				02466B3523707F37001328BD /* BookedMealItemView.swift */,
 				0239A9C12370A776004954F9 /* BookedMealDetailView.swift */,
+				02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */,
 			);
 			path = BookedMeals;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			children = (
 				02F83A742373E03100B2EA2D /* MealDetailClient.swift */,
 				02F83A762373E04600B2EA2D /* SearchClient.swift */,
+				02905E8D237610CB008E9304 /* BookedMealsClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -507,6 +513,7 @@
 				02936CF123709F8900C82DC5 /* Reservation.swift in Sources */,
 				02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */,
 				0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */,
+				02905E8E237610CB008E9304 /* BookedMealsClient.swift in Sources */,
 				02D1749C2370796300F3F6C6 /* MealListItemView.swift in Sources */,
 				02F83A802373E0AB00B2EA2D /* SearchViewModel.swift in Sources */,
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,
@@ -516,6 +523,7 @@
 				4533B620236A65BF00D99E25 /* MealDetailsView.swift in Sources */,
 				02F83A752373E03100B2EA2D /* MealDetailClient.swift in Sources */,
 				02F83A7C2373E07700B2EA2D /* MealParser.swift in Sources */,
+				02905E8C237610B1008E9304 /* BookedMealsViewModel.swift in Sources */,
 				0239A9C22370A776004954F9 /* BookedMealDetailView.swift in Sources */,
 				0239A9C52370A9ED004954F9 /* IconTextView.swift in Sources */,
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,
