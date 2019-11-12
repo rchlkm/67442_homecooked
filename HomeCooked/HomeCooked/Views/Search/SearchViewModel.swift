@@ -9,8 +9,9 @@
 
 import Foundation
 
-class SearchViewModel {
-  var meals = [Meal]()
+class SearchViewModel: ObservableObject {
+    
+  @Published var meals = [Meal]()
 
   let client = SearchClient()
 
@@ -21,9 +22,10 @@ class SearchViewModel {
     return meals[indexPath.row]
   }
   
-  func search(params: SearchParams) -> [Meal] {
+  func search(params: SearchParams) {
     client.setParams(params:params)
-    return client.fetchMeals()
+    self.meals = client.fetchMeals()
+    print("searched")
   }
 }
 
