@@ -92,7 +92,7 @@ struct ReserveView: View {
     }
     
     var viewReservation: some View {
-        NavigationLink(destination: BookedMealDetailView(meal: meal)) {
+        NavigationLink(destination: BookedMealDetailView(reservation: reservation1, meal: meal)) {
             HStack {
                 Text("View Reservation")
                     .padding(10)

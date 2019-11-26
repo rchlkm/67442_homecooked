@@ -38,4 +38,9 @@ extension Meal {
         let date = formatter.date(from: "\(self.year)/\(self.month)/\(self.day)")
         return date!.date_str
     }
+    
+    func is_complete() -> Bool {
+        let current = Date()
+        return (current.year >= self.year) && (current.month >= self.month) && (current.day >= self.day)
+    }
 }

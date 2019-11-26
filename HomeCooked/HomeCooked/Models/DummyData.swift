@@ -26,7 +26,7 @@ let meal1 = Meal(
     price: 12,
 //    food_policy: "",
 //    cancellation_policy: "",
-    time: "6PM",
+    time: "6 PM",
     year: 2019,
     month: 11,
     day: 8,
@@ -49,7 +49,7 @@ let meal2 = Meal(
     price: 15,
 //    food_policy: "",
 //    cancellation_policy: "",
-    time: "6PM",
+    time: "5:30 PM",
     year: 2019,
     month: 12,
     day: 20,
@@ -102,3 +102,4 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
 
 var bookedMeal_items: [Reservation] = [reservation1]
 var pastMeal_items: [Reservation] = []
+

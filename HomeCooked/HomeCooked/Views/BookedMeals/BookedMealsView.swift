@@ -22,7 +22,9 @@ struct BookedMealsView: View {
                         SearchForNewMealsView(type: "upcoming")
                     } else {
                         ForEach(bookedMeal_items, id: \.id) { reservation in
-                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
+                            //                            let meal = getMealsByIdFromReservation(reservation: reservation)
+                            //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
+                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
                                 .padding(.bottom, 15)
                         }
                     }
@@ -34,11 +36,18 @@ struct BookedMealsView: View {
                     if pastMeal_items.isEmpty {
                         SearchForNewMealsView(type: "past")
                     } else {
+                        
                         ForEach(pastMeal_items, id: \.id) { reservation in
-                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation))
-                                .padding(.bottom, 20)
+//                            let meal = getMealsByIdFromReservation(reservation: reservation)
+//                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
+                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
+                            .padding(.bottom, 15)
+                            
                         }
+                        
                     }
+                    
+                    
                 }
             }
             .padding(.leading,20).padding(.trailing,20)
@@ -64,17 +73,17 @@ struct SearchForNewMealsView: View {
             Text(self.text)
                 .padding(.bottom,10)
             
-//            Section {
-//                NavigationLink(destination: SearchView(), isActive:$isPresented) {
-//                    Image(systemName: "magnifyingglass")
-//                    Text("Book a Meal")
-//                }
-//                .padding(10)
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 20)
-//                        .stroke(Color.gray, lineWidth: 0.5)
-//                )
-//            }
+            //            Section {
+            //                NavigationLink(destination: SearchView(), isActive:$isPresented) {
+            //                    Image(systemName: "magnifyingglass")
+            //                    Text("Book a Meal")
+            //                }
+            //                .padding(10)
+            //                .overlay(
+            //                    RoundedRectangle(cornerRadius: 20)
+            //                        .stroke(Color.gray, lineWidth: 0.5)
+            //                )
+            //            }
         }.padding(.top)
     }
 }

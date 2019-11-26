@@ -39,3 +39,9 @@ func randomString(length: Int) -> String {
 }
 
 randomString(length: 10)
+
+
+let currentDateTime = Date()
+
+
+let time = 1900

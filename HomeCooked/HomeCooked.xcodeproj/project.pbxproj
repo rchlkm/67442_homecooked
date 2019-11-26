@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0207ABA8236F86A900057F25 /* SearchItemView.swift */; };
 		020C864D236FAB9C002618A4 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C864C236FAB9C002618A4 /* LocationView.swift */; };
+		0220F19E23847DD0007FD60E /* ChefDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220F19D23847DD0007FD60E /* ChefDetailsView.swift */; };
 		0239A9C22370A776004954F9 /* BookedMealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C12370A776004954F9 /* BookedMealDetailView.swift */; };
 		0239A9C52370A9ED004954F9 /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C42370A9ED004954F9 /* IconTextView.swift */; };
 		0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C92370B8C5004954F9 /* ChefInfoView.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		0207ABA8236F86A900057F25 /* SearchItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemView.swift; sourceTree = "<group>"; };
 		020C864C236FAB9C002618A4 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		0220F19D23847DD0007FD60E /* ChefDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefDetailsView.swift; sourceTree = "<group>"; };
 		0239A9C12370A776004954F9 /* BookedMealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealDetailView.swift; sourceTree = "<group>"; };
 		0239A9C42370A9ED004954F9 /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		0239A9C92370B8C5004954F9 /* ChefInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefInfoView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				0239A9C92370B8C5004954F9 /* ChefInfoView.swift */,
+				0220F19D23847DD0007FD60E /* ChefDetailsView.swift */,
 			);
 			path = Chef;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */,
 				0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */,
 				02905E8E237610CB008E9304 /* BookedMealsClient.swift in Sources */,
+				0220F19E23847DD0007FD60E /* ChefDetailsView.swift in Sources */,
 				02D1749C2370796300F3F6C6 /* MealListItemView.swift in Sources */,
 				02F83A802373E0AB00B2EA2D /* SearchViewModel.swift in Sources */,
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,

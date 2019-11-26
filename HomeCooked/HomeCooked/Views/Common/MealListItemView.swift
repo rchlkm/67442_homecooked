@@ -11,12 +11,15 @@ import SwiftUI
 struct MealListItemView: View {
     var listItemViewType: String// = "search"
     let meal: Meal
+    let reservation: Reservation?
     let search_guest_count: Int
 //    let chef_name: String
+    var frame_size: CGFloat = UIScreen.main.bounds.width - 48
     
-    init(type: String, meal: Meal, search_guest_count: Int = 1) {
+    init(type: String, meal: Meal, reservation: Reservation?, search_guest_count: Int = 1) {
         self.listItemViewType = type
         self.meal = meal
+        self.reservation = reservation
         self.search_guest_count = search_guest_count
 //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
@@ -26,15 +29,15 @@ struct MealListItemView: View {
             
             HStack(spacing: 0) {
 //                  Image(systemName: "rectangle.grid.1x2.fill")
-                Rectangle()
-                    .frame(width: 180.0)
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: frame_size/2)
                     .foregroundColor(Color.orange)
                 
                 mealInfoText()
-                    .frame(width: 180)
+                    .frame(width: frame_size/2)
             }
         }
-        .frame(width: 360, height: 180)
+        .frame(width: frame_size, height: frame_size/2)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.gray, lineWidth: 0.5)
@@ -44,7 +47,7 @@ struct MealListItemView: View {
     func getItemDesinationView() -> AnyView {
         switch listItemViewType {
         case "search": return AnyView(MealDetailsView(meal: self.meal, search_guest_count: self.search_guest_count))
-        case "bookedMeal": return AnyView(BookedMealDetailView(meal: self.meal))
+        case "bookedMeal": return AnyView(BookedMealDetailView(reservation: self.reservation!, meal: self.meal))
         default: return AnyView(SearchItemView(meal: self.meal))
         }
     }
