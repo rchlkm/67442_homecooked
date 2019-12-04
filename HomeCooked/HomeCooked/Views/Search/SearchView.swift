@@ -105,7 +105,7 @@ struct SearchView: View {
                 .padding()
             
             Stepper(value: $guest_count, in: 1...10, label: {
-                Image(systemName: "person.fill").foregroundColor(Color.orange)
+                Image(systemName: "person.fill").foregroundColor(OrangeColor)
                 Text("\(guest_count)")
             }).frame(width:200)
                 .padding(10)

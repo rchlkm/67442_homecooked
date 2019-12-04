@@ -68,7 +68,7 @@ struct ReserveView: View {
                 HStack {
                     Text("Confirm")
                         .padding(10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(OrangeColor)
                 }
                 .frame(width: 200)
                 .overlay(
@@ -88,8 +88,8 @@ struct ReserveView: View {
     
     var guest_stepper: some View {
         Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
-            Image(systemName: "person.fill").foregroundColor(Color.orange)
-            Text("\(guest_count)").fontWeight(.bold).foregroundColor(Color.orange)
+            Image(systemName: "person.fill").foregroundColor(OrangeColor)
+            Text("\(guest_count)").fontWeight(.bold).foregroundColor(OrangeColor)
             Text("(Max: \(meal.max_guest_count))")
         })
     }
@@ -105,7 +105,7 @@ struct ReserveView: View {
             Spacer()
             Text("$\(meal.price * guest_count)")
                 .fontWeight(.bold)
-                .foregroundColor(Color.orange)
+                .foregroundColor(OrangeColor)
         }.padding()
     }
     

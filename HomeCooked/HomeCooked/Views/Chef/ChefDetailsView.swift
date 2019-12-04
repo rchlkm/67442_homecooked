@@ -39,7 +39,7 @@ struct ChefDetailsView: View {
                 Text("4.7")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.orange)
+                    .foregroundColor(OrangeColor)
             }
         }.padding(.top, 5)
     }

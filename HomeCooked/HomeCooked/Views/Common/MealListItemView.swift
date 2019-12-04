@@ -31,7 +31,7 @@ struct MealListItemView: View {
 //                  Image(systemName: "rectangle.grid.1x2.fill")
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width: frame_size/2)
-                    .foregroundColor(Color.orange)
+                    .foregroundColor(OrangeColor)
                 
                 mealInfoText()
                     .frame(width: frame_size/2)

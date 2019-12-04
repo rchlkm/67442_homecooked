@@ -25,11 +25,11 @@ struct ConfirmationView: View {
                 
                 NavigationLink(destination: LoggedInView(2)) {
                     Text("Ok!")
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(OrangeColor)
                         .padding(.top, 12).padding(.bottom, 12).padding(.leading).padding(.trailing)
                         .overlay(
                             RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.orange, lineWidth: 2)
+                                .stroke(OrangeColor, lineWidth: 2)
                                 .frame(width: frame_size))
                 }
             }

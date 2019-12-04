@@ -12,35 +12,14 @@ struct HomeView: View {
     var frame_size: CGFloat = UIScreen.main.bounds.width - 48
     var body: some View {
         NavigationView {
-            
             VStack {
-                Spacer()
-                Text("homecooked")
-                    .font(.largeTitle)
-                
-                Spacer().frame(height: 60.0)
-                NavigationLink(destination: LoginView()) {
-                    Text("Log In")
-                        .foregroundColor(Color.orange)
-                        .padding(.top, 12).padding(.bottom, 12).padding(.leading).padding(.trailing)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.orange, lineWidth: 2)
-                                .frame(width: frame_size))
-                }
-                        
-                Spacer().frame(height: 15.0)
-                NavigationLink(destination: CreateAccountView()) {
-                    Text("Create Account")
-                        .foregroundColor(Color.orange)
-                        .padding(.top, 12).padding(.bottom, 12).padding(.leading).padding(.trailing)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.orange, lineWidth: 2)
-                                .frame(width: frame_size))
-                }
-                Spacer().frame(height: 80.0)
-            }
+                Image("logo").frame(width: 100, height: 100)
+                Spacer().frame(height: 75.0)
+                NavigationLink(destination: LoginView()) { OrangeButton("Login") }
+                Spacer().frame(height: 10.0)
+                NavigationLink(destination: CreateAccountView()) { WhiteButton("Create Account") }
+            }.padding(.leading,20).padding(.trailing,20)
+
         }
     }
 }
