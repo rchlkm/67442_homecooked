@@ -9,14 +9,19 @@
 import Foundation
 
 class BookedMealViewModel {
-  var meals = [Meal]()
-  var reservations = [Reservation]()
+  var res_meals = [ReservationMeal]()
 
   let client = BookedMealsClient()
   
   func getMealsByGuestId(guest_id: String) {
     client.fetchData(guest_id: guest_id)
-    meals = client.meals
-    reservations = client.reservations
+    res_meals = []
+    for (index, meal) in client.meals.enumerated() {
+      let res_meal = ReservationMeal(
+        reservation: client.reservations[index],
+        meal: meal
+      )
+      res_meals.append(res_meal)
+    }
   }
 }

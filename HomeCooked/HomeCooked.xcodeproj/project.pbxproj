@@ -33,6 +33,7 @@
 		02F83A7E2373E09700B2EA2D /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A7D2373E09700B2EA2D /* MealDetailViewModel.swift */; };
 		02F83A802373E0AB00B2EA2D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A7F2373E0AB00B2EA2D /* SearchViewModel.swift */; };
 		3F5E0AF52374A3540082FEFF /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5E0AF42374A3540082FEFF /* ReservationViewModel.swift */; };
+		45121F8323976B720053ADF4 /* ReservationMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45121F8223976B720053ADF4 /* ReservationMeal.swift */; };
 		4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5EF236A59B400D99E25 /* AppDelegate.swift */; };
 		4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5F1236A59B400D99E25 /* SceneDelegate.swift */; };
 		4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5F3236A59B400D99E25 /* ContentView.swift */; };
@@ -87,6 +88,8 @@
 		3F5E0AF42374A3540082FEFF /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
 		3F5E0AF72374A8FE0082FEFF /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = testPlayground.playground; path = HomeCooked/testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		43BA74505A12E2F54D8BB11A /* Pods-HomeCooked-HomeCookedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCooked-HomeCookedTests.release.xcconfig"; path = "Target Support Files/Pods-HomeCooked-HomeCookedTests/Pods-HomeCooked-HomeCookedTests.release.xcconfig"; sourceTree = "<group>"; };
+		45121F81239736C70053ADF4 /* HomeCooked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeCooked.entitlements; sourceTree = "<group>"; };
+		45121F8223976B720053ADF4 /* ReservationMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationMeal.swift; sourceTree = "<group>"; };
 		4533B5EC236A59B400D99E25 /* HomeCooked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeCooked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4533B5EF236A59B400D99E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4533B5F1236A59B400D99E25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 		4533B5EE236A59B400D99E25 /* HomeCooked */ = {
 			isa = PBXGroup;
 			children = (
+				45121F81239736C70053ADF4 /* HomeCooked.entitlements */,
 				4533B644236E195400D99E25 /* Models */,
 				4533B61C236A651B00D99E25 /* Views */,
 				02F83A782373E05400B2EA2D /* Parser */,
@@ -284,6 +288,7 @@
 				029D6E212373B50900F27366 /* SearchParams.swift */,
 				0288B8A123756A71002A862E /* Date.swift */,
 				02B7B9AB236F91C600743B6D /* DummyData.swift */,
+				45121F8223976B720053ADF4 /* ReservationMeal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
+				45121F8323976B720053ADF4 /* ReservationMeal.swift in Sources */,
 				028331CB236F7C4700643923 /* Meal.swift in Sources */,
 				3F5E0AF52374A3540082FEFF /* ReservationViewModel.swift in Sources */,
 				02936CF123709F8900C82DC5 /* Reservation.swift in Sources */,
@@ -690,8 +696,10 @@
 			baseConfigurationReference = 20F11A672C2B248BB6ECD616 /* Pods-HomeCooked.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeCooked/HomeCooked.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeCooked/Preview Content\"";
+				DEVELOPMENT_TEAM = M8XL2K5D4X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeCooked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -710,8 +718,10 @@
 			baseConfigurationReference = BCAD8A29D29E9FA5EACB039C /* Pods-HomeCooked.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeCooked/HomeCooked.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeCooked/Preview Content\"";
+				DEVELOPMENT_TEAM = M8XL2K5D4X;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeCooked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

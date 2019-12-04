@@ -13,6 +13,7 @@ struct SearchView: View {
     @State var search_city: String = ""
     @State var guest_count: Int = 2
     @State var search_date = Date()
+    @State var search_results = [Meal]()
     @ObservedObject var vm : SearchViewModel
     
     //let vm = SearchViewModel()
@@ -35,7 +36,7 @@ struct SearchView: View {
                     Spacer().frame(height: 30.0)
                     
                     //                     search_results
-                    ForEach(self.vm.meals, id: \.id) { meal in
+                    ForEach(search_items, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal, search_guest_count: self.guest_count)
                             .padding(.bottom, 15)
                     }
@@ -48,11 +49,19 @@ struct SearchView: View {
     }
     
     func submitSearch() {
-      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
-        // do something here with results
-        print("Hellooooo")
-        self.vm.search(params: search_params)
-        print(self.vm.meals)
+      DispatchQueue.global(qos: .userInitiated).async {
+        let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
+          // do something here with results
+          print("Hellooooo")
+          self.vm.setParams(params: search_params)
+          self.vm.refresh { [unowned self] in
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          }
+          print(self.vm.meals)
+        self.search_results = self.vm.meals
+      }
     }
     
     var searchEngine: some View {
