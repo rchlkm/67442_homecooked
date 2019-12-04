@@ -27,12 +27,18 @@
 		02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B9AD236F91EB00743B6D /* Chef.swift */; };
 		02D1749A2370784300F3F6C6 /* BookedMealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D174992370784300F3F6C6 /* BookedMealsView.swift */; };
 		02D1749C2370796300F3F6C6 /* MealListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1749B2370796300F3F6C6 /* MealListItemView.swift */; };
+		02DE34602397032800571D44 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE345F2397032800571D44 /* Login.swift */; };
+		02DE34622397038400571D44 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE34612397038400571D44 /* User.swift */; };
+		02DE34692397094700571D44 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 02DE34682397094700571D44 /* appicon.png */; };
+		02DE346B2397096500571D44 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 02DE346A2397096500571D44 /* logo.png */; };
 		02F83A752373E03100B2EA2D /* MealDetailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A742373E03100B2EA2D /* MealDetailClient.swift */; };
 		02F83A772373E04600B2EA2D /* SearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A762373E04600B2EA2D /* SearchClient.swift */; };
 		02F83A7A2373E06200B2EA2D /* ChefParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A792373E06200B2EA2D /* ChefParser.swift */; };
 		02F83A7C2373E07700B2EA2D /* MealParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A7B2373E07700B2EA2D /* MealParser.swift */; };
 		02F83A7E2373E09700B2EA2D /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A7D2373E09700B2EA2D /* MealDetailViewModel.swift */; };
 		02F83A802373E0AB00B2EA2D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F83A7F2373E0AB00B2EA2D /* SearchViewModel.swift */; };
+		02FF444D239712100056C064 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FF444C239712100056C064 /* CreateAccount.swift */; };
+		02FF444F239713C50056C064 /* TextFieldInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FF444E239713C50056C064 /* TextFieldInputView.swift */; };
 		3F5E0AF52374A3540082FEFF /* ReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5E0AF42374A3540082FEFF /* ReservationViewModel.swift */; };
 		4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5EF236A59B400D99E25 /* AppDelegate.swift */; };
 		4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4533B5F1236A59B400D99E25 /* SceneDelegate.swift */; };
@@ -79,12 +85,18 @@
 		02B7B9AD236F91EB00743B6D /* Chef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef.swift; sourceTree = "<group>"; };
 		02D174992370784300F3F6C6 /* BookedMealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsView.swift; sourceTree = "<group>"; };
 		02D1749B2370796300F3F6C6 /* MealListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListItemView.swift; sourceTree = "<group>"; };
+		02DE345F2397032800571D44 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		02DE34612397038400571D44 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		02DE34682397094700571D44 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon.png; path = ../../../appicon.png; sourceTree = "<group>"; };
+		02DE346A2397096500571D44 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../logo.png; sourceTree = "<group>"; };
 		02F83A742373E03100B2EA2D /* MealDetailClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailClient.swift; sourceTree = "<group>"; };
 		02F83A762373E04600B2EA2D /* SearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
 		02F83A792373E06200B2EA2D /* ChefParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefParser.swift; sourceTree = "<group>"; };
 		02F83A7B2373E07700B2EA2D /* MealParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealParser.swift; sourceTree = "<group>"; };
 		02F83A7D2373E09700B2EA2D /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
 		02F83A7F2373E0AB00B2EA2D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		02FF444C239712100056C064 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		02FF444E239713C50056C064 /* TextFieldInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputView.swift; sourceTree = "<group>"; };
 		20F11A672C2B248BB6ECD616 /* Pods-HomeCooked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeCooked.debug.xcconfig"; path = "Target Support Files/Pods-HomeCooked/Pods-HomeCooked.debug.xcconfig"; sourceTree = "<group>"; };
 		3F5E0AF42374A3540082FEFF /* ReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewModel.swift; sourceTree = "<group>"; };
 		3F5E0AF72374A8FE0082FEFF /* testPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = testPlayground.playground; path = HomeCooked/testPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -146,6 +158,7 @@
 			children = (
 				02D1749B2370796300F3F6C6 /* MealListItemView.swift */,
 				0239A9C42370A9ED004954F9 /* IconTextView.swift */,
+				02FF444E239713C50056C064 /* TextFieldInputView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -185,6 +198,24 @@
 				02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */,
 			);
 			path = BookedMeals;
+			sourceTree = "<group>";
+		};
+		02DE345C239702EC00571D44 /* UserAccount */ = {
+			isa = PBXGroup;
+			children = (
+				02DE345F2397032800571D44 /* Login.swift */,
+				02FF444C239712100056C064 /* CreateAccount.swift */,
+			);
+			path = UserAccount;
+			sourceTree = "<group>";
+		};
+		02DE3463239708EE00571D44 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				02DE346A2397096500571D44 /* logo.png */,
+				02DE34682397094700571D44 /* appicon.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		02F83A732373E02000B2EA2D /* Network */ = {
@@ -230,6 +261,7 @@
 		4533B5EE236A59B400D99E25 /* HomeCooked */ = {
 			isa = PBXGroup;
 			children = (
+				02DE3463239708EE00571D44 /* Assets */,
 				4533B644236E195400D99E25 /* Models */,
 				4533B61C236A651B00D99E25 /* Views */,
 				02F83A782373E05400B2EA2D /* Parser */,
@@ -272,6 +304,7 @@
 				02D17498237077F500F3F6C6 /* BookedMeals */,
 				02AB28E6236FD6DF007AB3AD /* Reservation */,
 				024F7A052375502A00E692C4 /* Reviews */,
+				02DE345C239702EC00571D44 /* UserAccount */,
 				020C864B236FAB7A002618A4 /* MealDetails */,
 			);
 			path = Views;
@@ -287,6 +320,7 @@
 				029D6E212373B50900F27366 /* SearchParams.swift */,
 				0288B8A123756A71002A862E /* Date.swift */,
 				02B7B9AB236F91C600743B6D /* DummyData.swift */,
+				02DE34612397038400571D44 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -408,7 +442,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DE34692397094700571D44 /* appicon.png in Resources */,
 				4533B5FC236A59B800D99E25 /* LaunchScreen.storyboard in Resources */,
+				02DE346B2397096500571D44 /* logo.png in Resources */,
 				4533B616236A5CBD00D99E25 /* GoogleService-Info.plist in Resources */,
 				4533B5F9236A59B800D99E25 /* Preview Assets.xcassets in Resources */,
 				4533B5F6236A59B800D99E25 /* Assets.xcassets in Resources */,
@@ -512,6 +548,7 @@
 			files = (
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
 				028331CB236F7C4700643923 /* Meal.swift in Sources */,
+				02FF444F239713C50056C064 /* TextFieldInputView.swift in Sources */,
 				3F5E0AF52374A3540082FEFF /* ReservationViewModel.swift in Sources */,
 				02936CF123709F8900C82DC5 /* Reservation.swift in Sources */,
 				02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */,
@@ -523,6 +560,7 @@
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,
 				02F83A7E2373E09700B2EA2D /* MealDetailViewModel.swift in Sources */,
 				029D6E222373B50900F27366 /* SearchParams.swift in Sources */,
+				02DE34602397032800571D44 /* Login.swift in Sources */,
 				020C864D236FAB9C002618A4 /* LocationView.swift in Sources */,
 				4533B620236A65BF00D99E25 /* MealDetailsView.swift in Sources */,
 				02F83A752373E03100B2EA2D /* MealDetailClient.swift in Sources */,
@@ -533,6 +571,7 @@
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,
 				024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */,
 				0288B8A223756A71002A862E /* Date.swift in Sources */,
+				02DE34622397038400571D44 /* User.swift in Sources */,
 				0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */,
 				4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */,
 				02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */,
@@ -540,6 +579,7 @@
 				02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */,
 				02D1749A2370784300F3F6C6 /* BookedMealsView.swift in Sources */,
 				02F83A7A2373E06200B2EA2D /* ChefParser.swift in Sources */,
+				02FF444D239712100056C064 /* CreateAccount.swift in Sources */,
 				02F83A772373E04600B2EA2D /* SearchClient.swift in Sources */,
 				02B7B9AC236F91C600743B6D /* DummyData.swift in Sources */,
 			);
