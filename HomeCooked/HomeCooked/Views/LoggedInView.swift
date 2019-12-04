@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct LoggedInView: View {
+    @State var selection = 1
+    init(_ tabSelection: Int = 1) {
+        if tabSelection == 2 {
+            self.selection = tabSelection
+        }
+    }
+
     var body: some View {
-        TabView {
+        TabView(selection:$selection) {
             SearchView().tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search")

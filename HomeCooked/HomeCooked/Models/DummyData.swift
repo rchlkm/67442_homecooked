@@ -100,6 +100,22 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
     return meals.filter { $0.id == reservation.meal_id }[0]
 }
 
-var bookedMeal_items: [Reservation] = [reservation1]
-var pastMeal_items: [Reservation] = []
+//var bookedMeal_items: [Reservation] = [reservation1]
+//var pastMeal_items: [Reservation] = []
 
+
+let rm1 = ReservationMeal (
+    id: reservation1.id,
+    reservation: reservation1,
+    meal: meal1
+)
+
+let rm2 = ReservationMeal (
+    id: reservation2.id,
+    reservation: reservation2,
+    meal: meal2
+)
+
+//var reservationMeals: [ReservationMeal] = [rm1, rm2]
+var bookedMeal_items: [ReservationMeal] = [rm1]
+var pastMeal_items: [ReservationMeal] = []

@@ -15,39 +15,28 @@ struct BookedMealsView: View {
             Spacer()
             VStack(alignment: .leading) {
                 
-                Text("Upcoming Meals")
-                    .font(.title)
-                
+                Text("Upcoming Meals").font(.title)
                 if bookedMeal_items.isEmpty {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
-                    ForEach(bookedMeal_items, id: \.id) { reservation in
-                        //                            let meal = getMealsByIdFromReservation(reservation: reservation)
-                        //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
-                        MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
-                            .padding(.bottom, 15)
+                    ForEach(bookedMeal_items, id: \.id) { rm in
+                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
+                        .padding(.bottom, 15)
                     }
                 }
-                
                 Divider()
                 
-                Text("Past Meals")
-                    .font(.title)
+                Text("Past Meals").font(.title)
                 if pastMeal_items.isEmpty {
                     SearchForNewMealsView(type: "past")
                 } else {
-                    
-                    ForEach(pastMeal_items, id: \.id) { reservation in
+                    ForEach(pastMeal_items, id: \.id) { rm in
                         //                            let meal = getMealsByIdFromReservation(reservation: reservation)
                         //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
-                        MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
+                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
-                        
                     }
-                    
                 }
-                
-                
             }
         }
         .padding(.leading,20).padding(.trailing,20)

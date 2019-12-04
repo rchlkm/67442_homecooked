@@ -58,10 +58,9 @@ struct ReserveView: View {
         vm.postReservation(reservation: reservation)
     }
     
-    
     var reserveButton: some View {
         Section {
-            NavigationLink(destination:  BookedMealDetailView(reservation: reservation1, meal: meal), isActive: self.$isActive) { EmptyView() }
+            NavigationLink(destination:  ConfirmationView(reservation: reservation1, meal: self.meal), isActive: self.$isActive) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
                 self.isActive = true

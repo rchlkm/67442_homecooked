@@ -38,7 +38,6 @@ struct LoginView: View {
             
             NavigationLink(destination: LoggedInView(), isActive: self.$isActive) { EmptyView() }
             
-            
             Button(action: {
                 self.login()
                 self.isActive = true

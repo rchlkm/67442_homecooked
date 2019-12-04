@@ -16,6 +16,8 @@
 		0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C92370B8C5004954F9 /* ChefInfoView.swift */; };
 		02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02466B3523707F37001328BD /* BookedMealItemView.swift */; };
 		024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7A062375505400E692C4 /* RateMealAlert.swift */; };
+		02633E0F239797D000AE7596 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02633E0E239797D000AE7596 /* ConfirmationView.swift */; };
+		02633E1323979E5A00AE7596 /* ReservationMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02633E1223979E5A00AE7596 /* ReservationMeal.swift */; };
 		0273036E23978B7000B370CB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273036D23978B7000B370CB /* EmptyView.swift */; };
 		0273037023978BC500B370CB /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273036F23978BC500B370CB /* OrangeButton.swift */; };
 		0280757923975F1D00C533C2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280757823975F1D00C533C2 /* HomeView.swift */; };
@@ -78,6 +80,8 @@
 		0239A9C92370B8C5004954F9 /* ChefInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefInfoView.swift; sourceTree = "<group>"; };
 		02466B3523707F37001328BD /* BookedMealItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealItemView.swift; sourceTree = "<group>"; };
 		024F7A062375505400E692C4 /* RateMealAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMealAlert.swift; sourceTree = "<group>"; };
+		02633E0E239797D000AE7596 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		02633E1223979E5A00AE7596 /* ReservationMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationMeal.swift; sourceTree = "<group>"; };
 		0273036D23978B7000B370CB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		0273036F23978BC500B370CB /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
 		0280757823975F1D00C533C2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			children = (
 				02AB28E7236FD6FA007AB3AD /* ReserveView.swift */,
 				3F5E0AF42374A3540082FEFF /* ReservationViewModel.swift */,
+				02633E0E239797D000AE7596 /* ConfirmationView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				0288B8A123756A71002A862E /* Date.swift */,
 				02B7B9AB236F91C600743B6D /* DummyData.swift */,
 				02DE34612397038400571D44 /* User.swift */,
+				02633E1223979E5A00AE7596 /* ReservationMeal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02633E1323979E5A00AE7596 /* ReservationMeal.swift in Sources */,
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
 				0273036E23978B7000B370CB /* EmptyView.swift in Sources */,
 				028331CB236F7C4700643923 /* Meal.swift in Sources */,
@@ -585,6 +592,7 @@
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,
 				0280757923975F1D00C533C2 /* HomeView.swift in Sources */,
 				024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */,
+				02633E0F239797D000AE7596 /* ConfirmationView.swift in Sources */,
 				0288B8A223756A71002A862E /* Date.swift in Sources */,
 				02DE34622397038400571D44 /* User.swift in Sources */,
 				0273037023978BC500B370CB /* OrangeButton.swift in Sources */,
