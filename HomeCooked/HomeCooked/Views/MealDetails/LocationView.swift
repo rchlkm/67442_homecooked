@@ -32,12 +32,41 @@ struct LocationView: View {
                 //                    .font(.body)
             }.padding(.top, 5)
             
-            MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
-                .frame(height: 170)
+            if self.marker {
+                NavigationLink(destination: FullMapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)) {
+                    MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
+                        .frame(height: 170)
+                }
+            } else {
+                MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)
+                    .frame(height: 170)
+            }
         }
     }
 }
 
+
+struct FullMapView: View {
+    let lat: Double
+    let lng: Double
+    let marker: Bool
+    init(lat: Double, lng: Double, marker: Bool) {
+        self.lat = lat
+        self.lng = lng
+        self.marker = marker
+    }
+    
+    var body: some View {
+        VStack {
+            MapView(lat: self.lat, lng: self.lng, marker: self.marker)
+        }
+        .navigationBarItems(trailing:
+            Button("Open Maps") {
+                print("Open Maps tapped!")
+            }
+        )
+    }
+}
 
 struct MapView: UIViewRepresentable {
     let lat: Double

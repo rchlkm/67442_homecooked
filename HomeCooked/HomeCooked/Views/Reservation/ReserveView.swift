@@ -11,24 +11,12 @@ import SwiftUI
 struct ReserveView: View {
     let meal: Meal
     @State var guest_count: Int = 1
+@State var confirmAlertPresent = false
     
-    var party_size: Int = 3
-    var guestString: String = "guest(s)" //= guest_count == 1 ? "guest" : "guests"
-    let reservation : Reservation
-    let vm : ReservationViewModel
     
     init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
-        //        self.guest_count = search_guest_count
-        
-        func randomString(length: Int) -> String {
-            let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-            return String((0..<length).map{ _ in letters.randomElement()! })
-        }
-        self.reservation = Reservation(id: randomString(length: 16), guest_id: 0, meal_id: self.meal.id, payment_info: "12345", guest_count: party_size)
-        self.vm = ReservationViewModel(reservation: self.reservation)
     }
-    
     
     var body: some View {
         //        NavigationView {
@@ -53,13 +41,10 @@ struct ReserveView: View {
                 
                 policy.padding(.bottom, 20)
                 
-                
                 HStack {
                     reserveButton.padding(.trailing, 10)
                     viewReservation
-                    
                 }
-                //                Spacer()
                 
             }
             .padding(.leading,20).padding(.trailing,20)
@@ -67,23 +52,39 @@ struct ReserveView: View {
             
         }
         //        }
-        
+    }
+    
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
     func reserveMeal() {
         //print(reservation)
         self.vm.postReservation(reservation: self.reservation)
+      
+        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
+        let vm = ReservationViewModel(reservation: reservation)
+        vm.postReservation(reservation: reservation)
+    }
+    
+    var confirmAlert: Alert {
+        Alert(title: Text("Meal has been reserved!"),
+              message: Text("Click 'View Reservation' to see details."),
+              dismissButton: Alert.Button.default(Text("OK")) {})
     }
     
     var reserveButton: some View {
         HStack {
             Button(action: {
                 self.reserveMeal()
+                self.confirmAlertPresent = true
             }) {
                 Text("Confirm")
                     .foregroundColor(Color.orange)
-            }
-                
+            }.alert(isPresented: $confirmAlertPresent) { () -> Alert in
+                    confirmAlert
+                }
             .frame(width: 100)
         }
         .padding(10)
@@ -94,7 +95,7 @@ struct ReserveView: View {
     }
     
     var viewReservation: some View {
-        NavigationLink(destination: BookedMealDetailView(meal: meal)) {
+        NavigationLink(destination: BookedMealDetailView(reservation: reservation1, meal: meal)) {
             HStack {
                 Text("View Reservation")
                     .padding(10)
@@ -117,15 +118,21 @@ struct ReserveView: View {
     }
     
     var guest_stepper: some View {
-        Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
-            Image(systemName: "person.fill").foregroundColor(Color.orange)
-            Text("\(guest_count)")
-        })
+            Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
+                Image(systemName: "person.fill").foregroundColor(Color.orange)
+                Text("\(guest_count)").fontWeight(.bold).foregroundColor(Color.orange)
+                Text("(Max: \(meal.max_guest_count))")
+            })
+    }
+    
+    func guestString() -> String {
+        let guestString: String = guest_count == 1 ? "guest" : "guests"
+        return guestString
     }
     
     var meal_price: some View {
         HStack {
-            Text("$\(meal.price) x \(guest_count) \(guestString)")
+            Text("$\(meal.price) x \(guest_count) \(self.guestString())")
             Spacer()
             Text("$\(meal.price * guest_count)")
                 .fontWeight(.bold)

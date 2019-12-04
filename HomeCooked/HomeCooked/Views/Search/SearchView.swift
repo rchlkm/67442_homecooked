@@ -11,17 +11,24 @@ import SwiftUI
 struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
-    @State var max_guest_count: Int = 2
+    @State var guest_count: Int = 2
     @State var search_date = Date()
+    @ObservedObject var vm : SearchViewModel
     
+/*
     let vm = SearchViewModel()
     @State var search_results: [Meal] = [Meal]()
     @State var updated: Bool = false
+  */
+    init(){
+        self.vm = SearchViewModel()
+    }
     
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack (alignment: .leading) {
+                VStack {
+//                VStack (alignment: .leading) {
                     Spacer().frame(height: 20.0)
                     
                     searchEngine
@@ -30,9 +37,15 @@ struct SearchView: View {
                     filterButton
                     Spacer().frame(height: 30.0)
                     
+/*
                     //                     search_results
                   ForEach(self.search_results, id: \.id) { meal in
                         MealListItemView(type: "search", meal: meal, search_guest_count: self.max_guest_count)
+*/
+                    
+//                    ForEach(self.vm.meals, id: \.id) { meal in
+                     ForEach(search_items, id: \.id) { meal in
+                        MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
                             .padding(.bottom, 15)
                     }
                 }
@@ -44,12 +57,18 @@ struct SearchView: View {
     }
     
     func submitSearch() {
+/*
       let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
         // do something here with results
         self.search_results = vm.search(params: search_params)
         print(self.search_results)
         self.updated = !self.updated
         print(self.updated)
+*/
+      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
+
+        self.vm.search(params: search_params)
+        print(self.vm.meals)
     }
     
     var searchEngine: some View {
@@ -80,7 +99,7 @@ struct SearchView: View {
             self.filterIsPresent.toggle()
         }) {
             HStack {
-                IconTextView(text: "\(max_guest_count)", img: "person.fill")
+                IconTextView(text: "\(guest_count)", img: "person.fill")
                     .padding(.trailing, 10)
                 
                 MealDateView(meal_date: formatDate(date: search_date))
@@ -105,20 +124,21 @@ struct SearchView: View {
                 .fontWeight(.bold)
                 .padding()
             
-            Stepper(value: $max_guest_count, in: 1...10, label: {
+            Stepper(value: $guest_count, in: 1...10, label: {
                 Image(systemName: "person.fill").foregroundColor(Color.orange)
-                Text("\(max_guest_count)")
+                Text("\(guest_count)")
             }).frame(width:200)
-            .padding(30)
+            .padding(10)
             
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
             }
-            
+                        
             Button("Apply") {
                 self.filterIsPresent.toggle()
             }
         }.padding()
+            .border(Color.blue)
     }
 }
 

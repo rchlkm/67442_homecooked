@@ -33,48 +33,15 @@ import Foundation
 //}
 
 
-//func getTodayDate() -> String {
-//    let date = Date()
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "MM/d"
-//    return formatter.string(from: date)
-//}
-//getTodayDate()
-
-extension Date {
-    
-    var month: Int {
-        return Calendar.current.component(.month,  from: self)
-    }
-    var day: Int {
-        return Calendar.current.component(.day,  from: self)
-    }
-    var dayOfWeek: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EE"
-        return dateFormatter.string(from:self)
-    }
-    
-    var date_str: String {
-        return "\(self.dayOfWeek) \(self.month)/\(self.day)"
-    }
+func randomString(length: Int) -> String {
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    return String((0..<length).map{ _ in letters.randomElement()! })
 }
 
+randomString(length: 10)
 
 
-let date = Date()
-date.month
-date.dayOfWeek
+let currentDateTime = Date()
 
 
-let formatter = DateFormatter()
-formatter.dateFormat = "YYYY/MM/dd"
-let someDateTime = formatter.date(from: "2019/11/9")
-
-
-
-//let calendar = Calendar.current
-//calendar.component(.year, from: date)
-//calendar.component(.month, from: date)
-//calendar.component(.day, from: date)
-//calendar.dateComponents([.weekday], from: date).weekday
+let time = 1900

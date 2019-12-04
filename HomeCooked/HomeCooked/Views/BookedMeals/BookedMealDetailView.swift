@@ -10,10 +10,15 @@ import SwiftUI
 
 struct BookedMealDetailView: View {
     let meal: Meal
-    init(meal: Meal) {
+    let reservation: Reservation
+    @ObservedObject var vm : ReservationViewModel
+    
+    init(reservation: Reservation, meal: Meal) {
         self.meal = meal
+        self.reservation = reservation
+        self.vm = ReservationViewModel(reservation: reservation)
     }
-        
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -27,21 +32,39 @@ struct BookedMealDetailView: View {
                 ChefInfoView(chef: chef1)
                 Spacer().frame(height:30.0)
                 
-                RateMealAlert()
-                Spacer().frame(height:30.0)
+                //                RateMealAlert()
+                //                Spacer().frame(height:30.0)
                 
-                Text("Rate Meal")
-                    .fontWeight(.bold)
-                RatePicker()
+                
+//                if (!meal.is_complete()) {
+                    
+                    Button(action: {
+                        self.cancel()
+                    }) {
+                        Text("Cancel")
+                    }
+                    
+//                } else {
+                    Text("Rate Meal")
+                        .fontWeight(.bold)
+                    RatePicker()
+//                }
+                
             }
         }
         .navigationBarTitle(meal.name)
         .padding(.leading,20).padding(.trailing,20)
     }
+    
+    func cancel() {
+        self.vm.cancelReservation()
+    }
+    
+    
 }
 
 struct BookedMealDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookedMealDetailView(meal: meal1)
+        BookedMealDetailView(reservation: reservation1, meal: meal1)
     }
 }

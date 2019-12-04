@@ -15,24 +15,24 @@ func date_formater(date_str: String) -> Date {
 }
 
 let meal1 = Meal(
-    id: "abcdefg",
+    id: "taCufe3fXB",
     name: "Udon",
     description: "it's yummy! and traditional",
     chef_id: "abc",
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
-    images: [],
+    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
     price: 12,
 //    food_policy: "",
 //    cancellation_policy: "",
-    time: "6PM",
+    time: "6 PM",
     year: 2019,
     month: 11,
     day: 8,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: -79.9959,
+    latitude: 79.9959,
     max_guest_count: 3,
     is_booked: false
 )
@@ -49,7 +49,7 @@ let meal2 = Meal(
     price: 15,
 //    food_policy: "",
 //    cancellation_policy: "",
-    time: "6PM",
+    time: "5:30 PM",
     year: 2019,
     month: 12,
     day: 20,
@@ -80,15 +80,15 @@ func getChefsById(chef_id: String) -> Chef {
 
 let reservation1 = Reservation (
     id: "1",
-    guest_id: 1,
-    meal_id: "abc",
+    guest_id: "abc",
+    meal_id: "taCufe3fXB",
     payment_info: "",
     guest_count: 2
 )
 let reservation2 = Reservation (
     id: "2",
-    guest_id: 1,
-    meal_id: "def",
+    guest_id: "abc",
+    meal_id: "efghijjkl",
     payment_info: "",
     guest_count: 2
 )
@@ -100,5 +100,6 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
     return meals.filter { $0.id == reservation.meal_id }[0]
 }
 
-var bookedMeal_items: [Reservation] = [reservation1, reservation2]
+var bookedMeal_items: [Reservation] = [reservation1]
 var pastMeal_items: [Reservation] = []
+

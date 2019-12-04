@@ -12,6 +12,8 @@ struct MealDetailsView: View {
     let meal: Meal
     let search_guest_count: Int // used for default count when making reservation
     
+//    UITabBar.appearance().isHidden = true
+
     init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
         self.search_guest_count = search_guest_count
@@ -29,9 +31,6 @@ struct MealDetailsView: View {
                     Spacer().frame(height: 20.0)
                     
                     reservations
-                    Spacer().frame(height: 20.0)
-                    
-                    reviews
                     Spacer().frame(height: 20.0)
                     
                     LocationView(meal: meal)
@@ -55,7 +54,11 @@ struct MealDetailsView: View {
             Text(meal.description)
             Spacer().frame(height: 20.0)
             
-            Text("By Chef")
+            
+            NavigationLink(destination: ChefDetailsView(chef: chef1)) {
+                Text("By Chef")
+            }
+            
         }
     }
     
@@ -83,20 +86,6 @@ struct MealDetailsView: View {
         }
     }
     
-    var reviews: some View {
-        VStack(alignment: .leading) {
-            Text("Reviews" + " (5)")
-                .font(.title)
-                .fontWeight(.bold)
-            
-            Section {
-                Text("4.7")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.orange)
-            }
-        }.padding(.top, 5)
-    }
     
     var additionalInfo: some View {
         VStack(alignment: .leading) {
