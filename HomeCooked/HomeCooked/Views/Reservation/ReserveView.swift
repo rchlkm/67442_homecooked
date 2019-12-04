@@ -11,15 +11,13 @@ import SwiftUI
 struct ReserveView: View {
     let meal: Meal
     @State var guest_count: Int = 1
-@State var confirmAlertPresent = false
-    
+    @State var isActive = false
     
     init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
     }
     
     var body: some View {
-        //        NavigationView {
         ScrollView {
             VStack(alignment: .leading) {
                 
@@ -41,17 +39,12 @@ struct ReserveView: View {
                 
                 policy.padding(.bottom, 20)
                 
-                HStack {
-                    reserveButton.padding(.trailing, 10)
-                    viewReservation
-                }
-                
+                reserveButton
             }
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle(Text("Reserve Meal"))
             
         }
-        //        }
     }
     
     func randomString(length: Int) -> String {
@@ -65,47 +58,27 @@ struct ReserveView: View {
         vm.postReservation(reservation: reservation)
     }
     
-    var confirmAlert: Alert {
-        Alert(title: Text("Meal has been reserved!"),
-              message: Text("Click 'View Reservation' to see details."),
-              dismissButton: Alert.Button.default(Text("OK")) {})
-    }
     
     var reserveButton: some View {
-        HStack {
+        Section {
+            NavigationLink(destination:  BookedMealDetailView(reservation: reservation1, meal: meal), isActive: self.$isActive) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
-                self.confirmAlertPresent = true
+                self.isActive = true
             }) {
-                Text("Confirm")
-                    .foregroundColor(Color.orange)
-            }.alert(isPresented: $confirmAlertPresent) { () -> Alert in
-                    confirmAlert
+                HStack {
+                    Text("Confirm")
+                        .padding(10)
+                        .foregroundColor(Color.orange)
                 }
-            .frame(width: 100)
-        }
-        .padding(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth: 0.5)
-        )
-    }
-    
-    var viewReservation: some View {
-        NavigationLink(destination: BookedMealDetailView(reservation: reservation1, meal: meal)) {
-            HStack {
-                Text("View Reservation")
-                    .padding(10)
-                    .foregroundColor(Color.orange)
+                .frame(width: 200)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.gray, lineWidth: 0.5)
+                )
             }
-            .frame(width: 200)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 0.5)
-            )
         }
     }
-    
     
     var meal_details: some View {
         VStack {
@@ -115,11 +88,11 @@ struct ReserveView: View {
     }
     
     var guest_stepper: some View {
-            Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
-                Image(systemName: "person.fill").foregroundColor(Color.orange)
-                Text("\(guest_count)").fontWeight(.bold).foregroundColor(Color.orange)
-                Text("(Max: \(meal.max_guest_count))")
-            })
+        Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
+            Image(systemName: "person.fill").foregroundColor(Color.orange)
+            Text("\(guest_count)").fontWeight(.bold).foregroundColor(Color.orange)
+            Text("(Max: \(meal.max_guest_count))")
+        })
     }
     
     func guestString() -> String {
@@ -154,3 +127,11 @@ struct SelectMealTimeView_Previews: PreviewProvider {
         ReserveView(meal:meal1)
     }
 }
+
+
+//@State var confirmAlertPresent = false
+//var confirmAlert: Alert {
+//    Alert(title: Text("Meal has been reserved!"),
+//          message: Text("Click 'View Reservation' to see details."),
+//          dismissButton: Alert.Button.default(Text("OK")) {})
+//}

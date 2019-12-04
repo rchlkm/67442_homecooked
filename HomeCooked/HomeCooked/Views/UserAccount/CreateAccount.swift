@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CreateAccount: View {
+struct CreateAccountView: View {
     @State var first_name: String = ""
     @State var last_name: String = ""
     @State var user_email: String = ""
@@ -74,6 +74,6 @@ struct CreateAccount: View {
 
 struct CreateAccount_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccount()
+        CreateAccountView()
     }
 }

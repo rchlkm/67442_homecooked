@@ -10,11 +10,15 @@
 		0207ABA9236F86A900057F25 /* SearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0207ABA8236F86A900057F25 /* SearchItemView.swift */; };
 		020C864D236FAB9C002618A4 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C864C236FAB9C002618A4 /* LocationView.swift */; };
 		0220F19E23847DD0007FD60E /* ChefDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220F19D23847DD0007FD60E /* ChefDetailsView.swift */; };
+		022782482397695700E9A4EA /* LoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022782472397695700E9A4EA /* LoggedInView.swift */; };
 		0239A9C22370A776004954F9 /* BookedMealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C12370A776004954F9 /* BookedMealDetailView.swift */; };
 		0239A9C52370A9ED004954F9 /* IconTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C42370A9ED004954F9 /* IconTextView.swift */; };
 		0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C92370B8C5004954F9 /* ChefInfoView.swift */; };
 		02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02466B3523707F37001328BD /* BookedMealItemView.swift */; };
 		024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7A062375505400E692C4 /* RateMealAlert.swift */; };
+		0273036E23978B7000B370CB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273036D23978B7000B370CB /* EmptyView.swift */; };
+		0273037023978BC500B370CB /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273036F23978BC500B370CB /* OrangeButton.swift */; };
+		0280757923975F1D00C533C2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280757823975F1D00C533C2 /* HomeView.swift */; };
 		028331CB236F7C4700643923 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CA236F7C4700643923 /* Meal.swift */; };
 		028331D0236F7D6600643923 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews.swift */; };
 		0288B8A223756A71002A862E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288B8A123756A71002A862E /* Date.swift */; };
@@ -68,11 +72,15 @@
 		0207ABA8236F86A900057F25 /* SearchItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemView.swift; sourceTree = "<group>"; };
 		020C864C236FAB9C002618A4 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		0220F19D23847DD0007FD60E /* ChefDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefDetailsView.swift; sourceTree = "<group>"; };
+		022782472397695700E9A4EA /* LoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInView.swift; sourceTree = "<group>"; };
 		0239A9C12370A776004954F9 /* BookedMealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealDetailView.swift; sourceTree = "<group>"; };
 		0239A9C42370A9ED004954F9 /* IconTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextView.swift; sourceTree = "<group>"; };
 		0239A9C92370B8C5004954F9 /* ChefInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefInfoView.swift; sourceTree = "<group>"; };
 		02466B3523707F37001328BD /* BookedMealItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealItemView.swift; sourceTree = "<group>"; };
 		024F7A062375505400E692C4 /* RateMealAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMealAlert.swift; sourceTree = "<group>"; };
+		0273036D23978B7000B370CB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		0273036F23978BC500B370CB /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		0280757823975F1D00C533C2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		028331CA236F7C4700643923 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		028331CF236F7D6600643923 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		0288B8A123756A71002A862E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -159,6 +167,8 @@
 				02D1749B2370796300F3F6C6 /* MealListItemView.swift */,
 				0239A9C42370A9ED004954F9 /* IconTextView.swift */,
 				02FF444E239713C50056C064 /* TextFieldInputView.swift */,
+				0273036D23978B7000B370CB /* EmptyView.swift */,
+				0273036F23978BC500B370CB /* OrangeButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -205,6 +215,7 @@
 			children = (
 				02DE345F2397032800571D44 /* Login.swift */,
 				02FF444C239712100056C064 /* CreateAccount.swift */,
+				0280757823975F1D00C533C2 /* HomeView.swift */,
 			);
 			path = UserAccount;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				4533B5F3236A59B400D99E25 /* ContentView.swift */,
+				022782472397695700E9A4EA /* LoggedInView.swift */,
 				0239A9C32370A9E0004954F9 /* Common */,
 				0239A9C82370B8B4004954F9 /* Chef */,
 				45AF0ECC236E21810080D29D /* Search */,
@@ -547,6 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4533B61B236A650B00D99E25 /* SearchView.swift in Sources */,
+				0273036E23978B7000B370CB /* EmptyView.swift in Sources */,
 				028331CB236F7C4700643923 /* Meal.swift in Sources */,
 				02FF444F239713C50056C064 /* TextFieldInputView.swift in Sources */,
 				3F5E0AF52374A3540082FEFF /* ReservationViewModel.swift in Sources */,
@@ -567,11 +580,14 @@
 				02F83A7C2373E07700B2EA2D /* MealParser.swift in Sources */,
 				02905E8C237610B1008E9304 /* BookedMealsViewModel.swift in Sources */,
 				0239A9C22370A776004954F9 /* BookedMealDetailView.swift in Sources */,
+				022782482397695700E9A4EA /* LoggedInView.swift in Sources */,
 				0239A9C52370A9ED004954F9 /* IconTextView.swift in Sources */,
 				4533B5F2236A59B400D99E25 /* SceneDelegate.swift in Sources */,
+				0280757923975F1D00C533C2 /* HomeView.swift in Sources */,
 				024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */,
 				0288B8A223756A71002A862E /* Date.swift in Sources */,
 				02DE34622397038400571D44 /* User.swift in Sources */,
+				0273037023978BC500B370CB /* OrangeButton.swift in Sources */,
 				0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */,
 				4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */,
 				02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */,

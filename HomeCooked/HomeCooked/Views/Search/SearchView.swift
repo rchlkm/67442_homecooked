@@ -20,35 +20,33 @@ struct SearchView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-//                VStack (alignment: .leading) {
-                    Spacer().frame(height: 20.0)
-                    
-                    searchEngine
-                    Spacer().frame(height: 15.0)
-                    
-                    filterButton
-                    Spacer().frame(height: 30.0)
-                    
-                    
-//                    ForEach(self.vm.meals, id: \.id) { meal in
-                     ForEach(search_items, id: \.id) { meal in
-                        MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
-                            .padding(.bottom, 15)
-                    }
+        ScrollView {
+            VStack {
+                //                VStack (alignment: .leading) {
+                Spacer().frame(height: 20.0)
+                
+                searchEngine
+                Spacer().frame(height: 15.0)
+                
+                filterButton
+                Spacer().frame(height: 30.0)
+                
+                
+                //                    ForEach(self.vm.meals, id: \.id) { meal in
+                ForEach(search_items, id: \.id) { meal in
+                    MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
+                        .padding(.bottom, 15)
                 }
             }
-            .padding(.leading,20).padding(.trailing,20)
-            .navigationBarHidden(true)
-            .navigationBarTitle(Text("Search"))
-        }.navigationBarBackButtonHidden(true)
+        }
+        .padding(.leading,20).padding(.trailing,20)
+        .navigationBarHidden(true)
+        .navigationBarTitle(Text("Search"))
     }
     
     func submitSearch() {
-      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
-
+        let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
+        
         self.vm.search(params: search_params)
         print(self.vm.meals)
     }
@@ -110,12 +108,12 @@ struct SearchView: View {
                 Image(systemName: "person.fill").foregroundColor(Color.orange)
                 Text("\(guest_count)")
             }).frame(width:200)
-            .padding(10)
+                .padding(10)
             
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
             }
-                        
+            
             Button("Apply") {
                 self.filterIsPresent.toggle()
             }
