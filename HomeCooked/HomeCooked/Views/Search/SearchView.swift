@@ -16,6 +16,7 @@ struct SearchView: View {
     
     let vm = SearchViewModel()
     @State var search_results: [Meal] = [Meal]()
+    @State var updated: Bool = false
     
     var body: some View {
         NavigationView {
@@ -30,8 +31,8 @@ struct SearchView: View {
                     Spacer().frame(height: 30.0)
                     
                     //                     search_results
-                    ForEach(search_items, id: \.id) { meal in
-                        MealListItemView(type: "search", meal: meal, search_guest_count: self.guest_count)
+                  ForEach(self.search_results, id: \.id) { meal in
+                        MealListItemView(type: "search", meal: meal, search_guest_count: self.max_guest_count)
                             .padding(.bottom, 15)
                     }
                 }
@@ -45,9 +46,10 @@ struct SearchView: View {
     func submitSearch() {
       let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
         // do something here with results
-        print("Hellooooo")
         self.search_results = vm.search(params: search_params)
         print(self.search_results)
+        self.updated = !self.updated
+        print(self.updated)
     }
     
     var searchEngine: some View {

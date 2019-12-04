@@ -19,6 +19,7 @@ struct RatePicker : View {
     return
       Button(action: {
         self.star_count = index
+        
       }) {
         Image(systemName:imageName)
           .imageScale(.large)

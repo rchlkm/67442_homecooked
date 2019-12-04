@@ -71,7 +71,7 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
-        print(reservation)
+        //print(reservation)
         self.vm.postReservation(reservation: self.reservation)
     }
     
