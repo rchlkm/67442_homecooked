@@ -21,8 +21,6 @@ struct Login: View {
                 .frame(width: 150, height: 150)
                 .foregroundColor(Color.orange)
             
-//            Image("logo.png")//.frame(height: 100.0).border(Color.blue)
-            
             Spacer().frame(height: 30.0)
                 
             TextFieldInputView(placeholder: "Email", input: $user_email)
@@ -41,7 +39,6 @@ struct Login: View {
             }
             Spacer()
         }.padding(.leading,20).padding(.trailing,20)
-            .border(Color.green)
     }
         
     func login() {

@@ -41,16 +41,18 @@ struct CreateAccount: View {
 //            TextFieldInputView(placeholder: "Age", input: $age)
 //            TextFieldInputView(placeholder: "Country", input: $country)
             
-            Spacer().frame(height: 10.0)
-//            SecureField("Password", text: $password)
-//                 .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
-//                 .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
-//
+//            Spacer().frame(height: 10.0)
+            SecureField("Password", text: $password)
+                 .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
+                 .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
+            
+//            Spacer().frame(height: 10.0)
 //            SecureField("Confirm Password", text: $confirm_password)
 //                .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
 //                .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
             
 //            Spacer().frame(height: 10.0)
+            
             Button(action: {
                 self.create_account()
             }) {
