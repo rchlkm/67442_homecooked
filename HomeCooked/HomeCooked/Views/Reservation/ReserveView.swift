@@ -11,15 +11,13 @@ import SwiftUI
 struct ReserveView: View {
     let meal: Meal
     @State var guest_count: Int = 1
-@State var confirmAlertPresent = false
-    
+    @State var isActive = false
     
     init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
     }
     
     var body: some View {
-        //        NavigationView {
         ScrollView {
             VStack(alignment: .leading) {
                 
@@ -39,19 +37,14 @@ struct ReserveView: View {
                 payment
                 Divider()
                 
-                policy.padding(.bottom, 20)
+                policy//.padding(.bottom, 20)
                 
-                HStack {
-                    reserveButton.padding(.trailing, 10)
-                    viewReservation
-                }
-                
+                reserveButton
             }
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle(Text("Reserve Meal"))
             
         }
-        //        }
     }
     
     func randomString(length: Int) -> String {
@@ -60,55 +53,28 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
+/*
         //print(reservation)
         //self.vm.postReservation(reservation: self.reservation)
       
         let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
+*/
+        let meal_total = "$\(meal.price * guest_count)"
+        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count, total: meal_total)
+
         let vm = ReservationViewModel(reservation: reservation)
         vm.postReservation(reservation: reservation)
     }
     
-    var confirmAlert: Alert {
-        Alert(title: Text("Meal has been reserved!"),
-              message: Text("Click 'View Reservation' to see details."),
-              dismissButton: Alert.Button.default(Text("OK")) {})
-    }
-    
     var reserveButton: some View {
-        HStack {
+        VStack {
+            NavigationLink(destination:  ConfirmationView(reservation: reservation1, meal: self.meal), isActive: self.$isActive) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
-                self.confirmAlertPresent = true
-            }) {
-                Text("Confirm")
-                    .foregroundColor(Color.orange)
-            }.alert(isPresented: $confirmAlertPresent) { () -> Alert in
-                    confirmAlert
-                }
-            .frame(width: 100)
-        }
-        .padding(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth: 0.5)
-        )
-    }
-    
-    var viewReservation: some View {
-        NavigationLink(destination: BookedMealDetailView(reservation: reservation1, meal: meal)) {
-            HStack {
-                Text("View Reservation")
-                    .padding(10)
-                    .foregroundColor(Color.orange)
-            }
-            .frame(width: 200)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.gray, lineWidth: 0.5)
-            )
+                self.isActive = true
+            }) {  OrangeButton("Confirm") }
         }
     }
-    
     
     var meal_details: some View {
         VStack {
@@ -118,11 +84,11 @@ struct ReserveView: View {
     }
     
     var guest_stepper: some View {
-            Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
-                Image(systemName: "person.fill").foregroundColor(Color.orange)
-                Text("\(guest_count)").fontWeight(.bold).foregroundColor(Color.orange)
-                Text("(Max: \(meal.max_guest_count))")
-            })
+        Stepper(value: $guest_count, in: 1...meal.max_guest_count, label: {
+            Image(systemName: "person.fill").foregroundColor(OrangeColor)
+            Text("\(guest_count)").fontWeight(.bold).foregroundColor(OrangeColor)
+            Text("(Max: \(meal.max_guest_count))")
+        })
     }
     
     func guestString() -> String {
@@ -136,7 +102,7 @@ struct ReserveView: View {
             Spacer()
             Text("$\(meal.price * guest_count)")
                 .fontWeight(.bold)
-                .foregroundColor(Color.orange)
+                .foregroundColor(OrangeColor)
         }.padding()
     }
     
@@ -157,3 +123,10 @@ struct SelectMealTimeView_Previews: PreviewProvider {
         ReserveView(meal:meal1)
     }
 }
+
+//@State var confirmAlertPresent = false
+//var confirmAlert: Alert {
+//    Alert(title: Text("Meal has been reserved!"),
+//          message: Text("Click 'View Reservation' to see details."),
+//          dismissButton: Alert.Button.default(Text("OK")) {})
+//}

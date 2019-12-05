@@ -21,13 +21,13 @@ struct LocationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Location")
-                .font(.title)
+//                .font(.title)
                 .fontWeight(.bold)
             
             Section {
                 Text(meal.city)
                     .font(.body)
-                    .fontWeight(.bold)
+//                    .fontWeight(.bold)
                 //                Text("5 minute walk from")
                 //                    .font(.body)
             }.padding(.top, 5)
@@ -61,10 +61,14 @@ struct FullMapView: View {
             MapView(lat: self.lat, lng: self.lng, marker: self.marker)
         }
         .navigationBarItems(trailing:
-            Button("Open Maps") {
-                print("Open Maps tapped!")
+            Button(action: { self.open_maps() }) {
+                Text("Open Maps")
             }
         )
+    }
+    
+    func open_maps() {
+        print("open maps clicked!!")
     }
 }
 

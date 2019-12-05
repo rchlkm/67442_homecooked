@@ -9,50 +9,48 @@
 import SwiftUI
 
 struct BookedMealsView: View {
+    @State var isActive = false
     var body: some View {
-        NavigationView {
-            ScrollView {
-                Spacer()
-                VStack(alignment: .leading) {
-                    
-                    Text("Upcoming Meals")
-                        .font(.title)
-                    
-                    if bookedMeal_items.isEmpty {
-                        SearchForNewMealsView(type: "upcoming")
-                    } else {
-                        ForEach(bookedMeal_items, id: \.id) { reservation in
-                            //                            let meal = getMealsByIdFromReservation(reservation: reservation)
-                            //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
-                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
-                                .padding(.bottom, 15)
-                        }
+        ScrollView {
+//            Spacer()
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("My Meals")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top,40).padding(.bottom,30)
+                    Spacer()
+                    NavigationLink(destination: UserProfileView()) {
+                        Text("My Profile")
                     }
-                    
-                    Divider()
-                    
-                    Text("Past Meals")
-                        .font(.title)
-                    if pastMeal_items.isEmpty {
-                        SearchForNewMealsView(type: "past")
-                    } else {
-                        
-                        ForEach(pastMeal_items, id: \.id) { reservation in
-//                            let meal = getMealsByIdFromReservation(reservation: reservation)
-//                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
-                            MealListItemView(type: "bookedMeal", meal: getMealsByIdFromReservation(reservation: reservation), reservation: reservation)
+                }
+                Text("Upcoming Meals").font(.title)
+                if bookedMeal_items.isEmpty {
+                    SearchForNewMealsView(type: "upcoming")
+                } else {
+                    ForEach(bookedMeal_items, id: \.id) { rm in
+                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
+                        .padding(.bottom, 15)
+                    }
+                }
+                Divider()
+                
+                Text("Past Meals").font(.title)
+                if pastMeal_items.isEmpty {
+                    SearchForNewMealsView(type: "past")
+                } else {
+                    ForEach(pastMeal_items, id: \.id) { rm in
+                        //                            let meal = getMealsByIdFromReservation(reservation: reservation)
+                        //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
+                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
-                            
-                        }
-                        
                     }
-                    
-                    
                 }
             }
-            .padding(.leading,20).padding(.trailing,20)
-            .navigationBarTitle("Meals")
         }
+        .padding(.leading,20).padding(.trailing,20)
+        .navigationBarHidden(true)
+        .navigationBarTitle("Meals")
     }
 }
 

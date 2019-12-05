@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let search_filters = ["Vegetarian", "Vegan", "Halal"]
+
 struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
@@ -20,40 +22,35 @@ struct SearchView: View {
     @State var search_results: [Meal] = [Meal]()
     @State var updated: Bool = false
   */
+
+    @State private var didTap: Bool = false
+    
     init(){
         self.vm = SearchViewModel()
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-//                VStack (alignment: .leading) {
-                    Spacer().frame(height: 20.0)
-                    
-                    searchEngine
-                    Spacer().frame(height: 15.0)
-                    
-                    filterButton
-                    Spacer().frame(height: 30.0)
-                    
-/*
-                    //                     search_results
-                  ForEach(self.search_results, id: \.id) { meal in
-                        MealListItemView(type: "search", meal: meal, search_guest_count: self.max_guest_count)
-*/
-                    
-//                    ForEach(self.vm.meals, id: \.id) { meal in
-                     ForEach(search_items, id: \.id) { meal in
-                        MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
-                            .padding(.bottom, 15)
-                    }
+        ScrollView {
+            VStack (alignment: .leading) {
+                Spacer().frame(height: 20.0)
+                
+                searchEngine
+                Spacer().frame(height: 15.0)
+                
+                filterButton
+                Spacer().frame(height: 30.0)
+                
+                
+                //                    ForEach(self.vm.meals, id: \.id) { meal in
+                ForEach(search_items, id: \.id) { meal in
+                    MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
+                        .padding(.bottom, 15)
                 }
             }
-            .padding(.leading,20).padding(.trailing,20)
-            .navigationBarHidden(true)
-            .navigationBarTitle(Text("Search"))
-        }.navigationBarBackButtonHidden(true)
+        }
+        .padding(.leading,20).padding(.trailing,20)
+        .navigationBarHidden(true)
+        .navigationBarTitle(Text("Search"))
     }
     
     func submitSearch() {
@@ -65,8 +62,8 @@ struct SearchView: View {
         self.updated = !self.updated
         print(self.updated)
 */
-      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
-
+        let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
+        
         self.vm.search(params: search_params)
         print(self.vm.meals)
     }
@@ -119,26 +116,36 @@ struct SearchView: View {
     
     var filterModal: some View {
         VStack {
+            Spacer()
             Text("Filter")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
             
+            SectionTitle("Party Size")
             Stepper(value: $guest_count, in: 1...10, label: {
-                Image(systemName: "person.fill").foregroundColor(Color.orange)
+                Image(systemName: "person.fill").foregroundColor(OrangeColor)
                 Text("\(guest_count)")
             }).frame(width:200)
-            .padding(10)
+                .padding(.bottom, 20)
             
+            SectionTitle("Choose a Date")
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
-            }
-                        
-            Button("Apply") {
+            }.padding(.bottom, 20)
+            
+            SectionTitle("Dietary").padding(.bottom)
+            HStack {
+                ForEach(search_filters, id: \.self) { filter in
+                    OptionButton(filter)
+                }
+            }.padding(.bottom, 40)
+            Button(action: {
                 self.filterIsPresent.toggle()
-            }
+            }) { OrangeButton("Apply") }
+            
         }.padding()
-            .border(Color.blue)
+            //.border(Color.blue)
     }
 }
 

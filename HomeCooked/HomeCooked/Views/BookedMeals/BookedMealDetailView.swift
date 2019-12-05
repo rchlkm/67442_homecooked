@@ -22,45 +22,36 @@ struct BookedMealDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                //            VStack {
+                BookedMealDetailComponentView(meal_date: self.meal.date(), meal_time: self.meal.time, guest_count: 2).padding(.top)
+                Divider().padding(.top).padding(.bottom)
                 
-                BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 2)
-                Spacer().frame(height: 30.0)
-                
-                LocationView(meal: meal, marker: true)
-                Spacer().frame(height:30.0)
+                LocationView(meal: self.meal, marker: true)
+                Divider().padding(.top).padding(.bottom)
                 
                 ChefInfoView(chef: chef1)
-                Spacer().frame(height:30.0)
+                Divider().padding(.top).padding(.bottom)
                 
-                //                RateMealAlert()
-                //                Spacer().frame(height:30.0)
+                PaymentsComponentView(reservation: self.reservation)
+                Divider().padding(.top).padding(.bottom)
                 
-                
-//                if (!meal.is_complete()) {
-                    
-                    Button(action: {
-                        self.cancel()
-                    }) {
-                        Text("Cancel")
-                    }
-                    
-//                } else {
-                    Text("Rate Meal")
-                        .fontWeight(.bold)
-                    RatePicker()
-//                }
-                
+                //                if (meal.is_complete()) {
+                RatePicker()
+                //                Divider().padding(.top).padding(.bottom)
+                //                } else {
+                Button(action: { self.cancel() }) {
+                    Text("Cancel Reservation")
+                }
             }
+            .padding(.leading,20).padding(.trailing,20)
+            .navigationBarTitle(meal.name)
         }
-        .navigationBarTitle(meal.name)
-        .padding(.leading,20).padding(.trailing,20)
     }
     
     func cancel() {
-        self.vm.cancelReservation()
+        print("cancelling reservation")
+        //        self.vm.cancelReservation()
     }
-    
-    
 }
 
 struct BookedMealDetailView_Previews: PreviewProvider {

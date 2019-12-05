@@ -8,50 +8,44 @@
 
 import SwiftUI
 
-struct Login: View {
+struct LoginView: View {
+    @State var isActive = false
+    
     @State var user_email: String = ""
     @State var password: String = ""
     
     var body: some View {
         VStack {
+            Image("logo").frame(width: 75, height: 75)
+            Spacer().frame(height: 75.0)
             
-            Spacer().frame(height: 200.0)
-           
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 150, height: 150)
-                .foregroundColor(Color.orange)
+            TextFieldWithBottomLine(placeholder: "Email", input: $user_email).padding(.bottom, 20)
+            TextFieldWithBottomLine(placeholder: "Password", input: $password, secure: true)
+            //            Text("You entered: \(password)")
             
-            Spacer().frame(height: 30.0)
-                
-            TextFieldInputView(placeholder: "Email", input: $user_email)
-            Spacer().frame(height: 10.0)
+            Spacer().frame(height: 25.0)
             
-            SecureField("Password", text: $password)
-                .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
-                .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
-//           Text("You entered: \(password)")
-                
-            Spacer().frame(height: 10.0)
+            NavigationLink(destination: LoggedInView(), isActive: self.$isActive) { EmptyView() }
+            
             Button(action: {
                 self.login()
-            }) {
-                Text("Login")
-            }
-            Spacer()
+                self.isActive = true
+            }) { OrangeButton("Login") }
         }.padding(.leading,20).padding(.trailing,20)
     }
-        
+    
     func login() {
-        let login_params = LoginParams(email: self.user_email, password: self.password)
-        
-//        self.vm.login(params: login_params)
-//        print(self.vm.meals)
+        print("in the login funcion")
+        //        let login_params = LoginParams(email: self.user_email, password: self.password)
+        //        self.vm.login(params: login_params)
+        //        print(self.vm.meals)
     }
     
 }
 
-struct LogIn_Previews: PreviewProvider {
+
+struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login()
+        LoginView()
     }
 }

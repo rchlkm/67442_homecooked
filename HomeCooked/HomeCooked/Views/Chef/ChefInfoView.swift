@@ -15,9 +15,7 @@ struct ChefInfoView: View {
     }
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Contact \(chef.first_name)")
-                .font(.title)
-                .fontWeight(.bold)
+            SectionTitle("Contact \(chef.first_name)")
 
             IconTextView(text: chef.phone, img: "phone.fill")
         }

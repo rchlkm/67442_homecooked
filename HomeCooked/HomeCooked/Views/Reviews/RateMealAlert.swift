@@ -11,29 +11,31 @@ import SwiftUI
 
 struct RatePicker : View {
     @State var star_count: Int = 0
-  
-  func starButton(index:Int) -> some View {
-    let imageName = index <= star_count ? "star.fill" : "star"
-    let color:Color = index <= star_count ? .orange : .gray
     
-    return
-      Button(action: {
-        self.star_count = index
+    func starButton(index:Int) -> some View {
+        let imageName = index <= star_count ? "star.fill" : "star"
+        let color:Color = index <= star_count ? .orange : .gray
         
-      }) {
-        Image(systemName:imageName)
-          .imageScale(.large)
-          .foregroundColor(color)
-          .frame(width:24, height: 24)
-    }
-  }
-  
-    var body: some View {
-      HStack {
-        ForEach((1...5), id: \.self) { id in
-          self.starButton(index: id)
+        return
+            Button(action: {
+                self.star_count = index
+            }) {
+                Image(systemName:imageName)
+                    .imageScale(.large)
+                    .foregroundColor(color)
+                    .frame(width:24, height: 24)
         }
-      }
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            SectionTitle("Rate Meal")
+            HStack {
+                ForEach((1...5), id: \.self) { id in
+                    self.starButton(index: id)
+                }
+            }
+        }
     }
 }
 

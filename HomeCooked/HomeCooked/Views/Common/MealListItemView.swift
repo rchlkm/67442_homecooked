@@ -28,11 +28,10 @@ struct MealListItemView: View {
         NavigationLink(destination: getItemDesinationView()) {
             
             HStack(spacing: 0) {
-//                  Image(systemName: "rectangle.grid.1x2.fill")
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width: frame_size/2)
-                    .foregroundColor(Color.orange)
-                
+                    .foregroundColor(OrangeColor)
+//                Image(meal.images[0]).frame(width: frame_size/2)
                 mealInfoText()
                     .frame(width: frame_size/2)
             }

@@ -22,7 +22,8 @@ let meal1 = Meal(
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
-    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
+    images: ["udon"],
+//    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
     price: 12,
 //    food_policy: "",
 //    cancellation_policy: "",
@@ -32,7 +33,7 @@ let meal1 = Meal(
     day: 8,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: 79.9959,
+    latitude: -79.9959,
     max_guest_count: 3,
     is_booked: false
 )
@@ -45,7 +46,7 @@ let meal2 = Meal(
     cuisine: ["Ukranian"],
     ingredients: [],
     allergens: [],
-    images: [],
+    images: ["lamb_chops"],
     price: 15,
 //    food_policy: "",
 //    cancellation_policy: "",
@@ -71,7 +72,7 @@ let chef1 = Chef (
     phone: "1234567890"
 )
 
-var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]
+var search_items: [Meal] = [meal1, meal2]
 var chefs: [Chef] = [chef1]
 
 func getChefsById(chef_id: String) -> Chef {
@@ -83,14 +84,16 @@ let reservation1 = Reservation (
     guest_id: "abc",
     meal_id: "taCufe3fXB",
     payment_info: "",
-    guest_count: 2
+    guest_count: 2,
+    total: "$24"
 )
 let reservation2 = Reservation (
     id: "2",
     guest_id: "abc",
     meal_id: "efghijjkl",
-    payment_info: "",
-    guest_count: 2
+    payment_info: "VISA1234",
+    guest_count: 2,
+    total: "$30"
 )
 
 
@@ -100,6 +103,22 @@ func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
     return meals.filter { $0.id == reservation.meal_id }[0]
 }
 
-var bookedMeal_items: [Reservation] = [reservation1]
-var pastMeal_items: [Reservation] = []
+//var bookedMeal_items: [Reservation] = [reservation1]
+//var pastMeal_items: [Reservation] = []
 
+
+let rm1 = ReservationMeal (
+    id: reservation1.id,
+    reservation: reservation1,
+    meal: meal1
+)
+
+let rm2 = ReservationMeal (
+    id: reservation2.id,
+    reservation: reservation2,
+    meal: meal2
+)
+
+//var reservationMeals: [ReservationMeal] = [rm1, rm2]
+var bookedMeal_items: [ReservationMeal] = [rm1]
+var pastMeal_items: [ReservationMeal] = []

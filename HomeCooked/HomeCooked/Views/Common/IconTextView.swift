@@ -19,7 +19,7 @@ struct IconTextView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: self.img) .foregroundColor(Color.orange)
+            Image(systemName: self.img) .foregroundColor(OrangeColor)
                 .frame(width: 20, height: 20)
             
             Text("\(self.text)")
