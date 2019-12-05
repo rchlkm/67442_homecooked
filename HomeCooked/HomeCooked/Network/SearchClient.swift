@@ -32,9 +32,9 @@ class SearchClient {
       if let err = err {
         print("Error getting documents: \(err)")
       } else {
-        print("hi")
+        //print("hi")
         for document in querySnapshot!.documents {
-          print("\(document.documentID) => \(document.data())")
+          //print("\(document.documentID) => \(document.data())")
           let meal = Meal(
             id: document.get("id") as! String,
             name: document.get("name") as! String,
@@ -57,12 +57,17 @@ class SearchClient {
             max_guest_count: document.get("max_guest_count") as! Int,
             is_booked: document.get("is_booked") as! Bool
           )
-          print("hi")
-          //print(meal)
           meals.append(meal)
+          print("appended meal!")
+          print(meals)
+          //print("hi")
+          //print(meal)
+          //meals.append(meal)
         }
       }
     }
+    print("aslodlfas")
+    print(meals)
     return meals
   }
   

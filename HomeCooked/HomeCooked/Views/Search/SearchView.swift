@@ -17,6 +17,12 @@ struct SearchView: View {
     @State var search_date = Date()
     @ObservedObject var vm : SearchViewModel
     
+/*
+    let vm = SearchViewModel()
+    @State var search_results: [Meal] = [Meal]()
+    @State var updated: Bool = false
+  */
+
     @State private var didTap: Bool = false
     
     init(){
@@ -48,6 +54,14 @@ struct SearchView: View {
     }
     
     func submitSearch() {
+/*
+      let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
+        // do something here with results
+        self.search_results = vm.search(params: search_params)
+        print(self.search_results)
+        self.updated = !self.updated
+        print(self.updated)
+*/
         let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
         
         self.vm.search(params: search_params)
