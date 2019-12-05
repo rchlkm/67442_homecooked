@@ -33,7 +33,7 @@ let meal1 = Meal(
     day: 8,
     city: "Pittsburgh",
     longitude: 40.4406,
-    latitude: 79.9959,
+    latitude: -79.9959,
     max_guest_count: 3,
     is_booked: false
 )

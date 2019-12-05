@@ -10,7 +10,13 @@ import SwiftUI
 
 struct UserProfileView: View {
     var body: some View {
-        Text("This is your profile!")
+        VStack {
+            Text("This is your profile!")
+        }.navigationBarItems(trailing:
+            NavigationLink(destination: HomeView()) {
+                Text("Logout")
+            }
+        )
     }
 }
 

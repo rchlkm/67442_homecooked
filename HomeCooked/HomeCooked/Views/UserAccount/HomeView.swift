@@ -19,8 +19,9 @@ struct HomeView: View {
                 Spacer().frame(height: 10.0)
                 NavigationLink(destination: CreateAccountView()) { WhiteButton("Create Account") }
             }.padding(.leading,20).padding(.trailing,20)
-
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -22,7 +22,7 @@ struct BookedMealDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-//            VStack {
+                //            VStack {
                 BookedMealDetailComponentView(meal_date: self.meal.date(), meal_time: self.meal.time, guest_count: 2).padding(.top)
                 Divider().padding(.top).padding(.bottom)
                 
@@ -35,18 +35,17 @@ struct BookedMealDetailView: View {
                 PaymentsComponentView(reservation: self.reservation)
                 Divider().padding(.top).padding(.bottom)
                 
-                //                if (!meal.is_complete()) {
+                //                if (meal.is_complete()) {
+                RatePicker()
+                //                Divider().padding(.top).padding(.bottom)
+                //                } else {
                 Button(action: { self.cancel() }) {
                     Text("Cancel Reservation")
                 }
-//                Divider().padding(.top).padding(.bottom)
-                //                } else {
-                RatePicker()
-                //                }
             }
-        }
-        .padding(.leading,20).padding(.trailing,20)
+            .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle(meal.name)
+        }
     }
     
     func cancel() {

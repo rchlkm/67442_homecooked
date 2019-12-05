@@ -25,8 +25,7 @@ struct SearchView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                //                VStack (alignment: .leading) {
+            VStack (alignment: .leading) {
                 Spacer().frame(height: 20.0)
                 
                 searchEngine
@@ -132,7 +131,7 @@ struct SearchView: View {
             }) { OrangeButton("Apply") }
             
         }.padding()
-            .border(Color.blue)
+            //.border(Color.blue)
     }
 }
 
