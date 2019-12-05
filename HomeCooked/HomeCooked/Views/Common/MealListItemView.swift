@@ -13,7 +13,7 @@ struct MealListItemView: View {
     let meal: Meal
     let reservation: Reservation?
     let search_guest_count: Int
-//    let chef_name: String
+    //    let chef_name: String
     var frame_size: CGFloat = UIScreen.main.bounds.width - 48
     
     init(type: String, meal: Meal, reservation: Reservation?, search_guest_count: Int = 1) {
@@ -21,7 +21,7 @@ struct MealListItemView: View {
         self.meal = meal
         self.reservation = reservation
         self.search_guest_count = search_guest_count
-//        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
+        //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
@@ -31,7 +31,7 @@ struct MealListItemView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width: frame_size/2)
                     .foregroundColor(OrangeColor)
-//                Image(meal.images[0]).frame(width: frame_size/2)
+                //                Image(meal.images[0]).frame(width: frame_size/2)
                 mealInfoText()
                     .frame(width: frame_size/2)
             }
@@ -54,7 +54,7 @@ struct MealListItemView: View {
     func mealInfoText() -> AnyView {
         switch listItemViewType {
         case "search": return AnyView(SearchItemView(meal: self.meal))
-        case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal))
+        case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal, reservation: self.reservation!))
         default: return AnyView(SearchItemView(meal: self.meal))
         }
     }

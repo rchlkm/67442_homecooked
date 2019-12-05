@@ -12,17 +12,12 @@ struct BookedMealsView: View {
     @State var isActive = false
     var body: some View {
         ScrollView {
-//            Spacer()
+            //            Spacer()
             VStack(alignment: .leading) {
                 HStack {
-                    Text("My Meals")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.top,40).padding(.bottom,30)
+                    LargeTitle("My Meals")
                     Spacer()
-                    NavigationLink(destination: UserProfileView()) {
-                        Text("My Profile")
-                    }
+                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
                 Text("Upcoming Meals").font(.title)
                 if bookedMeal_items.isEmpty {
@@ -30,7 +25,7 @@ struct BookedMealsView: View {
                 } else {
                     ForEach(bookedMeal_items, id: \.id) { rm in
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
-                        .padding(.bottom, 15)
+                            .padding(.bottom, 15)
                     }
                 }
                 Divider()
@@ -40,17 +35,16 @@ struct BookedMealsView: View {
                     SearchForNewMealsView(type: "past")
                 } else {
                     ForEach(pastMeal_items, id: \.id) { rm in
-                        //                            let meal = getMealsByIdFromReservation(reservation: reservation)
-                        //                            MealListItemView(type: "bookedMeal", meal: meal, reservation: reservation)
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
                     }
                 }
             }
-        }
+        }.border(Color.blue)
         .padding(.leading,20).padding(.trailing,20)
+        .navigationBarTitle("Navbar title")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        .navigationBarTitle("Meals")
     }
 }
 

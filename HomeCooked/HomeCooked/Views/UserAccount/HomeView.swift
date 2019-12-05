@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    var frame_size: CGFloat = UIScreen.main.bounds.width - 48
     var body: some View {
         NavigationView {
             VStack {

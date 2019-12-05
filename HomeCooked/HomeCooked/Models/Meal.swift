@@ -25,8 +25,8 @@ struct Meal {
     let month: Int
     let day: Int
     let city: String
-    let longitude: Double
     let latitude: Double
+    let longitude: Double
     let max_guest_count: Int
     let is_booked: Bool
 }

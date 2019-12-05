@@ -11,37 +11,31 @@ import SwiftUI
 struct ConfirmationView: View {
     let meal: Meal
     let reservation: Reservation
-    var frame_size: CGFloat = UIScreen.main.bounds.width - 48
-    
-    init(reservation: Reservation, meal: Meal) {
+    init(meal: Meal, reservation: Reservation) {
         self.meal = meal
         self.reservation = reservation
     }
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 2)
+                SectionTitle("You're meal is booked!")
+                Text("\(meal.name)")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.black)
+                BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: reservation.guest_count)
                 Spacer().frame(height: 30.0)
-                
-                NavigationLink(destination: LoggedInView(2)) {
-                    Text("Ok!")
-                        .foregroundColor(OrangeColor)
-                        .padding(.top, 12).padding(.bottom, 12).padding(.leading).padding(.trailing)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(OrangeColor, lineWidth: 2)
-                                .frame(width: frame_size))
-                }
+                NavigationLink(destination: LoggedInView2()) { OrangeButton("Ok!") }
             }
-            .navigationBarTitle("Meal Confirmation")
-            .navigationBarHidden(true)
-
         }
+        .padding(.leading,20).padding(.trailing,20)
+        .navigationBarTitle("Confirmation")
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(reservation: reservation1, meal: meal1)
+        ConfirmationView(meal: meal1, reservation: reservation1)
     }
 }
