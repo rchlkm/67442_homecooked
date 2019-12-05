@@ -40,7 +40,7 @@ struct BookedMealsView: View {
                     }
                 }
             }
-        }.border(Color.blue)
+        }//.border(Color.blue)
         .padding(.leading,20).padding(.trailing,20)
         .navigationBarTitle("Navbar title")
         .navigationBarBackButtonHidden(true)

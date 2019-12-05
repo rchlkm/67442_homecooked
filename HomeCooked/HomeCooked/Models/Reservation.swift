@@ -12,7 +12,10 @@ struct Reservation {
     let id: String
     let guest_id: String
     let meal_id: String
-    let payment_info: String
     let guest_count: Int
     let total: String
+    let card_number: String
+    let exp_month: String
+    let exp_year: String
+    let cv2: String
 }

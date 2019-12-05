@@ -17,7 +17,7 @@ struct PaymentsComponentView: View {
         VStack(alignment: .leading) {
             SectionTitle("Payments")
             Text("Confirmation code: \(reservation.id)")
-            Text("Card: \(reservation.payment_info)")
+            Text("Card: \(reservation.card_number)")
             Text("Total: \(reservation.total)")
         }
     }

@@ -19,8 +19,8 @@ struct LoginView: View {
             Image("logo").frame(width: 75, height: 75)
             Spacer().frame(height: 75.0)
             
-            TextFieldWithBottomLine(placeholder: "Email", input: $user_email).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Password", input: $password, secure: true)
+            TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 20)
+            TextFieldWithBottomLine("Password", input: $password, secure: true)
             //            Text("You entered: \(password)")
             
             Spacer().frame(height: 25.0)

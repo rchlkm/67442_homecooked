@@ -26,13 +26,13 @@ struct CreateAccountView: View {
             Spacer().frame(height: 75.0)
             
 //            Text("Personal Info:")
-            TextFieldWithBottomLine(placeholder: "First Name", input: $first_name).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Last Name", input: $last_name).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Email", input: $user_email).padding(.bottom, 40)
+            TextFieldWithBottomLine("First Name", input: $first_name).padding(.bottom, 20)
+            TextFieldWithBottomLine("Last Name", input: $last_name).padding(.bottom, 20)
+            TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 40)
             
 //            Text("Create Password:")
-            TextFieldWithBottomLine(placeholder: "Password", input: $password, secure: true).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
+            TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
+            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
             
 //            Spacer().frame(height: 25.0)
             

@@ -14,4 +14,5 @@ struct SearchParams {
     let month: Int
     let day: Int
     let max_guest_count: Int
+    
 }

@@ -28,11 +28,14 @@ class ReservationViewModel: ObservableObject{
         let documentId = String(reservation.id)
         db.collection("reservation").document(documentId).setData([
             "id": reservation.id,
-            "guest_count": reservation.guest_count,
             "guest_id": reservation.guest_id,
-            "payment_info": reservation.payment_info,
             "meal_id": reservation.meal_id,
-            "reservation_time": Date(), // Change this to current date/time
+            "guest_count": reservation.guest_count,
+            "total": reservation.total,
+            "card_number": reservation.card_number,
+            "exp_month": reservation.exp_month,
+            "exp_year": reservation.exp_year,
+            "cv2": reservation.cv2,
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
