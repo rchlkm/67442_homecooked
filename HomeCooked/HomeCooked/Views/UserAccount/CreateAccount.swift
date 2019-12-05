@@ -41,9 +41,7 @@ struct CreateAccountView: View {
             Button(action: {
                 self.create_account()
                 self.isActive = true
-            }) {
-                OrangeButton("Create Account")
-            }
+            }) { OrangeButton("Create Account") }
         }.padding(.leading,20).padding(.trailing,20)
     }
     

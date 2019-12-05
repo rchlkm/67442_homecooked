@@ -46,7 +46,7 @@ let meal2 = Meal(
     cuisine: ["Ukranian"],
     ingredients: [],
     allergens: [],
-    images: ["lamb  q   _chops"],
+    images: ["lamb_chops"],
     price: 15,
 //    food_policy: "",
 //    cancellation_policy: "",

@@ -65,9 +65,7 @@ struct ReserveView: View {
             Button(action: {
                 self.reserveMeal()
                 self.isActive = true
-            }) {
-                OrangeButton("Confirm")
-            }
+            }) {  OrangeButton("Confirm") }
         }
     }
     

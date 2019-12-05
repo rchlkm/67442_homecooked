@@ -8,12 +8,16 @@
 
 import SwiftUI
 
+let search_filters = ["Vegetarian", "Vegan", "Halal"]
+
 struct SearchView: View {
     @State var filterIsPresent = false
     @State var search_city: String = ""
     @State var guest_count: Int = 2
     @State var search_date = Date()
     @ObservedObject var vm : SearchViewModel
+    
+    @State private var didTap: Bool = false
     
     init(){
         self.vm = SearchViewModel()
@@ -99,24 +103,34 @@ struct SearchView: View {
     
     var filterModal: some View {
         VStack {
+            Spacer()
             Text("Filter")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding()
             
+            SectionTitle("Party Size")
             Stepper(value: $guest_count, in: 1...10, label: {
                 Image(systemName: "person.fill").foregroundColor(OrangeColor)
                 Text("\(guest_count)")
             }).frame(width:200)
-                .padding(10)
+                .padding(.bottom, 20)
             
+            SectionTitle("Choose a Date")
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
-            }
+            }.padding(.bottom, 20)
             
-            Button("Apply") {
+            SectionTitle("Dietary").padding(.bottom)
+            HStack {
+                ForEach(search_filters, id: \.self) { filter in
+                    OptionButton(filter)
+                }
+            }.padding(.bottom, 40)
+            Button(action: {
                 self.filterIsPresent.toggle()
-            }
+            }) { OrangeButton("Apply") }
+            
         }.padding()
             .border(Color.blue)
     }

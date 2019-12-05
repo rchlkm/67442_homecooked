@@ -30,9 +30,7 @@ struct LoginView: View {
             Button(action: {
                 self.login()
                 self.isActive = true
-            }) {
-                OrangeButton("Login")
-            }
+            }) { OrangeButton("Login") }
         }.padding(.leading,20).padding(.trailing,20)
     }
     

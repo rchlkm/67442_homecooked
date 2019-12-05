@@ -14,7 +14,6 @@ struct BookedMealsView: View {
         ScrollView {
 //            Spacer()
             VStack(alignment: .leading) {
-                
                 HStack {
                     Text("My Meals")
                         .font(.largeTitle)
@@ -24,7 +23,6 @@ struct BookedMealsView: View {
                     NavigationLink(destination: UserProfileView()) {
                         Text("My Profile")
                     }
-                    
                 }
                 Text("Upcoming Meals").font(.title)
                 if bookedMeal_items.isEmpty {

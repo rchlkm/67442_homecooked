@@ -18,7 +18,7 @@ struct PaymentsComponentView: View {
             SectionTitle("Payments")
             Text("Confirmation code: \(reservation.id)")
             Text("Card: \(reservation.payment_info)")
-//            Text("Total: \(reservation.total)")
+            Text("Total: \(reservation.total)")
         }
     }
 }
