@@ -21,13 +21,7 @@ struct LocationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             SectionTitle("Location")
-//            Text("Location")
-//                .fontWeight(.bold)
-            Section {
-                Text(meal.city)
-                    .font(.body)
-            }.padding(.top, 5)
-            
+//            Section { Text(meal.city).font(.body) }.padding(.top, 5)
             if self.marker {
                 NavigationLink(destination: FullMapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)) {
                     MapView(lat: self.meal.latitude, lng: self.meal.longitude, marker: self.marker)

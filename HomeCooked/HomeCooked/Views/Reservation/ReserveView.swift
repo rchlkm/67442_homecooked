@@ -20,13 +20,8 @@ struct ReserveView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                
-                Text(meal.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                //            meal_details
-                //            Divider()
+                meal_details.padding()
+                Divider()
                 
                 guest_stepper.padding()
                 Divider()
@@ -43,7 +38,6 @@ struct ReserveView: View {
             }
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle(Text("Reserve Meal"))
-            
         }
     }
     
@@ -53,22 +47,22 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
-/*
-        //print(reservation)
-        //self.vm.postReservation(reservation: self.reservation)
-      
-        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
-*/
+        /*
+         //print(reservation)
+         //self.vm.postReservation(reservation: self.reservation)
+         
+         let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
+         */
         let meal_total = "$\(meal.price * guest_count)"
         let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count, total: meal_total)
-
+        
         let vm = ReservationViewModel(reservation: reservation)
         vm.postReservation(reservation: reservation)
     }
     
     var reserveButton: some View {
-        VStack {
-            NavigationLink(destination:  ConfirmationView(reservation: reservation1, meal: self.meal), isActive: self.$isActive) { EmptyView() }
+        Section {
+            NavigationLink(destination:  ConfirmationView(meal: self.meal, reservation: reservation1), isActive: self.$isActive) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
                 self.isActive = true
@@ -77,10 +71,13 @@ struct ReserveView: View {
     }
     
     var meal_details: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text(meal.name)
+                .font(.body)
+                .fontWeight(.bold)
             MealDateView(meal_date: meal.date())
             MealTimeView(meal_time: meal.time)
-        }.padding()
+        }
     }
     
     var guest_stepper: some View {

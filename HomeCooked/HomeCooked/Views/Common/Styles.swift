@@ -25,6 +25,20 @@ struct SectionTitle: View {
     }
 }
 
+struct LargeTitle: View {
+    let text: String
+    init(_ text: String) {
+        self.text = text
+    }
+    var body: some View {
+        Text(self.text)
+            .font(.largeTitle)
+            .bold()
+            .padding(.top,40).padding(.bottom,30)
+    }
+}
+
+
 //struct MainView: View {
 //    let view: View
 //    var body: some View {

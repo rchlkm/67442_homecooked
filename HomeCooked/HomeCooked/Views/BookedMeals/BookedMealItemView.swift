@@ -11,8 +11,10 @@ import SwiftUI
 
 struct BookedMealItemView: View {
     let meal: Meal
-    init(meal: Meal) {
+    let reservation: Reservation
+    init(meal: Meal, reservation: Reservation) {
         self.meal = meal
+        self.reservation = reservation
     }
     
     var body: some View {
@@ -22,7 +24,7 @@ struct BookedMealItemView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.black)
 
-            BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: 2)
+            BookedMealDetailComponentView(meal_date: meal.date(), meal_time: meal.time, guest_count: reservation.guest_count)
         }
     }
 }

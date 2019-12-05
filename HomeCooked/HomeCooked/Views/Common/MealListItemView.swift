@@ -54,7 +54,7 @@ struct MealListItemView: View {
     func mealInfoText() -> AnyView {
         switch listItemViewType {
         case "search": return AnyView(SearchItemView(meal: self.meal))
-        case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal))
+        case "bookedMeal": return AnyView(BookedMealItemView(meal: self.meal, reservation: self.reservation!))
         default: return AnyView(SearchItemView(meal: self.meal))
         }
     }

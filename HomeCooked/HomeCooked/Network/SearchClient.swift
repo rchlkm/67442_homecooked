@@ -66,7 +66,7 @@ class SearchClient {
         }
       }
     }
-    print("aslodlfas")
+    print("search client!")
     print(meals)
     return meals
   }

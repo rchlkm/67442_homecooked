@@ -222,12 +222,12 @@
 		0239A9C32370A9E0004954F9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				020A58732398645C00DD8A6D /* Styles.swift */,
 				02D1749B2370796300F3F6C6 /* MealListItemView.swift */,
 				0239A9C42370A9ED004954F9 /* IconTextView.swift */,
 				02FF444E239713C50056C064 /* TextFieldInputView.swift */,
 				0273036D23978B7000B370CB /* EmptyView.swift */,
 				0273036F23978BC500B370CB /* Button.swift */,
-				020A58732398645C00DD8A6D /* Styles.swift */,
 				02641AE62398B03100314236 /* OptionButton.swift */,
 			);
 			path = Common;

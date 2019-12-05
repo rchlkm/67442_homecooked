@@ -40,17 +40,17 @@ struct SearchView: View {
                 filterButton
                 Spacer().frame(height: 30.0)
                 
-                
                 //                    ForEach(self.vm.meals, id: \.id) { meal in
                 ForEach(search_items, id: \.id) { meal in
                     MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
                         .padding(.bottom, 15)
                 }
             }
-        }
+        }.border(Color.blue)
         .padding(.leading,20).padding(.trailing,20)
+        .navigationBarTitle("Search")
+        .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        .navigationBarTitle(Text("Search"))
     }
     
     func submitSearch() {
