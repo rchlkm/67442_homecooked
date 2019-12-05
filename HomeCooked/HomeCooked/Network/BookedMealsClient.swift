@@ -66,8 +66,8 @@ class BookedMealsClient {
             month: document.get("month") as! Int,
             day: document.get("day") as! Int,
             city: document.get("city") as! String,
-            longitude: document.get("longitude") as! Double,
             latitude: document.get("latitude") as! Double,
+            longitude: document.get("longitude") as! Double,
             max_guest_count: document.get("max_guest_count") as! Int,
             is_booked: document.get("is_booked") as! Bool
           )

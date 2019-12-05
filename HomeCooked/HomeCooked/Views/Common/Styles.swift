@@ -19,7 +19,9 @@ struct SectionTitle: View {
         self.text = text
     }
     var body: some View {
-        Text(self.text).font(.headline)//.fontWeight(.bold)
+        Text(self.text)
+            .font(.headline)
+            .padding(.trailing)
     }
 }
 

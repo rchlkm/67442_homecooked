@@ -78,9 +78,7 @@ struct MealDetailsView: View {
     
     var reservations: some View {
         VStack(alignment: .leading) {
-            Text("Reserve Meal")
-                .font(.title)
-                .fontWeight(.bold)
+            SectionTitle("Reserve Meal")
             Text("$\(meal.price) per person")
             reserveButton
         }
@@ -89,23 +87,21 @@ struct MealDetailsView: View {
     
     var additionalInfo: some View {
         VStack(alignment: .leading) {
-            Text("Additional Information")
-                .font(.title)
-                .fontWeight(.bold)
+            SectionTitle("Additional Information")
             
             Text("Food Policy")
-                .font(.headline)
+                .font(.caption)
                 .fontWeight(.bold)
                 .padding(.top, 10)
             Text(meal.food_policy)
-                .font(.subheadline)
+                .font(.footnote)
             
             Text("Cancellation Policy")
-                .font(.body)
+                .font(.caption)
                 .fontWeight(.bold)
                 .padding(.top, 15)
             Text(meal.cancellation_policy)
-                .font(.subheadline)
+                .font(.footnote)
         }
         .padding(.top, 10)
     }

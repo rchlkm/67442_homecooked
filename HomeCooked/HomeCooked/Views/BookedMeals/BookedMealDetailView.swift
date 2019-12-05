@@ -41,9 +41,9 @@ struct BookedMealDetailView: View {
                 //                } else {
                 Button(action: { self.cancel() }) {
                     Text("Cancel Reservation")
-                }
+                }.padding(.top, 20)
             }
-            .padding(.leading,20).padding(.trailing,20)
+            .padding(.leading, 20).padding(.trailing, 20)
             .navigationBarTitle(meal.name)
         }
     }
