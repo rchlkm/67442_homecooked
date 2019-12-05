@@ -16,10 +16,11 @@ struct SearchView: View {
     @State var guest_count: Int = 2
     @State var search_date = Date()
     @ObservedObject var vm : SearchViewModel
+    @State var search_results: [Meal] = [Meal]()
     
 /*
     let vm = SearchViewModel()
-    @State var search_results: [Meal] = [Meal]()
+    
     @State var updated: Bool = false
   */
 
@@ -42,7 +43,7 @@ struct SearchView: View {
                 
                 
                 //                    ForEach(self.vm.meals, id: \.id) { meal in
-                ForEach(search_items, id: \.id) { meal in
+              ForEach(search_results, id: \.id) { meal in
                     MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
                         .padding(.bottom, 15)
                 }
@@ -64,8 +65,11 @@ struct SearchView: View {
 */
         let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
         
-        self.vm.search(params: search_params)
-        print(self.vm.meals)
+      self.vm.search(params: search_params) {
+        (meals) in
+        self.search_results = meals
+      }
+        //print(self.vm.meals)
     }
     
     var searchEngine: some View {

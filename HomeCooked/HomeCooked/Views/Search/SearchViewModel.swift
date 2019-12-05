@@ -22,10 +22,19 @@ class SearchViewModel: ObservableObject {
     return meals[indexPath.row]
   }
   
-  func search(params: SearchParams) {
+  func search(params: SearchParams, completion: @escaping ([Meal]) -> ()) {
     client.setParams(params:params)
-    self.meals = client.fetchMeals()
+    client.fetchMeals {
+      (meals) in
+        print("before")
+        print(meals)
+        print("after")
+        completion(meals)
+        self.meals = meals
+      }
     print("searched")
+    //print(self.meals)
+    //print(self.meals)
   }
 }
 

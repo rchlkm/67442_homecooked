@@ -19,8 +19,9 @@ class SearchClient {
   
   let db = Firestore.firestore()
   
-  func fetchMeals() -> [Meal] {
+  func fetchMeals(completion: @escaping ([Meal]) -> ()) {
     var meals = [Meal]()
+    let dispatchGroup = DispatchGroup()
  
     db.collection("meal")
       .whereField("city", isEqualTo: city)
@@ -34,6 +35,7 @@ class SearchClient {
       } else {
         //print("hi")
         for document in querySnapshot!.documents {
+          dispatchGroup.enter()
           //print("\(document.documentID) => \(document.data())")
           let meal = Meal(
             id: document.get("id") as! String,
@@ -58,17 +60,23 @@ class SearchClient {
             is_booked: document.get("is_booked") as! Bool
           )
           meals.append(meal)
-          print("appended meal!")
-          print(meals)
+          //print("appended meal!")
+          //print(meals)
           //print("hi")
           //print(meal)
           //meals.append(meal)
-        }
+          //print(meal)
+          dispatchGroup.leave()
+          }
+        
       }
+      completion(meals)
     }
-    print("aslodlfas")
-    print(meals)
-    return meals
+
+    //print("aslodlfas")
+    //print(meals)
+    //completion(meals)
+    //return meals
   }
   
   func setParams(params: SearchParams) {
