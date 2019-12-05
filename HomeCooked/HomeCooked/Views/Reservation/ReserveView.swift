@@ -37,7 +37,7 @@ struct ReserveView: View {
                 payment
                 Divider()
                 
-                policy.padding(.bottom, 20)
+                policy//.padding(.bottom, 20)
                 
                 reserveButton
             }
@@ -53,28 +53,20 @@ struct ReserveView: View {
     }
     
     func reserveMeal() {
-        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count)
+        let meal_total = "$\(meal.price * guest_count)"
+        let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, payment_info: "12345", guest_count: guest_count, total: meal_total)
         let vm = ReservationViewModel(reservation: reservation)
         vm.postReservation(reservation: reservation)
     }
     
     var reserveButton: some View {
-        Section {
+        VStack {
             NavigationLink(destination:  ConfirmationView(reservation: reservation1, meal: self.meal), isActive: self.$isActive) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
                 self.isActive = true
             }) {
-                HStack {
-                    Text("Confirm")
-                        .padding(10)
-                        .foregroundColor(OrangeColor)
-                }
-                .frame(width: 200)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                )
+                OrangeButton("Confirm")
             }
         }
     }
@@ -126,7 +118,6 @@ struct SelectMealTimeView_Previews: PreviewProvider {
         ReserveView(meal:meal1)
     }
 }
-
 
 //@State var confirmAlertPresent = false
 //var confirmAlert: Alert {

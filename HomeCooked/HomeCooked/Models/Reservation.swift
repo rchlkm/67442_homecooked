@@ -14,4 +14,5 @@ struct Reservation {
     let meal_id: String
     let payment_info: String
     let guest_count: Int
+    let total: String
 }

@@ -13,6 +13,16 @@ let OrangeColor = Color(.sRGB, red: 235.0/255.0, green: 134.0/255.0, blue: 85.0/
 let frame_size: CGFloat = UIScreen.main.bounds.width - 48
 let corner_radius: CGFloat = 20.0
 
+struct SectionTitle: View {
+    let text: String
+    init(_ text: String) {
+        self.text = text
+    }
+    var body: some View {
+        Text(self.text).font(.headline)//.fontWeight(.bold)
+    }
+}
+
 //struct MainView: View {
 //    let view: View
 //    var body: some View {

@@ -12,9 +12,20 @@ struct BookedMealsView: View {
     @State var isActive = false
     var body: some View {
         ScrollView {
-            Spacer()
+//            Spacer()
             VStack(alignment: .leading) {
                 
+                HStack {
+                    Text("My Meals")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top,40).padding(.bottom,30)
+                    Spacer()
+                    NavigationLink(destination: UserProfileView()) {
+                        Text("My Profile")
+                    }
+                    
+                }
                 Text("Upcoming Meals").font(.title)
                 if bookedMeal_items.isEmpty {
                     SearchForNewMealsView(type: "upcoming")

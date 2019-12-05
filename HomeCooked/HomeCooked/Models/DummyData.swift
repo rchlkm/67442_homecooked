@@ -22,7 +22,8 @@ let meal1 = Meal(
     cuisine: ["Asian", "Japanese"],
     ingredients: [],
     allergens: [],
-    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
+    images: ["udon"],
+//    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
     price: 12,
 //    food_policy: "",
 //    cancellation_policy: "",
@@ -45,7 +46,7 @@ let meal2 = Meal(
     cuisine: ["Ukranian"],
     ingredients: [],
     allergens: [],
-    images: [],
+    images: ["lamb  q   _chops"],
     price: 15,
 //    food_policy: "",
 //    cancellation_policy: "",
@@ -71,7 +72,7 @@ let chef1 = Chef (
     phone: "1234567890"
 )
 
-var search_items: [Meal] = [meal1, meal2, meal1, meal2, meal1]
+var search_items: [Meal] = [meal1, meal2]
 var chefs: [Chef] = [chef1]
 
 func getChefsById(chef_id: String) -> Chef {
@@ -83,14 +84,16 @@ let reservation1 = Reservation (
     guest_id: "abc",
     meal_id: "taCufe3fXB",
     payment_info: "",
-    guest_count: 2
+    guest_count: 2,
+    total: "$24"
 )
 let reservation2 = Reservation (
     id: "2",
     guest_id: "abc",
     meal_id: "efghijjkl",
-    payment_info: "",
-    guest_count: 2
+    payment_info: "VISA1234",
+    guest_count: 2,
+    total: "$30"
 )
 
 

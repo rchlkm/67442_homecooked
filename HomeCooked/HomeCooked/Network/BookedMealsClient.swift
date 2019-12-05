@@ -31,7 +31,8 @@ class BookedMealsClient {
             guest_id: document.get("guest_id") as! String,
             meal_id: document.get("meal_id") as! String,
             payment_info: document.get("payment_info") as! String,
-            guest_count: document.get("guest_count") as! Int
+            guest_count: document.get("guest_count") as! Int,
+            total: document.get("total") as! String
           )
           r.append(reservation)
         }

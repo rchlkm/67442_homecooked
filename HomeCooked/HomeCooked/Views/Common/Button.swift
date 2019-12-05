@@ -14,16 +14,18 @@ struct OrangeButton: View {
         self.text = text
     }
     var body: some View {
-        Text(self.text)
-            .font(.body)
-            .fontWeight(.bold)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: frame_size)
-            .background(OrangeColor)
-            .border(OrangeColor, width: 2)
-            .cornerRadius(corner_radius)
-            .padding(5)
+        Section {
+            Text(self.text)
+                .font(.body)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: frame_size)
+                .background(OrangeColor)
+                .border(OrangeColor, width: 2)
+                .cornerRadius(corner_radius)
+                .padding(5)
+        }
     }
 }
 
@@ -33,17 +35,19 @@ struct WhiteButton: View {
         self.text = text
     }
     var body: some View {
-        Text(self.text)
-            .font(.body)
-            .fontWeight(.bold)
-            .foregroundColor(OrangeColor)
-            .padding()
-            .frame(width: frame_size)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: corner_radius, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: corner_radius, style: .continuous)
-                .stroke(OrangeColor, lineWidth: 2))
-        .padding(5)
+        Section {
+            Text(self.text)
+                .font(.body)
+                .fontWeight(.bold)
+                .foregroundColor(OrangeColor)
+                .padding()
+                .frame(width: frame_size)
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: corner_radius, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: corner_radius, style: .continuous)
+                    .stroke(OrangeColor, lineWidth: 2))
+                .padding(5)
+        }
     }
 }
 
