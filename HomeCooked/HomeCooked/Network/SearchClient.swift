@@ -26,7 +26,7 @@ class SearchClient {
         let dispatchGroup = DispatchGroup()
         
         db.collection("meal")
-            .whereField("city", isEqualTo: city)
+          .whereField("city", isEqualTo: city)
             .whereField("year", isEqualTo: year)
             .whereField("month", isEqualTo: month)
             .whereField("day", isEqualTo: day)
@@ -35,7 +35,7 @@ class SearchClient {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    print("in the serach client querying!!")
+                    print("in the search client querying!!")
                     for document in querySnapshot!.documents {
                         dispatchGroup.enter()
                         //print("\(document.documentID) => \(document.data())")

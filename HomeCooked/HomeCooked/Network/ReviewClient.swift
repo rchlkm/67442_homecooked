@@ -27,4 +27,8 @@ class ReviewClient {
       }
     }
   }
+  
+  func deleteReview(review_id: String) {
+    db.collection("review").document(review_id).delete()
+  }
 }
