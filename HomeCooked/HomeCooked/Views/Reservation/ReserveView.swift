@@ -69,7 +69,7 @@ struct ReserveView: View {
 //        if (matchRegex(text: self.card_number) &&
 //            Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
 //            self.security_code.count == 3) {
-            let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
+            let reservation: Reservation = Reservation(id: randomString(length: 16), user_id: "abc", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
             let vm = ReservationViewModel(reservation: reservation)
             vm.postReservation(reservation: reservation)
 //            self.paymentValid = true

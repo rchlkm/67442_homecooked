@@ -25,27 +25,33 @@ class ReservationViewModel: ObservableObject{
     }
     
     func postReservation(reservation: Reservation) {
-        let documentId = String(reservation.id)
-        db.collection("reservation").document(documentId).setData([
-            "id": reservation.id,
-            "guest_id": reservation.guest_id,
-            "meal_id": reservation.meal_id,
-            "guest_count": reservation.guest_count,
-            "total": reservation.total,
-            "card_number": reservation.card_number,
-            "exp_month": reservation.exp_month,
-            "exp_year": reservation.exp_year,
-            "cv2": reservation.cv2,
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
+      let documentId = reservation.id
+      db.collection("reservation").document(documentId).setData([
+        "id": reservation.id,
+        "guest_id": reservation.user_id,
+        "meal_id": reservation.meal_id,
+        "guest_count": reservation.guest_count,
+        "total": reservation.total,
+        "card_number": reservation.card_number,
+        "exp_month": reservation.exp_month,
+        "exp_year": reservation.exp_year,
+        "cv2": reservation.cv2,
+      ]) { err in
+        if let err = err {
+          print("Error writing document: \(err)")
+        } else {
+          print("Document successfully written!")
         }
+      }
     }
     
-    func cancelReservation() {
-        print("trying to cancel?")
+    func cancelReservation(reservation_id: String) {
+      db.collection("reservation").document("reservation_id").delete() { err in
+        if let err = err {
+          print("Error removing document: \(err)")
+        } else {
+          print("Document successfully removed!")
+        }
+      }
     }
 }

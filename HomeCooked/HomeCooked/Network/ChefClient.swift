@@ -34,8 +34,7 @@ class ChefClient {
           let review = Review(id: document.get("id") as! String,
                               chef_id: document.get("chef_id") as! String,
                               stars: document.get("stars") as! Int,
-                              description: document.get("description") as! String,
-                              guest_id: document.get("id") as! String)
+                              user_id: document.get("id") as! String)
           reviews.append(review)
           total += document.get("stars") as! Int
           num += 1

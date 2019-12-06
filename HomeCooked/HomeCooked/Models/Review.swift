@@ -12,6 +12,5 @@ struct Review {
     let id: String
     let chef_id: String
     let stars: Int
-    let description: String
-    let guest_id: String
+    let user_id: String
 }

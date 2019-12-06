@@ -106,11 +106,11 @@ class SearchClient {
                     return show
                 }
             }
-        } else if {
-            show = true
-            print("---User has no allergen filters")
+            //        } else if {
+            //            show = true
+            //            print("---User has no allergen filters")
+            //        }
         }
-        
         
         if (self.user_filters_cuisines.count > 0) {
             for cuisine in self.user_filters_cuisines {
@@ -127,14 +127,11 @@ class SearchClient {
             print("---User has no cuisine filters")
         }
         
-        
-        
         print("AFTER should_show_meal", show)
-        
-        
         return show
+        
+        
     }
-    
     
     func setParams(params: SearchParams) {
         city = params.city

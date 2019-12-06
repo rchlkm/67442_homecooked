@@ -10,7 +10,7 @@ import Foundation
 
 struct Reservation {
     let id: String
-    let guest_id: String
+    let user_id: String
     let meal_id: String
     let guest_count: Int
     let total: String

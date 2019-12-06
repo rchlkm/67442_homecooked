@@ -81,7 +81,7 @@ func getChefsById(chef_id: String) -> Chef {
 
 let reservation1 = Reservation (
     id: "1",
-    guest_id: "abc",
+    user_id: "abc",
     meal_id: "taCufe3fXB",
     guest_count: 2,
     total: "$24",
@@ -92,7 +92,7 @@ let reservation1 = Reservation (
 )
 let reservation2 = Reservation (
     id: "2",
-    guest_id: "abc",
+    user_id: "abc",
     meal_id: "efghijjkl",
     guest_count: 2,
     total: "$30",

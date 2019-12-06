@@ -13,8 +13,8 @@ class BookedMealViewModel {
     
     let client = BookedMealsClient()
     
-    func getMealsByGuestId(guest_id: String) {
-        client.fetchData(guest_id: guest_id)
+    func getMealsByGuestId(user_id: String) {
+        client.fetchData(user_id: user_id)
         res_meals = []
         for (index, meal) in client.meals.enumerated() {
             let reservation = client.reservations[index]

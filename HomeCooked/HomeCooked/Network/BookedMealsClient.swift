@@ -16,10 +16,10 @@ class BookedMealsClient {
   
   let db = Firestore.firestore()
   
-  func fetchData(guest_id: String) {
+  func fetchData(user_id: String) {
     var r = [Reservation]()
     db.collection("reservation")
-      .whereField("guest_id", isEqualTo: guest_id)
+      .whereField("user_id", isEqualTo: user_id)
       .getDocuments() { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
@@ -28,7 +28,7 @@ class BookedMealsClient {
           print("\(document.documentID) => \(document.data())")
           let reservation = Reservation(
             id: document.get("id") as! String,
-            guest_id: document.get("guest_id") as! String,
+            user_id: document.get("user_id") as! String,
             meal_id: document.get("meal_id") as! String,
             guest_count: document.get("guest_count") as! Int,
             total: document.get("total") as! String,

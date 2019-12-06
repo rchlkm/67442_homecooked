@@ -9,10 +9,17 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var vm : LoginViewModel
+//    @Published var user: User
+
     @State var isActive = false
     
     @State var user_email: String = ""
     @State var password: String = ""
+    
+    init(){
+        self.vm = LoginViewModel()
+    }
     
     var body: some View {
         VStack {
@@ -35,10 +42,16 @@ struct LoginView: View {
     }
     
     func login() {
-        print("in the login funcion")
-        //        let login_params = LoginParams(email: self.user_email, password: self.password)
-        //        self.vm.login(params: login_params)
-        //        print(self.vm.meals)
+        print("in the login function")
+        let login_params = LoginParams(email: self.user_email, password: self.password)
+        self.vm.login(params: login_params) {
+            (user) in
+//            self.user = user
+        }
+        //        {
+        //          (meals) in
+        //          self.search_results = meals
+        //        }
     }
     
 }
