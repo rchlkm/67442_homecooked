@@ -6,6 +6,8 @@
 //  Copyright © 2019 67442. All rights reserved.
 //
 
+// We aren't using these parsers anywhere, so we didn't write tests for them.
+
 import Foundation
 import SwiftyJSON
 

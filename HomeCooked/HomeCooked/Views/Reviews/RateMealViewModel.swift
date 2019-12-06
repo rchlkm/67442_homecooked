@@ -17,10 +17,25 @@ class RateMealViewModel: ObservableObject{
   }
   
   func postReview(chef_id: String, stars: Int, user_id: String) {
-    let review = Review(id: generateId(),
-                        chef_id: chef_id,
-                        stars: stars,
-                        user_id: user_id)
+    let review : Review
+    /*if(test == true){
+      review = Review(id: "test_review",
+                             chef_id: chef_id,
+                             stars: stars,
+                             user_id: user_id)
+    } else {
+ */
+    review = Review(id: generateId(),
+                             chef_id: chef_id,
+                             stars: stars,
+                             user_id: user_id)
+   
     client.postReview(review: review)
   }
+  
+  func deleteReview(review_id: String) {
+    client.deleteReview(review_id: review_id)
+  }
+  
+  
 }
