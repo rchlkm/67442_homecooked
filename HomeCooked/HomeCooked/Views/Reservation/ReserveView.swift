@@ -12,6 +12,7 @@ struct ReserveView: View {
     let meal: Meal
     @State var guest_count: Int = 1
     @State var isActive = false
+    @State var paymentValid = false
     
     @State var card_number: String = ""
     @State var expiration_month: String = ""
@@ -65,17 +66,36 @@ struct ReserveView: View {
     
     func reserveMeal() {
         let meal_total = "$\(meal.price * guest_count)"
-        if (matchRegex(text: self.card_number) &&
-            Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
-            self.security_code.count == 3) {
+//        if (matchRegex(text: self.card_number) &&
+//            Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
+//            self.security_code.count == 3) {
             let reservation: Reservation = Reservation(id: randomString(length: 16), guest_id: "abc", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
             let vm = ReservationViewModel(reservation: reservation)
             vm.postReservation(reservation: reservation)
-        } else {
+//            self.paymentValid = true
+//        } else {
             // if invalid payment...
-            print("invalid payment")
-        }
+//            print("invalid payment")
+//        }
     }
+    
+    func valid_payment() -> Bool {
+        if (matchRegex(text: self.card_number) &&
+        Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
+            self.security_code.count == 3) {
+            print("VALID payment")
+            return true
+        } else {
+            print("INvalid payment")
+            return false
+        }
+        
+    }
+    
+//    func buttonClickable() -> Bool {
+////        return self.$isActive && self.$isActive
+//    }
+    
     
     var reserveButton: some View {
         Section {
@@ -83,7 +103,14 @@ struct ReserveView: View {
             Button(action: {
                 self.reserveMeal()
                 self.isActive = true
-            }) {  OrangeButton("Confirm") }
+            }) {
+                if (self.valid_payment()) {
+                    OrangeButton("Confirm")
+                } else {
+                    WhiteButton("Confirm")
+                }
+                
+            }.disabled(!self.valid_payment())
         }
     }
     
@@ -122,7 +149,7 @@ struct ReserveView: View {
     
     var payment: some View {
         Section {
-            Text("Payment")
+            SectionTitle("Payment")
             TextField("Card Number", text: $card_number)
             HStack {
                 TextField("Month", text: $expiration_month)

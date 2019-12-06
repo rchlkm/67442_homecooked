@@ -32,6 +32,8 @@
 		0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239A9C92370B8C5004954F9 /* ChefInfoView.swift */; };
 		02466B3623707F37001328BD /* BookedMealItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02466B3523707F37001328BD /* BookedMealItemView.swift */; };
 		024F7A072375505400E692C4 /* RateMealAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024F7A062375505400E692C4 /* RateMealAlert.swift */; };
+		025AC7992399E05600A1E82B /* ChefViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025AC7982399E05600A1E82B /* ChefViewModel.swift */; };
+		025AC79B2399E0CE00A1E82B /* ChefClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025AC79A2399E0CE00A1E82B /* ChefClient.swift */; };
 		02633E0F239797D000AE7596 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02633E0E239797D000AE7596 /* ConfirmationView.swift */; };
 		02633E1323979E5A00AE7596 /* ReservationMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02633E1223979E5A00AE7596 /* ReservationMeal.swift */; };
 		02641AE72398B03100314236 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02641AE62398B03100314236 /* OptionButton.swift */; };
@@ -39,7 +41,7 @@
 		0273037023978BC500B370CB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273036F23978BC500B370CB /* Button.swift */; };
 		0280757923975F1D00C533C2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280757823975F1D00C533C2 /* HomeView.swift */; };
 		028331CB236F7C4700643923 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CA236F7C4700643923 /* Meal.swift */; };
-		028331D0236F7D6600643923 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Reviews.swift */; };
+		028331D0236F7D6600643923 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028331CF236F7D6600643923 /* Review.swift */; };
 		0288B8A223756A71002A862E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288B8A123756A71002A862E /* Date.swift */; };
 		02905E8C237610B1008E9304 /* BookedMealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */; };
 		02905E8E237610CB008E9304 /* BookedMealsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02905E8D237610CB008E9304 /* BookedMealsClient.swift */; };
@@ -113,6 +115,8 @@
 		0239A9C92370B8C5004954F9 /* ChefInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefInfoView.swift; sourceTree = "<group>"; };
 		02466B3523707F37001328BD /* BookedMealItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealItemView.swift; sourceTree = "<group>"; };
 		024F7A062375505400E692C4 /* RateMealAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateMealAlert.swift; sourceTree = "<group>"; };
+		025AC7982399E05600A1E82B /* ChefViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefViewModel.swift; sourceTree = "<group>"; };
+		025AC79A2399E0CE00A1E82B /* ChefClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefClient.swift; sourceTree = "<group>"; };
 		02633E0E239797D000AE7596 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		02633E1223979E5A00AE7596 /* ReservationMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationMeal.swift; sourceTree = "<group>"; };
 		02641AE62398B03100314236 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
@@ -120,7 +124,7 @@
 		0273036F23978BC500B370CB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		0280757823975F1D00C533C2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		028331CA236F7C4700643923 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
-		028331CF236F7D6600643923 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		028331CF236F7D6600643923 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		0288B8A123756A71002A862E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		02905E8B237610B1008E9304 /* BookedMealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsViewModel.swift; sourceTree = "<group>"; };
 		02905E8D237610CB008E9304 /* BookedMealsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsClient.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 			children = (
 				0239A9C92370B8C5004954F9 /* ChefInfoView.swift */,
 				0220F19D23847DD0007FD60E /* ChefDetailsView.swift */,
+				025AC7982399E05600A1E82B /* ChefViewModel.swift */,
 			);
 			path = Chef;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			children = (
 				02F83A742373E03100B2EA2D /* MealDetailClient.swift */,
 				02F83A762373E04600B2EA2D /* SearchClient.swift */,
+				025AC79A2399E0CE00A1E82B /* ChefClient.swift */,
 				02905E8D237610CB008E9304 /* BookedMealsClient.swift */,
 			);
 			path = Network;
@@ -391,7 +397,7 @@
 			children = (
 				028331CA236F7C4700643923 /* Meal.swift */,
 				02B7B9AD236F91EB00743B6D /* Chef.swift */,
-				028331CF236F7D6600643923 /* Reviews.swift */,
+				028331CF236F7D6600643923 /* Review.swift */,
 				02936CF023709F8900C82DC5 /* Reservation.swift */,
 				029D6E212373B50900F27366 /* SearchParams.swift */,
 				0288B8A123756A71002A862E /* Date.swift */,
@@ -652,6 +658,7 @@
 				02F83A802373E0AB00B2EA2D /* SearchViewModel.swift in Sources */,
 				4533B5F0236A59B400D99E25 /* AppDelegate.swift in Sources */,
 				02F83A7E2373E09700B2EA2D /* MealDetailViewModel.swift in Sources */,
+				025AC79B2399E0CE00A1E82B /* ChefClient.swift in Sources */,
 				029D6E222373B50900F27366 /* SearchParams.swift in Sources */,
 				020A5876239876C400DD8A6D /* UserProfileView.swift in Sources */,
 				02DE34602397032800571D44 /* Login.swift in Sources */,
@@ -671,10 +678,11 @@
 				0288B8A223756A71002A862E /* Date.swift in Sources */,
 				02DE34622397038400571D44 /* User.swift in Sources */,
 				0273037023978BC500B370CB /* Button.swift in Sources */,
+				025AC7992399E05600A1E82B /* ChefViewModel.swift in Sources */,
 				0239A9CA2370B8C5004954F9 /* ChefInfoView.swift in Sources */,
 				4533B5F4236A59B400D99E25 /* ContentView.swift in Sources */,
 				02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */,
-				028331D0236F7D6600643923 /* Reviews.swift in Sources */,
+				028331D0236F7D6600643923 /* Review.swift in Sources */,
 				02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */,
 				02D1749A2370784300F3F6C6 /* BookedMealsView.swift in Sources */,
 				020A587823987D9500DD8A6D /* PaymentsComponentView.swift in Sources */,

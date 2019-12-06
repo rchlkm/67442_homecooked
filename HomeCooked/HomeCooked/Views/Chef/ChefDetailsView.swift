@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct ChefDetailsView: View {
+    @ObservedObject var vm : ChefViewModel
     let chef: Chef
+    @State var chef_reviews: [Review] = [Review]()
     init(chef: Chef) {
         self.chef = chef
+        self.vm = ChefViewModel()
+//        self.vm.getChefReviews(chef_id: chef.id) {
+//            (reviews) in
+//            self.chef_reviews = reviews
+//        }
     }
     
     var body: some View {
@@ -31,12 +38,12 @@ struct ChefDetailsView: View {
     
     var reviews: some View {
         VStack(alignment: .leading) {
-            Text("Reviews" + " (5)")
+            Text("Reviews")
                 .font(.title)
                 .fontWeight(.bold)
             
             Section {
-                Text("4.7")
+                Text("\(self.vm.getAverageRating())")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(OrangeColor)

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Review.swift
 //  HomeCooked
 //
 //  Created by Rachel Kim on 11/3/19.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Reviews {
-    let id: Int
-    let chef_id: Int
+struct Review {
+    let id: String
+    let chef_id: String
     let stars: Int
     let description: String
-    let guest_id: Int	
+    let guest_id: String
 }

@@ -52,6 +52,26 @@ struct SearchView: View {
             .navigationBarHidden(true)
     }
     
+    func get_filters_cuisines() -> [String] {
+        var filters: [String] = []
+        if (cuisine_asian) { filters.append("Asian") }
+        if (cuisine_american) { filters.append("American") }
+        if (cuisine_italian) { filters.append("Italian") }
+        if (cuisine_mexican) { filters.append("Mexican") }
+        if (cuisine_mediterranean) { filters.append("Mediterranean") }
+        return filters
+    }
+    
+    func get_filters_allergens() -> [String] {
+        var filters: [String] = []
+        if (allergens_nuts) { filters.append("Nuts") }
+        if (allergens_shellfish) { filters.append("Shellfish") }
+        if (allergens_dairy) { filters.append("Dairy") }
+        if (allergens_fish) { filters.append("Fish") }
+        if (allergens_soy) { filters.append("Soy") }
+        return filters
+    }
+    
     func submitSearch() {
         /*
          let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
@@ -61,7 +81,19 @@ struct SearchView: View {
          self.updated = !self.updated
          print(self.updated)
          */
-        let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.guest_count)
+        let filters_cuisines = self.get_filters_cuisines()
+        let filters_allergens = self.get_filters_allergens()
+        
+        let search_params = SearchParams(
+            city: self.search_city,
+            year: self.search_date.year,
+            month: self.search_date.month,
+            day: self.search_date.day,
+            max_guest_count: self.guest_count,
+    
+            filters_cuisines: filters_cuisines,
+            filters_allergens: filters_allergens
+        )
         
       self.vm.search(params: search_params) {
         (meals) in
@@ -69,6 +101,7 @@ struct SearchView: View {
       }
         //print(self.vm.meals)
     }
+    
     
     var searchEngine: some View {
         HStack {
@@ -145,7 +178,6 @@ struct SearchView: View {
             
         }.padding()
     }
-    
     
     @State var filter_vegetarian = false
     @State var filter_vegan = false

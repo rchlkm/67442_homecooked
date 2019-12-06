@@ -102,7 +102,6 @@ let reservation2 = Reservation (
     cv2: "123"
 )
 
-
 var meals: [Meal] = [meal1, meal2]
 
 func getMealsByIdFromReservation(reservation: Reservation) -> Meal {
