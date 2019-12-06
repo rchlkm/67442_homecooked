@@ -15,7 +15,8 @@ class CreateAccountViewModel: ObservableObject {
         let user = User(id: generateId(),
                         first_name: params.first_name,
                         last_name: params.last_name,
-                        email: params.email, password: params.password)
+                        email: params.email,
+                        password: params.password)
         client.postUser(user: user)
     }
     

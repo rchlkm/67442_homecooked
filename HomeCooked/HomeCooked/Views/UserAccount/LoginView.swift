@@ -41,8 +41,12 @@ struct LoginView: View {
 //                    print("login is not valid")
 //                }
             }) {
-                OrangeButton("Login")
-            }//.disabled(!self.button_is_active)
+//                if (self.button_is_active) {
+                        OrangeButton("Login")
+//                    } else {
+//                        WhiteButton("Login")
+//                    }
+                }//.disabled(!self.button_is_active)
         }.padding(.leading,20).padding(.trailing,20)
     }
     

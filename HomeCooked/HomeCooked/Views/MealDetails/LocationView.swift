@@ -76,6 +76,7 @@ struct FullMapView: View {
         self.lat = lat
         self.lng = lng
         self.marker = marker
+        
     }
     
     var body: some View {
@@ -91,5 +92,23 @@ struct FullMapView: View {
     
     func open_maps() {
         print("open maps clicked!!")
-    }
+//    }
+//    func openMapForPlace() {
+//            let latitude: CLLocationDegrees = 37.2
+//            let longitude: CLLocationDegrees = 22.9
+//
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(self.lat, self.lng)
+//            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = "Place Name"
+            mapItem.openInMaps(launchOptions: options)
+        }
+     
 }

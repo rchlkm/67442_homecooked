@@ -35,7 +35,7 @@ struct CreateAccountView: View {
             
             //            Text("Create Password:")
             TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
-//            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
+            //            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
             
             //            Spacer().frame(height: 25.0)
             
@@ -45,22 +45,23 @@ struct CreateAccountView: View {
                 self.create_account()
                 self.button_is_active = true
             }) {
-                if (self.button_is_active) {
+//                if (self.button_is_active) {
                     OrangeButton("Create Account")
-                } else {
-                    WhiteButton("Create Account")
-                }
-            }.disabled(!self.button_is_active)
+//                } else {
+//                    WhiteButton("Create Account")
+//                }
+            }//.disabled(!self.button_is_active)
         }.padding(.leading,20).padding(.trailing,20)
     }
     
-    
     func create_account() {
         print("account is being created!")
-        let user_params = CreateAccountParams(first_name: self.first_name, last_name: self.last_name, email: self.user_email, password: self.password)
-//        self.vm.createAccount(params: user_params) {
-//            (user) in
-//        }
+        let user_params = CreateAccountParams(
+            first_name: self.first_name,
+            last_name: self.last_name,
+            email: self.user_email,
+            password: self.password)
+        self.vm.createAccount(params: user_params)
     }
 }
 
