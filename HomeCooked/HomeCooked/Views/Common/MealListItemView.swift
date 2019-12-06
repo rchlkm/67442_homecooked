@@ -28,14 +28,11 @@ struct MealListItemView: View {
         NavigationLink(destination: getItemDesinationView()) {
             
             HStack {
-//                ImageLoader.request(with: "https://www.raspberrykiss.co.uk/wp-content/uploads/2018/07/Shin-Ramyun-The-Best-Spicy-Instant-Noodles.jpg"), onCompletion: { _ in }).frame(width: frame_size/2)
-
-//                imageView.load.request(with: "https://www.raspberrykiss.co.uk/wp-content/uploads/2018/07/Shin-Ramyun-The-Best-Spicy-Instant-Noodles.jpg").frame(width: frame_size/2)
-
-                
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: frame_size/2)
-                    .foregroundColor(OrangeColor)
+              ImageView(urlString: self.meal.images[0])
+                .frame(width: frame_size/2)
+//                RoundedRectangle(cornerRadius: 20)
+//                    .frame(width: frame_size/2)
+//                    .foregroundColor(OrangeColor)
                 //                Image(meal.images[0]).frame(width: frame_size/2)
                 mealInfoText()
                     .frame(width: frame_size/2)

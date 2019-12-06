@@ -12,7 +12,7 @@ struct MealDetailsView: View {
     let meal: Meal
     let search_guest_count: Int // used for default count when making reservation
     
-    let url = URL(string: "https://www.raspberrykiss.co.uk/wp-content/uploads/2018/07/Shin-Ramyun-The-Best-Spicy-Instant-Noodles.jpg")
+    let urlString = "https://www.raspberrykiss.co.uk/wp-content/uploads/2018/07/Shin-Ramyun-The-Best-Spicy-Instant-Noodles.jpg"
     
     //    UITabBar.appearance().isHidden = true
     
@@ -23,15 +23,16 @@ struct MealDetailsView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
-//            VStack {
-                Rectangle() // Image(meal.image)
-                    .frame(height: 250)
-                    .offset(y:-20)
-                
-//                UIImageView(url: url)
-//                    .frame(height: 250)
-//                    .offset(y:-20)
+//            VStack(alignment: .leading) {
+            VStack {
+              ImageView(urlString: self.meal.images[0])
+                .frame(width:frame_size, height: 250)
+                  .offset(y:-20)
+//                Rectangle() // Image(meal.image)
+                    
+              //UIImageView(data: Data(contentsOf: self.url))
+                    //.frame(height: 250)
+                //.offset(y:-20)
                 
                 Section {
                     description

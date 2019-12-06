@@ -39,6 +39,7 @@ class HomeCookedTests: XCTestCase {
           
         svm.search(params: search_params) {
           (meals) in
+          print(meals.count)
           XCTAssertEqual(meals.count, 1)
         }
       
@@ -47,6 +48,7 @@ class HomeCookedTests: XCTestCase {
       cvm.getChefReviews(chef_id: "GJFmRADeY9MJCQ4AUTpC") {
         (reviews)
         in
+        print(reviews.count)
         XCTAssertEqual(reviews.count, 1)
       }
       
