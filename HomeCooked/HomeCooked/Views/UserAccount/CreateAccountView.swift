@@ -35,7 +35,7 @@ struct CreateAccountView: View {
             
             //            Text("Create Password:")
             TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
-            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
+//            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
             
             //            Spacer().frame(height: 25.0)
             

@@ -6,7 +6,7 @@ target 'HomeCooked' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'SwiftyJSON'
-
+  
   target 'HomeCookedTests' do
     pod 'Alamofire'
     pod 'Firebase'

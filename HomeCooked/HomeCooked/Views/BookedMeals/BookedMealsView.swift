@@ -34,7 +34,7 @@ struct BookedMealsView: View {
                     //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
               Text("Upcoming Meals").font(.title).onAppear { self.updateBookedMeals() }
-                if bookedMeal_items.isEmpty {
+                if self.search_results.isEmpty {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
                   ForEach(self.search_results, id: \.id) { rm in
