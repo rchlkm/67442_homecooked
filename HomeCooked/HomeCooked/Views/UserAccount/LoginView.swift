@@ -10,8 +10,8 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var vm : LoginViewModel
-//    @Published var user: User
-
+    //    @Published var user: User
+    
     @State var button_is_active = false
     
     @State var user_email: String = ""
@@ -20,7 +20,6 @@ struct LoginView: View {
     init(){
         self.vm = LoginViewModel()
     }
-    
     var body: some View {
         VStack {
             Image("logo").frame(width: 75, height: 75)
@@ -35,9 +34,15 @@ struct LoginView: View {
             NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
-                self.login()
-                self.button_is_active = true
-            }) { OrangeButton("Login") }
+//                if self.login_valid() {
+//                    self.login()
+                    self.button_is_active = true
+//                } else {
+//                    print("login is not valid")
+//                }
+            }) {
+                OrangeButton("Login")
+            }//.disabled(!self.button_is_active)
         }.padding(.leading,20).padding(.trailing,20)
     }
     
@@ -46,7 +51,7 @@ struct LoginView: View {
         let login_params = LoginParams(email: self.user_email, password: self.password)
         self.vm.login(params: login_params) {
             (user) in
-//            self.user = user
+            //            self.user = user
         }
         //        {
         //          (meals) in
@@ -54,6 +59,14 @@ struct LoginView: View {
         //        }
     }
     
+    func login_valid() -> Bool {
+        var valid: Bool = true
+        if valid {
+            self.button_is_active = true
+        }
+        print("but is the login valid tho?")
+        return valid
+    }
 }
 
 

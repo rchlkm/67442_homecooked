@@ -12,7 +12,7 @@ struct BookedMealDetailView: View {
     let meal: Meal
     let reservation: Reservation
     @ObservedObject var vm : ReservationViewModel
-    
+    @State var cancelbutton_is_active = false
     init(reservation: Reservation, meal: Meal) {
         self.meal = meal
         self.reservation = reservation
@@ -38,12 +38,31 @@ struct BookedMealDetailView: View {
                 RatePicker()
                 //                Divider().padding(.top).padding(.bottom)
                 //                } else {
-                Button(action: { self.cancel() }) {
-                    Text("Cancel Reservation")
-                }.padding(.top, 20)
+                //                Button(action: { self.cancel() }) {
+                //                    Text("Cancel Reservation")
+                //                }.padding(.top, 20)
             }
             .padding(.leading, 20).padding(.trailing, 20)
             .navigationBarTitle(meal.name)
+            .navigationBarItems(trailing:
+                cancel_button
+            )
+        }
+    }
+    
+    var cancel_button : some View {
+        Section {
+            if (!meal.is_complete()) {
+                NavigationLink(destination: LoggedInView2(), isActive: self.$cancelbutton_is_active) {
+                    EmptyView()
+                }
+                Button(action: {
+                    self.cancel()
+                    self.cancelbutton_is_active = true
+                }) {
+                    Text("Cancel")
+                }
+            }
         }
     }
     
