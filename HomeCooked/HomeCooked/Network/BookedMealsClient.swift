@@ -11,13 +11,13 @@ import Firebase
 
 class BookedMealsClient {
   let urlString = "https://firestore.googleapis.com/v1/projects/homecooked-b0581/databases/(default)/documents/meal"
-  var reservations = [Reservation]()
-  var meals = [Meal]()
+  //var reservations = [Reservation]()
+  //var meals = [Meal]()
   
   let db = Firestore.firestore()
   
-  func fetchData(guest_id: String) {
-    var r = [Reservation]()
+  func fetchReservationsForGuestId(guest_id: String, completion: @escaping ([Reservation]) -> ()){
+    var reservations = [Reservation]()
     db.collection("reservation")
       .whereField("guest_id", isEqualTo: guest_id)
       .getDocuments() { (querySnapshot, err) in
@@ -34,14 +34,19 @@ class BookedMealsClient {
             guest_count: document.get("guest_count") as! Int,
             total: document.get("total") as! String
           )
-          r.append(reservation)
+          reservations.append(reservation)
         }
       }
+      completion(reservations)
     }
-    reservations = r
+  }
+  
+  func fetchMealsforReservations(reservations: [Reservation], completion: @escaping ([Meal]) -> ()){
+    var meals = [Meal]()
+    let dispatchGroup = DispatchGroup()
     
-    var m = [Meal]()
     for res in reservations {
+      dispatchGroup.enter()
       db.collection("meal")
         .document(res.meal_id)
         .getDocument { (documentSnapshot, err) in
@@ -49,6 +54,8 @@ class BookedMealsClient {
           print("Error getting documents: \(err)")
         } else {
           let document = documentSnapshot!
+          //print("\(document.documentID) => \(document.data())")
+          //print(document.get("id"))
           let meal = Meal(
             id: document.get("id") as! String,
             name: document.get("name") as! String,
@@ -71,11 +78,28 @@ class BookedMealsClient {
             max_guest_count: document.get("max_guest_count") as! Int,
             is_booked: document.get("is_booked") as! Bool
           )
-          m.append(meal)
+          meals.append(meal)
         }
+          dispatchGroup.leave()
+      }
+      
+    }
+    dispatchGroup.notify(queue: DispatchQueue.global()) {
+      print(meals)
+      completion(meals)
+    }
+  }
+  
+  func fetchData(guest_id: String, completion: @escaping ([Meal]) -> ()) {
+    self.fetchReservationsForGuestId(guest_id: guest_id) {
+      (reservations) in
+      //print(reservations)
+      self.fetchMealsforReservations(reservations: reservations) {
+        (meals) in
+        //print(meals)
+        completion(meals)
       }
     }
-    meals = m
   }
 }
 

@@ -21,7 +21,7 @@ class SearchClient {
   
   func fetchMeals(completion: @escaping ([Meal]) -> ()) {
     var meals = [Meal]()
-    let dispatchGroup = DispatchGroup()
+    // let dispatchGroup = DispatchGroup()
  
     db.collection("meal")
       .whereField("city", isEqualTo: city)
@@ -35,7 +35,7 @@ class SearchClient {
       } else {
         //print("hi")
         for document in querySnapshot!.documents {
-          dispatchGroup.enter()
+          //dispatchGroup.enter()
           //print("\(document.documentID) => \(document.data())")
           let meal = Meal(
             id: document.get("id") as! String,
@@ -66,7 +66,7 @@ class SearchClient {
           //print(meal)
           //meals.append(meal)
           //print(meal)
-          dispatchGroup.leave()
+          //dispatchGroup.leave()
           }
         
       }

@@ -33,6 +33,7 @@ class ReservationViewModel: ObservableObject{
             "payment_info": reservation.payment_info,
             "meal_id": reservation.meal_id,
             "reservation_time": Date(), // Change this to current date/time
+          "total": reservation.total,
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")

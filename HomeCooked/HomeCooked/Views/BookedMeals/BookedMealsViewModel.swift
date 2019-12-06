@@ -8,23 +8,32 @@
 
 import Foundation
 
-class BookedMealViewModel {
-    var res_meals = [ReservationMeal]()
+class BookedMealViewModel: ObservableObject{
+    
     
     let client = BookedMealsClient()
     
-    func getMealsByGuestId(guest_id: String) {
-        client.fetchData(guest_id: guest_id)
+    func getReservationMealsByGuestId(guest_id: String, completion: @escaping ([ReservationMeal]) -> ()) {
+      var res_meals = [ReservationMeal]()
+      client.fetchData(guest_id: guest_id) {
+        (meals) in
         res_meals = []
-        for (index, meal) in client.meals.enumerated() {
-            let reservation = client.reservations[index]
+        for (index, meal) in meals.enumerated() {
+          self.client.fetchReservationsForGuestId(guest_id: "abc"){
+            (reservations) in
+            let reservation = reservations[index]
             let res_meal = ReservationMeal(
                 id: reservation.id,
                 reservation: reservation,
                 meal: meal
             )
             res_meals.append(res_meal)
+          }
+            
         }
+        completion(res_meals)
+      }
+        
     }
 }
 

@@ -12,7 +12,9 @@ struct LoggedInView: View {
     @State var selection = 1
     init(_ tabSelection: Int = 1) {
         if tabSelection == 2 {
+            print("hi")
             self.selection = tabSelection
+            BookedMealsView().updateBookedMeals()
         }
     }
     var body: some View {
