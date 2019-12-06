@@ -10,6 +10,14 @@ import SwiftUI
 
 struct BookedMealsView: View {
     @State var button_is_active = false
+    @ObservedObject var vm : BookedMealViewModel
+    @State var search_results: [ReservationMeal] = [ReservationMeal]()
+  
+  init(){
+      self.vm = BookedMealViewModel()
+  }
+  
+ 
     var body: some View {
         ScrollView {
             //            Spacer()
@@ -25,11 +33,11 @@ struct BookedMealsView: View {
                     }
                     //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
-                Text("Upcoming Meals").font(.title)
+              Text("Upcoming Meals").font(.title).onAppear { self.updateBookedMeals() }
                 if bookedMeal_items.isEmpty {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
-                    ForEach(bookedMeal_items, id: \.id) { rm in
+                  ForEach(self.search_results, id: \.id) { rm in
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
                     }
@@ -52,6 +60,14 @@ struct BookedMealsView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
     }
+  
+  func updateBookedMeals(){
+     self.vm.getReservationMealsByUserId(user_id: "abc") {
+       (reservationMeals) in
+       //print(reservationMeals)
+       self.search_results = reservationMeals
+     }
+   }
 }
 
 struct SearchForNewMealsView: View {

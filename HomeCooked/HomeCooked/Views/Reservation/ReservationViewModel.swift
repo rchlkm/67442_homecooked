@@ -28,7 +28,7 @@ class ReservationViewModel: ObservableObject{
       let documentId = reservation.id
       db.collection("reservation").document(documentId).setData([
         "id": reservation.id,
-        "guest_id": reservation.user_id,
+        "user_id": reservation.user_id,
         "meal_id": reservation.meal_id,
         "guest_count": reservation.guest_count,
         "total": reservation.total,
