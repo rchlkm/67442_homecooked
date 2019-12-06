@@ -11,19 +11,6 @@
 		020A58742398645C00DD8A6D /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A58732398645C00DD8A6D /* Styles.swift */; };
 		020A5876239876C400DD8A6D /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A5875239876C400DD8A6D /* UserProfileView.swift */; };
 		020A587823987D9500DD8A6D /* PaymentsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A587723987D9500DD8A6D /* PaymentsComponentView.swift */; };
-		020A58872398865000DD8A6D /* tonkatsu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587A2398864F00DD8A6D /* tonkatsu.jpg */; };
-		020A58882398865000DD8A6D /* pizza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587B2398864F00DD8A6D /* pizza.jpg */; };
-		020A58892398865000DD8A6D /* tacos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587C2398864F00DD8A6D /* tacos.jpg */; };
-		020A588A2398865000DD8A6D /* udon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587D2398865000DD8A6D /* udon.jpg */; };
-		020A588B2398865000DD8A6D /* lamb_chops.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587E2398865000DD8A6D /* lamb_chops.jpg */; };
-		020A588C2398865000DD8A6D /* chia_bowl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A587F2398865000DD8A6D /* chia_bowl.jpg */; };
-		020A588D2398865000DD8A6D /* chicken_plate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58802398865000DD8A6D /* chicken_plate.jpg */; };
-		020A588E2398865000DD8A6D /* chirashi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58812398865000DD8A6D /* chirashi.jpg */; };
-		020A588F2398865000DD8A6D /* salmon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58822398865000DD8A6D /* salmon.jpg */; };
-		020A58902398865000DD8A6D /* kbbq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58832398865000DD8A6D /* kbbq.jpg */; };
-		020A58912398865000DD8A6D /* pancake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58842398865000DD8A6D /* pancake.jpg */; };
-		020A58922398865000DD8A6D /* sushi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58852398865000DD8A6D /* sushi.jpg */; };
-		020A58932398865000DD8A6D /* bacon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 020A58862398865000DD8A6D /* bacon.jpg */; };
 		020C864D236FAB9C002618A4 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C864C236FAB9C002618A4 /* LocationView.swift */; };
 		0220F19E23847DD0007FD60E /* ChefDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220F19D23847DD0007FD60E /* ChefDetailsView.swift */; };
 		022782482397695700E9A4EA /* LoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022782472397695700E9A4EA /* LoggedInView.swift */; };
@@ -98,19 +85,6 @@
 		020A58732398645C00DD8A6D /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		020A5875239876C400DD8A6D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		020A587723987D9500DD8A6D /* PaymentsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsComponentView.swift; sourceTree = "<group>"; };
-		020A587A2398864F00DD8A6D /* tonkatsu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tonkatsu.jpg; path = ../../../../../ios_img/tonkatsu.jpg; sourceTree = "<group>"; };
-		020A587B2398864F00DD8A6D /* pizza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pizza.jpg; path = ../../../../../ios_img/pizza.jpg; sourceTree = "<group>"; };
-		020A587C2398864F00DD8A6D /* tacos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tacos.jpg; path = ../../../../../ios_img/tacos.jpg; sourceTree = "<group>"; };
-		020A587D2398865000DD8A6D /* udon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = udon.jpg; path = ../../../../../ios_img/udon.jpg; sourceTree = "<group>"; };
-		020A587E2398865000DD8A6D /* lamb_chops.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lamb_chops.jpg; path = ../../../../../ios_img/lamb_chops.jpg; sourceTree = "<group>"; };
-		020A587F2398865000DD8A6D /* chia_bowl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chia_bowl.jpg; path = ../../../../../ios_img/chia_bowl.jpg; sourceTree = "<group>"; };
-		020A58802398865000DD8A6D /* chicken_plate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chicken_plate.jpg; path = ../../../../../ios_img/chicken_plate.jpg; sourceTree = "<group>"; };
-		020A58812398865000DD8A6D /* chirashi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chirashi.jpg; path = ../../../../../ios_img/chirashi.jpg; sourceTree = "<group>"; };
-		020A58822398865000DD8A6D /* salmon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = salmon.jpg; path = ../../../../../ios_img/salmon.jpg; sourceTree = "<group>"; };
-		020A58832398865000DD8A6D /* kbbq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kbbq.jpg; path = ../../../../../ios_img/kbbq.jpg; sourceTree = "<group>"; };
-		020A58842398865000DD8A6D /* pancake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pancake.jpg; path = ../../../../../ios_img/pancake.jpg; sourceTree = "<group>"; };
-		020A58852398865000DD8A6D /* sushi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sushi.jpg; path = ../../../../../ios_img/sushi.jpg; sourceTree = "<group>"; };
-		020A58862398865000DD8A6D /* bacon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bacon.jpg; path = ../../../../../ios_img/bacon.jpg; sourceTree = "<group>"; };
 		020C864C236FAB9C002618A4 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		0220F19D23847DD0007FD60E /* ChefDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefDetailsView.swift; sourceTree = "<group>"; };
 		022782472397695700E9A4EA /* LoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInView.swift; sourceTree = "<group>"; };
@@ -201,26 +175,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		020A58792398863800DD8A6D /* dummy_img */ = {
-			isa = PBXGroup;
-			children = (
-				020A58862398865000DD8A6D /* bacon.jpg */,
-				020A587F2398865000DD8A6D /* chia_bowl.jpg */,
-				020A58802398865000DD8A6D /* chicken_plate.jpg */,
-				020A58812398865000DD8A6D /* chirashi.jpg */,
-				020A58832398865000DD8A6D /* kbbq.jpg */,
-				020A587E2398865000DD8A6D /* lamb_chops.jpg */,
-				020A58842398865000DD8A6D /* pancake.jpg */,
-				020A587B2398864F00DD8A6D /* pizza.jpg */,
-				020A58822398865000DD8A6D /* salmon.jpg */,
-				020A58852398865000DD8A6D /* sushi.jpg */,
-				020A587C2398864F00DD8A6D /* tacos.jpg */,
-				020A587A2398864F00DD8A6D /* tonkatsu.jpg */,
-				020A587D2398865000DD8A6D /* udon.jpg */,
-			);
-			path = dummy_img;
-			sourceTree = "<group>";
-		};
 		020C864B236FAB7A002618A4 /* MealDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,7 +256,6 @@
 		02DE3463239708EE00571D44 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				020A58792398863800DD8A6D /* dummy_img */,
 				02DE346A2397096500571D44 /* logo.png */,
 				02DE34682397094700571D44 /* appicon.png */,
 			);
@@ -537,25 +490,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020A588E2398865000DD8A6D /* chirashi.jpg in Resources */,
 				02DE34692397094700571D44 /* appicon.png in Resources */,
-				020A588A2398865000DD8A6D /* udon.jpg in Resources */,
 				4533B5FC236A59B800D99E25 /* LaunchScreen.storyboard in Resources */,
-				020A588F2398865000DD8A6D /* salmon.jpg in Resources */,
 				02DE346B2397096500571D44 /* logo.png in Resources */,
-				020A588C2398865000DD8A6D /* chia_bowl.jpg in Resources */,
-				020A58902398865000DD8A6D /* kbbq.jpg in Resources */,
 				4533B616236A5CBD00D99E25 /* GoogleService-Info.plist in Resources */,
-				020A588B2398865000DD8A6D /* lamb_chops.jpg in Resources */,
-				020A58922398865000DD8A6D /* sushi.jpg in Resources */,
-				020A58932398865000DD8A6D /* bacon.jpg in Resources */,
 				4533B5F9236A59B800D99E25 /* Preview Assets.xcassets in Resources */,
 				4533B5F6236A59B800D99E25 /* Assets.xcassets in Resources */,
-				020A588D2398865000DD8A6D /* chicken_plate.jpg in Resources */,
-				020A58912398865000DD8A6D /* pancake.jpg in Resources */,
-				020A58882398865000DD8A6D /* pizza.jpg in Resources */,
-				020A58872398865000DD8A6D /* tonkatsu.jpg in Resources */,
-				020A58892398865000DD8A6D /* tacos.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

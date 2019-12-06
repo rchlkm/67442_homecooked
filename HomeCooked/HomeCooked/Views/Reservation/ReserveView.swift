@@ -52,37 +52,41 @@ struct ReserveView: View {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-    func matchRegex(text: String) -> Bool {
-        do {
-            let card_regex = "^(?:4[0-9]{12}(?:[0-9]{3})? | (?:5[1-5][0-9]{2} | 222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12} | 3[47][0-9]{13} |  3(?:0[0-5]|[68][0-9])[0-9]{11} | 6(?:011|5[0-9]{2})[0-9]{12})$"
-            let regex = try NSRegularExpression(pattern: card_regex, options: [.caseInsensitive])
-            let nsString = text as NSString
-            let match = regex.firstMatch(in: text, options: [], range: NSMakeRange(0, nsString.length))
-            return (match != nil)
-        } catch {
-            return false
-        }
-    }
-    
-    func reserveMeal() {
-        let meal_total = "$\(meal.price * guest_count)"
-//        if (matchRegex(text: self.card_number) &&
-//            Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
-//            self.security_code.count == 3) {
+      func matchRegex(regex: String, text: String) -> Bool {
+          do {
+              let regex = try NSRegularExpression(pattern: regex, options: [.caseInsensitive])
+              let nsString = text as NSString
+              let match = regex.firstMatch(in: text, options: [], range: NSMakeRange(0, nsString.length))
+              return (match != nil)
+          } catch {
+              return false
+          }
+      }
+      
+      func reserveMeal() {
+        print("trying to reserve the meal!!!!")
+          let meal_total = "$\(meal.price * guest_count)"
+        if self.valid_payment() {
             let reservation: Reservation = Reservation(id: randomString(length: 16), user_id: "abc", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
-            let vm = ReservationViewModel(reservation: reservation)
-            vm.postReservation(reservation: reservation)
-//            self.paymentValid = true
-//        } else {
-            // if invalid payment...
-//            print("invalid payment")
-//        }
-    }
+              let vm = ReservationViewModel(reservation: reservation)
+              vm.postReservation(reservation: reservation)
+          } else {
+              // if invalid payment...
+              print("invalid payment")
+          }
+      }
     
     func valid_payment() -> Bool {
-        if (matchRegex(text: self.card_number) &&
-        Int(self.expiration_month)! >= 0 && Int(self.expiration_year)! <= 12 &&
-            self.security_code.count == 3) {
+        print("checking if it is valid payment!!")
+        if ((matchRegex(regex: "^4[0-9]{12}(?:[0-9]{3})?$", text: self.card_number) //||
+//        matchRegex(regex: "^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$", text: self.card_number) ||
+//        matchRegex(regex: "^3[47][0-9]{13}$", text: self.card_number) ||
+//        matchRegex(regex: "^6(?:011|5[0-9]{2})[0-9]{12}$", text: self.card_number)
+            && (Int(self.expiration_month) != nil) && (Int(self.expiration_year) != nil) &&
+            Int(self.expiration_month)! >= 0 && Int(self.expiration_month)! <= 12 &&
+            Int(self.expiration_year)! >= 2019 &&
+            self.security_code.count == 3)
+       ) {
             print("VALID payment")
             return true
         } else {
@@ -101,8 +105,12 @@ struct ReserveView: View {
         Section {
             NavigationLink(destination:  ConfirmationView(meal: self.meal, reservation: reservation1), isActive: self.$button_is_active) { EmptyView() }
             Button(action: {
-                self.reserveMeal()
-                self.button_is_active = true
+                do {
+                    self.reserveMeal()
+                    self.button_is_active = true
+                } catch {
+                    print("idk why it's going in this!!")
+                }
             }) {
                 if (self.valid_payment()) {
                     OrangeButton("Confirm")
@@ -150,10 +158,10 @@ struct ReserveView: View {
     var payment: some View {
         Section {
             SectionTitle("Payment")
-            TextField("Card Number", text: $card_number)
+            TextField("Card Number (VISA)", text: $card_number)
             HStack {
-                TextField("Month", text: $expiration_month)
-                TextField("Year", text: $expiration_year)
+                TextField("Month (MM)", text: $expiration_month)
+                TextField("Year (YYYY)", text: $expiration_year)
             }
             TextField("Security Code", text: $security_code)
             //        TextFieldWithBottomLine("Card Number", input: $card_number)

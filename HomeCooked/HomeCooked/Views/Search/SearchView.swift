@@ -55,10 +55,10 @@ struct SearchView: View {
     func get_filters_cuisines() -> [String] {
         var filters: [String] = []
         if (cuisine_asian) { filters.append("Asian") }
-        if (cuisine_american) { filters.append("American") }
+//        if (cuisine_american) { filters.append("American") }
         if (cuisine_italian) { filters.append("Italian") }
         if (cuisine_mexican) { filters.append("Mexican") }
-        if (cuisine_mediterranean) { filters.append("Mediterranean") }
+//        if (cuisine_mediterranean) { filters.append("Mediterranean") }
         return filters
     }
     
@@ -101,7 +101,6 @@ struct SearchView: View {
       }
         //print(self.vm.meals)
     }
-    
     
     var searchEngine: some View {
         HStack {
@@ -168,11 +167,11 @@ struct SearchView: View {
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
             }.padding(.bottom, 20)
-            
-            //            dietaryFilters.padding(.bottom, 20)
+
             cuisineFilters.padding(.bottom, 20)
             allergensFilters.padding(.bottom, 40)
             Button(action: {
+                self.submitSearch()
                 self.filterIsPresent.toggle()
             }) { OrangeButton("Apply") }
             
@@ -210,11 +209,12 @@ struct SearchView: View {
     }
     
     @State var cuisine_asian = false
-    @State var cuisine_american = false
+//    @State var cuisine_american = false
     @State var cuisine_italian = false
     @State var cuisine_mexican = false
-    @State var cuisine_mediterranean = false
-    let cuisine_filters = ["Asian", "American", "Italian", "Mexican", "Mediterranean"]
+//    @State var cuisine_mediterranean = false
+//    let cuisine_filters = ["Asian", "American", "Italian", "Mexican", "Mediterranean"]
+    let cuisine_filters = ["Asian", "Italian", "Mexican"]
     var cuisineFilters: some View {
         VStack {
             SectionTitle("Cuisine").padding(.bottom)
@@ -223,24 +223,18 @@ struct SearchView: View {
                     Button(action: {
                         switch filter {
                         case "Asian": self.cuisine_asian.toggle()
-                        case "American": self.cuisine_american.toggle()
+//                        case "American": self.cuisine_american.toggle()
                         case "Italian": self.cuisine_italian.toggle()
-                        case "Mexican": self.cuisine_mexican.toggle()
-                        case "Mediterranean": self.cuisine_mediterranean.toggle()
-                        default: self.cuisine_mediterranean.toggle()
+//                        case "Mexican": self.cuisine_mexican.toggle()
+                        case "Mediterranean": self.cuisine_asian.toggle()
+                        default: self.cuisine_asian.toggle()
                         }
                     }) {
-                        if filter == "Asian" {
-                            OptionButton(filter, didTap: self.cuisine_asian)
-                        } else if filter == "American" {
-                            OptionButton(filter, didTap: self.cuisine_american)
-                        } else if filter == "Italian" {
-                            OptionButton(filter, didTap: self.cuisine_italian)
-                        } else if filter == "Mexican" {
-                            OptionButton(filter, didTap: self.cuisine_mexican)
-                        } else if filter == "Mediterranean" {
-                            OptionButton(filter, didTap: self.cuisine_mediterranean)
-                        }
+                        if filter == "Asian" { OptionButton(filter, didTap: self.cuisine_asian) }
+//                        else if filter == "American" {  OptionButton(filter, didTap: self.cuisine_american) }
+                        else if filter == "Italian" { OptionButton(filter, didTap: self.cuisine_italian) }
+                        else if filter == "Mexican" { OptionButton(filter, didTap: self.cuisine_mexican) }
+//                        else if filter == "Mediterranean" { OptionButton(filter, didTap: self.cuisine_mediterranean) }
                     }
                 }
             }
