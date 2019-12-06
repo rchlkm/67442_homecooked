@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BookedMealsView: View {
-    @State var isActive = false
+    @State var button_is_active = false
     @ObservedObject var vm : BookedMealViewModel
     @State var search_results: [ReservationMeal] = [ReservationMeal]()
   
@@ -17,14 +17,7 @@ struct BookedMealsView: View {
       self.vm = BookedMealViewModel()
   }
   
-  func updateBookedMeals(){
-    self.vm.getReservationMealsByGuestId(guest_id: "abc") {
-      (reservationMeals) in
-      //print(reservationMeals)
-      self.search_results = reservationMeals
-    }
-  }
-  
+ 
     var body: some View {
         ScrollView {
             //            Spacer()
@@ -32,7 +25,13 @@ struct BookedMealsView: View {
                 HStack {
                     LargeTitle("My Meals")
                     Spacer()
-                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
+                    NavigationLink(destination: HomeView(), isActive: self.$button_is_active) { EmptyView() }
+                        Button(action: {
+                            self.button_is_active = true
+                        }) {
+                            Text("Logout")
+                    }
+                    //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
               Text("Upcoming Meals").font(.title).onAppear { self.updateBookedMeals() }
                 if bookedMeal_items.isEmpty {
@@ -55,12 +54,20 @@ struct BookedMealsView: View {
                     }
                 }
             }
-        }.border(Color.blue)
-        .padding(.leading,20).padding(.trailing,20)
-        .navigationBarTitle("Navbar title")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+        }//.border(Color.blue)
+            .padding(.leading,20).padding(.trailing,20)
+            .navigationBarTitle("Navbar title")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
     }
+  
+  func updateBookedMeals(){
+     self.vm.getReservationMealsByUserId(user_id: "abc") {
+       (reservationMeals) in
+       //print(reservationMeals)
+       self.search_results = reservationMeals
+     }
+   }
 }
 
 struct SearchForNewMealsView: View {

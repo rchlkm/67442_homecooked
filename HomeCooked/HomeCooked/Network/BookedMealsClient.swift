@@ -16,10 +16,10 @@ class BookedMealsClient {
   
   let db = Firestore.firestore()
   
-  func fetchReservationsForGuestId(guest_id: String, completion: @escaping ([Reservation]) -> ()){
+  func fetchReservationsForGuestId(user_id: String, completion: @escaping ([Reservation]) -> ()){
     var reservations = [Reservation]()
     db.collection("reservation")
-      .whereField("guest_id", isEqualTo: guest_id)
+      .whereField("user_id", isEqualTo: user_id)
       .getDocuments() { (querySnapshot, err) in
       if let err = err {
         print("Error getting documents: \(err)")
@@ -28,11 +28,14 @@ class BookedMealsClient {
           print("\(document.documentID) => \(document.data())")
           let reservation = Reservation(
             id: document.get("id") as! String,
-            guest_id: document.get("guest_id") as! String,
+            user_id: document.get("user_id") as! String,
             meal_id: document.get("meal_id") as! String,
-            payment_info: document.get("payment_info") as! String,
             guest_count: document.get("guest_count") as! Int,
-            total: document.get("total") as! String
+            total: document.get("total") as! String,
+            card_number: document.get("card_number") as! String,
+            exp_month: document.get("exp_month") as! String,
+            exp_year: document.get("exp_year") as! String,
+            cv2: document.get("cv2") as! String
           )
           reservations.append(reservation)
         }
@@ -90,8 +93,8 @@ class BookedMealsClient {
     }
   }
   
-  func fetchData(guest_id: String, completion: @escaping ([Meal]) -> ()) {
-    self.fetchReservationsForGuestId(guest_id: guest_id) {
+  func fetchData(user_id: String, completion: @escaping ([Meal]) -> ()) {
+    self.fetchReservationsForGuestId(user_id: user_id) {
       (reservations) in
       //print(reservations)
       self.fetchMealsforReservations(reservations: reservations) {

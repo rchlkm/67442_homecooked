@@ -13,13 +13,13 @@ class BookedMealViewModel: ObservableObject{
     
     let client = BookedMealsClient()
     
-    func getReservationMealsByGuestId(guest_id: String, completion: @escaping ([ReservationMeal]) -> ()) {
+    func getReservationMealsByUserId(user_id: String, completion: @escaping ([ReservationMeal]) -> ()) {
       var res_meals = [ReservationMeal]()
-      client.fetchData(guest_id: guest_id) {
+      client.fetchData(user_id: user_id) {
         (meals) in
         res_meals = []
         for (index, meal) in meals.enumerated() {
-          self.client.fetchReservationsForGuestId(guest_id: "abc"){
+          self.client.fetchReservationsForGuestId(user_id: "abc"){
             (reservations) in
             let reservation = reservations[index]
             let res_meal = ReservationMeal(

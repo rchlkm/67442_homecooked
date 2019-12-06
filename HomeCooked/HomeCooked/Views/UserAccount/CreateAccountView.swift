@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CreateAccountView: View {
-    @State var isActive = false
+    @State var button_is_active = false
     
     @State var first_name: String = ""
     @State var last_name: String = ""
@@ -26,21 +26,21 @@ struct CreateAccountView: View {
             Spacer().frame(height: 75.0)
             
 //            Text("Personal Info:")
-            TextFieldWithBottomLine(placeholder: "First Name", input: $first_name).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Last Name", input: $last_name).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Email", input: $user_email).padding(.bottom, 40)
+            TextFieldWithBottomLine("First Name", input: $first_name).padding(.bottom, 20)
+            TextFieldWithBottomLine("Last Name", input: $last_name).padding(.bottom, 20)
+            TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 40)
             
 //            Text("Create Password:")
-            TextFieldWithBottomLine(placeholder: "Password", input: $password, secure: true).padding(.bottom, 20)
-            TextFieldWithBottomLine(placeholder: "Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
+            TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
+            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
             
 //            Spacer().frame(height: 25.0)
             
-            NavigationLink(destination: LoggedInView(), isActive: self.$isActive) { EmptyView() }
+            NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
                 self.create_account()
-                self.isActive = true
+                self.button_is_active = true
             }) { OrangeButton("Create Account") }
         }.padding(.leading,20).padding(.trailing,20)
     }

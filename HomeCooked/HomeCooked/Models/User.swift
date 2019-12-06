@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct User {
+    let id: String
+    let first_name: String
+    let last_name: String
+    let email: String
+    let password: String
+}
+
 struct LoginParams {
     let email: String
     let password: String

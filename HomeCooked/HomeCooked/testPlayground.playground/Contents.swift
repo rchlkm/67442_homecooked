@@ -19,7 +19,7 @@ import Foundation
 //  db.collection("reservation").document(documentId).setData([
 //    "id": reservation.id,
 //    "guest_count": reservation.guest_count,
-//    "guest_id": reservation.guest_id,
+//    "user_id": reservation.user_id,
 //    "payment_info": "This is a credit card",
 //    "meal_id": reservation.meal_id,
 //    "reservation_time": "Now",

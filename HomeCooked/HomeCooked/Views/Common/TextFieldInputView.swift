@@ -14,7 +14,7 @@ struct TextFieldWithBottomLine: View {
     let secure: Bool
     private let lineThickness = CGFloat(2.0)
 
-    init(placeholder: String, input:Binding<String>, secure: Bool = false) {
+    init(_ placeholder: String, input:Binding<String>, secure: Bool = false) {
         self.placeholder = placeholder
         self.input = input
         self.secure = secure
