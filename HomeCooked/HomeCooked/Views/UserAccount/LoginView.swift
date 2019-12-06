@@ -12,7 +12,7 @@ struct LoginView: View {
     @ObservedObject var vm : LoginViewModel
 //    @Published var user: User
 
-    @State var isActive = false
+    @State var button_is_active = false
     
     @State var user_email: String = ""
     @State var password: String = ""
@@ -32,11 +32,11 @@ struct LoginView: View {
             
             Spacer().frame(height: 25.0)
             
-            NavigationLink(destination: LoggedInView(), isActive: self.$isActive) { EmptyView() }
+            NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
                 self.login()
-                self.isActive = true
+                self.button_is_active = true
             }) { OrangeButton("Login") }
         }.padding(.leading,20).padding(.trailing,20)
     }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CreateAccountView: View {
-    @State var isActive = false
+    @State var button_is_active = false
     
     @State var first_name: String = ""
     @State var last_name: String = ""
@@ -36,11 +36,11 @@ struct CreateAccountView: View {
             
 //            Spacer().frame(height: 25.0)
             
-            NavigationLink(destination: LoggedInView(), isActive: self.$isActive) { EmptyView() }
+            NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
                 self.create_account()
-                self.isActive = true
+                self.button_is_active = true
             }) { OrangeButton("Create Account") }
         }.padding(.leading,20).padding(.trailing,20)
     }

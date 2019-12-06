@@ -22,7 +22,6 @@ struct BookedMealDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                //            VStack {
                 BookedMealDetailComponentView(meal_date: self.meal.date(), meal_time: self.meal.time, guest_count: 2).padding(.top)
                 Divider().padding(.top).padding(.bottom)
                 

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BookedMealsView: View {
-    @State var isActive = false
+    @State var button_is_active = false
     var body: some View {
         ScrollView {
             //            Spacer()
@@ -17,7 +17,13 @@ struct BookedMealsView: View {
                 HStack {
                     LargeTitle("My Meals")
                     Spacer()
-                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
+                    NavigationLink(destination: HomeView(), isActive: self.$button_is_active) { EmptyView() }
+                        Button(action: {
+                            self.button_is_active = true
+                        }) {
+                            Text("Logout")
+                    }
+                    //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
                 Text("Upcoming Meals").font(.title)
                 if bookedMeal_items.isEmpty {
@@ -41,10 +47,10 @@ struct BookedMealsView: View {
                 }
             }
         }//.border(Color.blue)
-        .padding(.leading,20).padding(.trailing,20)
-        .navigationBarTitle("Navbar title")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+            .padding(.leading,20).padding(.trailing,20)
+            .navigationBarTitle("Navbar title")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
     }
 }
 

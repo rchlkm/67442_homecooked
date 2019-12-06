@@ -11,7 +11,7 @@ import SwiftUI
 struct ReserveView: View {
     let meal: Meal
     @State var guest_count: Int = 1
-    @State var isActive = false
+    @State var button_is_active = false
     @State var paymentValid = false
     
     @State var card_number: String = ""
@@ -93,16 +93,16 @@ struct ReserveView: View {
     }
     
 //    func buttonClickable() -> Bool {
-////        return self.$isActive && self.$isActive
+////        return self.$isActive && self.$ibutton_is_active
 //    }
     
     
     var reserveButton: some View {
         Section {
-            NavigationLink(destination:  ConfirmationView(meal: self.meal, reservation: reservation1), isActive: self.$isActive) { EmptyView() }
+            NavigationLink(destination:  ConfirmationView(meal: self.meal, reservation: reservation1), isActive: self.$button_is_active) { EmptyView() }
             Button(action: {
                 self.reserveMeal()
-                self.isActive = true
+                self.button_is_active = true
             }) {
                 if (self.valid_payment()) {
                     OrangeButton("Confirm")

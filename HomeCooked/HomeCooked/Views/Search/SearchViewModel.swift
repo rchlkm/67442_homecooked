@@ -6,7 +6,6 @@
 //  Copyright © 2019 67442. All rights reserved.
 //
 
-
 import Foundation
 
 class SearchViewModel: ObservableObject {
