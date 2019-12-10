@@ -22,6 +22,11 @@ class HomeCookedTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+  
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
 
     func testExample() {
       // TEST SEARCH FOR MEALS (should return one testmeal)
@@ -54,12 +59,36 @@ class HomeCookedTests: XCTestCase {
       
       // We do not test our parsers since we do not use them in our application.
       
-      // We do not test our BookedMealsViewModel since there are some issues that we are still resolving
+      let bmvm = BookedMealsViewModel()
+      bmvm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+        (res_meals)
+          in
+          print(res_meals.count)
+          XCTAssertEqual(res_meals.count, 1)
+      }
       
       // We do not test our ReservationsViewModel since our code that pulls reservations isn't fully working right now
+      let res = Reservation(id: randomString(length: 16), guest_id: "tg0jwBTBFrdJHOfkdFTz", meal_id: "testmeal", guest_count: 1, total: 10, card_number: "4111111111111111", exp_month: "12", exp_year: "30", cv2: "123")
+      let rvm = ReservationViewModel(reservation: res)
+      rvm.postReservation(reservation: res)
+      bmvm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+        (res_meals)
+          in
+        print(res_meals.count)
+        XCTAssertEqual(res_meals.count, 2)
+      }
+      rvm.cancelReservation(res.id)
+      bmvm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+        (res_meals)
+          in
+        print(res_meals.count)
+        XCTAssertEqual(res_meals.count, 1)
+      }
       
       
       // postReview works, but there are issues with the asynchronous nature of this test since it sometimes will try to delete the review before it finishes posting
+      
+      // NOT SURE WUT WRONG HERE WUT WE TRYNA DO?
       
       //let rmvm = RateMealViewModel()
       //rmvm.postReview(chef_id: "GJFmRADeY9MJCQ4AUTpC", stars: 4, user_id: "tg0jwBTBFrdJHOfkdFTz", test: true)
