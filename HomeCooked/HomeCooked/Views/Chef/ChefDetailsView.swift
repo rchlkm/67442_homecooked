@@ -21,17 +21,13 @@ struct ChefDetailsView: View {
 //        }
     }
     
-    var body: some View {
-        
+    var body: some View {        
         ScrollView {
             VStack(alignment: .leading) {
-                
                 Text("Hi, I'm \(chef.first_name)!")
                     .font(.title)
                 Spacer().frame(height: 20.0)
                 reviews
-                
-                
             }
         }
     }

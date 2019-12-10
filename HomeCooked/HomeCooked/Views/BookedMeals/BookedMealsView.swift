@@ -33,11 +33,14 @@ struct BookedMealsView: View {
                     }
                     //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
-              Text("Upcoming Meals").font(.title).onAppear { self.updateBookedMeals() }
-                if self.search_results.isEmpty {
+              Text("Upcoming Meals").font(.title).onAppear {
+                    self.updateBookedMeals()
+                }
+                if !self.search_results.isEmpty {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
-                  ForEach(self.search_results, id: \.id) { rm in
+//                  ForEach(self.search_results, id: \.id) { rm in
+                    ForEach(bookedMeal_items, id: \.id) { rm in
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
                     }
@@ -62,11 +65,11 @@ struct BookedMealsView: View {
     }
   
   func updateBookedMeals(){
-     self.vm.getReservationMealsByUserId(user_id: "abc") {
-       (reservationMeals) in
-       //print(reservationMeals)
-       self.search_results = reservationMeals
-     }
+//     self.vm.getReservationMealsByUserId(user_id: "abc") {
+//       (reservationMeals) in
+//       //print(reservationMeals)
+//       self.search_results = reservationMeals
+//     }
    }
 }
 

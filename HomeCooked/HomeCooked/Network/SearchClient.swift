@@ -45,7 +45,7 @@ class SearchClient {
                             description: document.get("description") as! String,
                             chef_id: document.get("chef_id") as! String,
                             cuisine: document.get("cuisine") as! [String],
-                            ingredients: document.get("ingredients") as! [String],
+//                            ingredients: document.get("ingredients") as! [String],
                             allergens: document.get("allergens") as! [String],
                             images: document.get("images") as! [String],
                             price: document.get("price") as! Int,
@@ -95,7 +95,7 @@ class SearchClient {
         print("user filtered by: ", self.user_filters_cuisines, self.user_filters_allergens)
         
         var show: Bool = false
-        var bool_updated: Bool = false // if show has been changed, ignore following condition
+                var bool_updated: Bool = false // if show has been changed, ignore following condition
         
         if (self.user_filters_allergens.count > 0) {
             for allergen in self.user_filters_allergens {

@@ -23,8 +23,8 @@ struct MealDetailsView: View {
     
     var body: some View {
         ScrollView {
-//            VStack(alignment: .leading) {
-            VStack {
+            VStack(alignment: .leading) {
+//            VStack {
               ImageView(urlString: self.meal.images[0])
                 .frame(width:frame_size, height: 250)
                   .offset(y:-20)

@@ -48,7 +48,7 @@ class MealParser {
       description: dict["description"]["stringValue"].stringValue,
       chef_id: dict["chef_id"]["stringValue"].stringValue,
       cuisine: dict["cuisine"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
-      ingredients: dict["ingredients"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
+//      ingredients: dict["ingredients"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       allergens: dict["allergens"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       images: dict["images"]["arrayValue"]["values"].arrayValue.map {$0["stringValue"].stringValue},
       price: dict["price"]["integerValue"].intValue,

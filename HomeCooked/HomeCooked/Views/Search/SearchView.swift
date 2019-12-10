@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var searched = false
     @State var filterIsPresent = false
     @State var search_city: String = ""
     @State var guest_count: Int = 2
@@ -40,12 +41,18 @@ struct SearchView: View {
                 Spacer().frame(height: 30.0)
                 
                 //                    ForEach(self.vm.meals, id: \.id) { meal in
-              ForEach(search_results, id: \.id) { meal in
-                    MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
-                        .padding(.bottom, 15)
+                if (!self.searched) {
+                    Text("Search for a city!")
+                } else if(search_results.count == 0) {
+                    Text("There are no meals based on your preferences. We are working to offer more meals. Please search again!")//.font(.caption)
+                } else {
+                    ForEach(search_results, id: \.id) { meal in
+                        MealListItemView(type: "search", meal: meal, reservation: nil, search_guest_count: self.guest_count)
+                            .padding(.bottom, 15)
+                    }
                 }
             }
-            }//.border(Color.blue)
+        }//.border(Color.blue)
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle("Search")
             .navigationBarBackButtonHidden(true)
@@ -55,10 +62,10 @@ struct SearchView: View {
     func get_filters_cuisines() -> [String] {
         var filters: [String] = []
         if (cuisine_asian) { filters.append("Asian") }
-//        if (cuisine_american) { filters.append("American") }
+        //        if (cuisine_american) { filters.append("American") }
         if (cuisine_italian) { filters.append("Italian") }
         if (cuisine_mexican) { filters.append("Mexican") }
-//        if (cuisine_mediterranean) { filters.append("Mediterranean") }
+        //        if (cuisine_mediterranean) { filters.append("Mediterranean") }
         return filters
     }
     
@@ -73,6 +80,7 @@ struct SearchView: View {
     }
     
     func submitSearch() {
+        self.searched = true
         /*
          let search_params = SearchParams(city: self.search_city, year: self.search_date.year, month: self.search_date.month, day: self.search_date.day, max_guest_count: self.max_guest_count)
          // do something here with results
@@ -90,29 +98,25 @@ struct SearchView: View {
             month: self.search_date.month,
             day: self.search_date.day,
             max_guest_count: self.guest_count,
-    
+            
             filters_cuisines: filters_cuisines,
             filters_allergens: filters_allergens
         )
         
-      self.vm.search(params: search_params) {
-        (meals) in
-        self.search_results = meals
-      }
+        self.vm.search(params: search_params) {
+            (meals) in
+            self.search_results = meals
+        }
         //print(self.vm.meals)
     }
     
     var searchEngine: some View {
         HStack {
             Image(systemName:"magnifyingglass")
-            TextField("Search", text: $search_city)
-                .font(.title)
-            
+            TextField("Search", text: $search_city).font(.title)
             Button(action: {
                 self.submitSearch()
-            }) {
-                Text("Search")
-            }
+            }) { Text("Search") }
         }
         .padding(.top, 5).padding(.bottom, 5).padding(.leading).padding(.trailing)
         .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color.gray))
@@ -167,7 +171,7 @@ struct SearchView: View {
             DatePicker(selection: $search_date, in: Date()..., displayedComponents: .date) {
                 Text("")
             }.padding(.bottom, 20)
-
+            
             cuisineFilters.padding(.bottom, 20)
             allergensFilters.padding(.bottom, 40)
             Button(action: {
@@ -209,11 +213,11 @@ struct SearchView: View {
     }
     
     @State var cuisine_asian = false
-//    @State var cuisine_american = false
+    //    @State var cuisine_american = false
     @State var cuisine_italian = false
     @State var cuisine_mexican = false
-//    @State var cuisine_mediterranean = false
-//    let cuisine_filters = ["Asian", "American", "Italian", "Mexican", "Mediterranean"]
+    //    @State var cuisine_mediterranean = false
+    //    let cuisine_filters = ["Asian", "American", "Italian", "Mexican", "Mediterranean"]
     let cuisine_filters = ["Asian", "Italian", "Mexican"]
     var cuisineFilters: some View {
         VStack {
@@ -223,18 +227,18 @@ struct SearchView: View {
                     Button(action: {
                         switch filter {
                         case "Asian": self.cuisine_asian.toggle()
-//                        case "American": self.cuisine_american.toggle()
+                        //                        case "American": self.cuisine_american.toggle()
                         case "Italian": self.cuisine_italian.toggle()
-//                        case "Mexican": self.cuisine_mexican.toggle()
-                        case "Mediterranean": self.cuisine_asian.toggle()
+                        //                        case "Mexican": self.cuisine_mexican.toggle()
+                        case "Mexican": self.cuisine_mexican.toggle()
                         default: self.cuisine_asian.toggle()
                         }
                     }) {
                         if filter == "Asian" { OptionButton(filter, didTap: self.cuisine_asian) }
-//                        else if filter == "American" {  OptionButton(filter, didTap: self.cuisine_american) }
+                            //                        else if filter == "American" {  OptionButton(filter, didTap: self.cuisine_american) }
                         else if filter == "Italian" { OptionButton(filter, didTap: self.cuisine_italian) }
                         else if filter == "Mexican" { OptionButton(filter, didTap: self.cuisine_mexican) }
-//                        else if filter == "Mediterranean" { OptionButton(filter, didTap: self.cuisine_mediterranean) }
+                        //                        else if filter == "Mediterranean" { OptionButton(filter, didTap: self.cuisine_mediterranean) }
                     }
                 }
             }
@@ -254,11 +258,11 @@ struct SearchView: View {
                 ForEach(allergen_filters, id: \.self) { filter in
                     Button(action: {
                         switch filter {
-                            case "Nuts": self.allergens_nuts.toggle()
-                            case "Shellfish": self.allergens_shellfish.toggle()
-                            case "Dairy": self.allergens_dairy.toggle()
-                            case "Fish": self.allergens_fish.toggle()
-                            case "Soy": self.allergens_soy.toggle()
+                        case "Nuts": self.allergens_nuts.toggle()
+                        case "Shellfish": self.allergens_shellfish.toggle()
+                        case "Dairy": self.allergens_dairy.toggle()
+                        case "Fish": self.allergens_fish.toggle()
+                        case "Soy": self.allergens_soy.toggle()
                         default: self.allergens_nuts.toggle()
                         }
                     }) {

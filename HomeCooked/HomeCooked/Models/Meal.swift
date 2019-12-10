@@ -14,7 +14,7 @@ struct Meal {
     var description: String = "This is the default description of the meal."
     let chef_id: String
     let cuisine: [String] //= [""]
-    let ingredients: [String] //= [""]
+//    let ingredients: [String] //= [""]
     let allergens: [String] //= [""]
     let images: [String]
     let price: Int

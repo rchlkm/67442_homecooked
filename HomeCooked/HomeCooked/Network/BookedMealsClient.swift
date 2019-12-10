@@ -65,7 +65,7 @@ class BookedMealsClient {
             description: document.get("description") as! String,
             chef_id: document.get("chef_id") as! String,
             cuisine: document.get("cuisine") as! [String],
-            ingredients: document.get("ingredients") as! [String],
+//            ingredients: document.get("ingredients") as! [String],
             allergens: document.get("allergens") as! [String],
             images: document.get("images") as! [String],
             price: document.get("price") as! Int,
