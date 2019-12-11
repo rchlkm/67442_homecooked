@@ -13,6 +13,7 @@ struct LoginView: View {
     //    @Published var user: User
     
     @State var button_is_active = false
+    @State var actionButton_clicked = false
     
     @State var user_email: String = ""
     @State var password: String = ""
@@ -34,33 +35,38 @@ struct LoginView: View {
             NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
-//                if self.login_valid() {
-//                    self.login()
-                    self.button_is_active = true
-//                } else {
-//                    print("login is not valid")
-//                }
+                self.actionButton_clicked = true
+                self.login()
             }) {
-//                if (self.button_is_active) {
-                        OrangeButton("Login")
-//                    } else {
-//                        WhiteButton("Login")
-//                    }
-                }//.disabled(!self.button_is_active)
+                OrangeButton("Login")
+            }
+            
+            Section {
+                if (self.actionButton_clicked && !self.button_is_active) {
+                    Text("Please enter valid credentials.")
+                } else {
+                    Text("")
+                }
+            }.padding(.top)
         }.padding(.leading,20).padding(.trailing,20)
     }
     
     func login() {
         print("in the login function")
-        let login_params = LoginParams(email: self.user_email, password: self.password)
+        
+       /* let login_params = LoginParams(email: self.user_email, password: self.password)
         self.vm.login(params: login_params) {
             (user) in
-            //            self.user = user
+            self.user = user
         }
-        //        {
-        //          (meals) in
-        //          self.search_results = meals
-        //        }
+        */
+        
+        /*  if login is valid {
+            self.button_is_active = true
+         }
+         */
+
+        
     }
     
     func login_valid() -> Bool {
