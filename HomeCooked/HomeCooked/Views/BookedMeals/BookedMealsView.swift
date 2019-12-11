@@ -7,39 +7,54 @@
 //
 
 import SwiftUI
+//struct BookedMealsLoadView: View {
+//    var body: some View {
+//        ScrollView {
+//            VStack {
+//                Button(action: {
+//                    //                self.button_is_active = true
+//                }) {
+//                    Text("LOAD")
+//                }
+//            }
+//        }.padding(.leading,20).padding(.trailing,20)
+//            .navigationBarTitle("Navbar title")
+//            .navigationBarBackButtonHidden(true)
+//            .navigationBarHidden(true)
+//    }
+//}
 
 struct BookedMealsView: View {
     @State var button_is_active = false
     @ObservedObject var vm : BookedMealViewModel
     @State var search_results: [ReservationMeal] = [ReservationMeal]()
-  
-  init(){
-      self.vm = BookedMealViewModel()
-  }
-  
- 
+    
+    init(){
+        self.vm = BookedMealViewModel()
+    }
+    
+    
     var body: some View {
         ScrollView {
-            //            Spacer()
             VStack(alignment: .leading) {
                 HStack {
                     LargeTitle("My Meals")
                     Spacer()
                     NavigationLink(destination: HomeView(), isActive: self.$button_is_active) { EmptyView() }
-                        Button(action: {
-                            self.button_is_active = true
-                        }) {
-                            Text("Logout")
+                    Button(action: {
+                        self.button_is_active = true
+                    }) {
+                        Text("Logout")
                     }
                     //                    NavigationLink(destination: UserProfileView()) { Text("My Profile") }
                 }
-              Text("Upcoming Meals").font(.title).onAppear {
+                Text("Upcoming Meals").font(.title).onAppear {
                     self.updateBookedMeals()
                 }
                 if !self.search_results.isEmpty {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
-//                  ForEach(self.search_results, id: \.id) { rm in
+                    //                  ForEach(self.search_results, id: \.id) { rm in
                     ForEach(bookedMeal_items, id: \.id) { rm in
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
@@ -63,14 +78,14 @@ struct BookedMealsView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
     }
-  
-  func updateBookedMeals(){
-//     self.vm.getReservationMealsByUserId(user_id: "abc") {
-//       (reservationMeals) in
-//       //print(reservationMeals)
-//       self.search_results = reservationMeals
-//     }
-   }
+    
+    func updateBookedMeals(){
+        //     self.vm.getReservationMealsByUserId(user_id: "abc") {
+        //       (reservationMeals) in
+        //       //print(reservationMeals)
+        //       self.search_results = reservationMeals
+        //     }
+    }
 }
 
 struct SearchForNewMealsView: View {

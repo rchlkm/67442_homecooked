@@ -13,6 +13,8 @@ struct BookedMealDetailView: View {
     let reservation: Reservation
     @ObservedObject var vm : ReservationViewModel
     @State var cancelbutton_is_active = false
+    @State var cancel_alert_present = false
+    
     init(reservation: Reservation, meal: Meal) {
         self.meal = meal
         self.reservation = reservation
@@ -53,22 +55,25 @@ struct BookedMealDetailView: View {
     var cancel_button : some View {
         Section {
             if (!meal.is_complete()) {
-                NavigationLink(destination: LoggedInView2(), isActive: self.$cancelbutton_is_active) {
-                    EmptyView()
-                }
+                NavigationLink(destination: LoggedInView2(), isActive: self.$cancelbutton_is_active) { EmptyView() }
                 Button(action: {
-                    self.cancel()
-                    self.cancelbutton_is_active = true
+                    self.cancel_alert_present = true
                 }) {
                     Text("Cancel")
+                }.alert(isPresented:$cancel_alert_present) {
+                    Alert(title: Text("Are you sure?"),
+                          primaryButton: .destructive(Text("Cancel")) { self.cancel() },
+                          secondaryButton: .cancel())
                 }
+            } else {
+                Text("Meal Complete")
             }
         }
     }
     
     func cancel() {
         print("cancelling reservation")
-        //        self.vm.cancelReservation()
+//        self.vm.cancelReservation()
     }
 }
 

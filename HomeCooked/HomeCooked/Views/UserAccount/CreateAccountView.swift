@@ -72,7 +72,7 @@ struct CreateAccountView: View {
         } catch {
             print("account could not be created")
         }
-        self.button_is_active = true
+//        self.button_is_active = true
     }
 }
 

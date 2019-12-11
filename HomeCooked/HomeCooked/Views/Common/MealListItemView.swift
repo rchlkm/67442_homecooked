@@ -29,7 +29,7 @@ struct MealListItemView: View {
             
             HStack {
               ImageView(urlString: self.meal.images[0])
-                .frame(width: frame_size/2)
+//                .frame(width: frame_size/2)
 //                RoundedRectangle(cornerRadius: 20)
 //                    .frame(width: frame_size/2)
 //                    .foregroundColor(OrangeColor)

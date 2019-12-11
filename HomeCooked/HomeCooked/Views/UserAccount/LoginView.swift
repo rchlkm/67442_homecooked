@@ -65,7 +65,7 @@ struct LoginView: View {
             self.button_is_active = true
          }
          */
-
+        self.button_is_active = true
         
     }
     
