@@ -12,10 +12,21 @@ class MealDetailViewModel {
   var meal: Meal
   var chef: Chef
 
-  let parser = ChefParser()
+  let client = ChefClient()
 
   init(meal: Meal, chef: Chef) {
     self.meal = meal
     self.chef = chef
   }
+  
+  // get chef object by chef id
+  func getChef(chef_id: Int, completion: @escaping (Chef?) -> ()) {
+    client.fetchChef() {
+      (chef) in
+      if let temp = chef {
+        completion(temp)
+      }
+    }
+  }
 }
+
