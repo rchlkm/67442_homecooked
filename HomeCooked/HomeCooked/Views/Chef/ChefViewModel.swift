@@ -23,11 +23,23 @@ class ChefViewModel: ObservableObject {
     }
     
     func getAverageRating() -> Double {
+//        client.setChefId(chef_id:params)
         var total = 0
-        for review in self.reviews {
-            total += review.stars
+        if (self.reviews.count > 0 ){
+            for review in self.reviews {
+                total += review.stars
+            }
+            let rating = Double(total) / Double(reviews.count)
+            print("rating", rating,type(of: rating))
+            print("total", total, "count",reviews.count)
+            return rating.rounded()
         }
-        return Double(total) / Double(reviews.count)
+        return 0
     }
     
+    func getReviewsCount() -> Int {
+        return self.reviews.count
+    }
 }
+
+

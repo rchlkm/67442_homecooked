@@ -42,7 +42,7 @@ struct SearchView: View {
                 
                 //                    ForEach(self.vm.meals, id: \.id) { meal in
                 if (!self.searched) {
-                    Text("Search for a city!")
+                    Text("Search for a city! (e.g. Pittsburgh)")
                 } else if(search_results.count == 0) {
                     Text("There are no meals based on your preferences. We are working to offer more meals. Please search again!")//.font(.caption)
                 } else {
@@ -71,11 +71,11 @@ struct SearchView: View {
     
     func get_filters_allergens() -> [String] {
         var filters: [String] = []
-        if (allergens_nuts) { filters.append("Nuts") }
-        if (allergens_shellfish) { filters.append("Shellfish") }
-        if (allergens_dairy) { filters.append("Dairy") }
-        if (allergens_fish) { filters.append("Fish") }
-        if (allergens_soy) { filters.append("Soy") }
+        if (allergens_nuts) { filters.append("nuts") }
+        if (allergens_shellfish) { filters.append("shellfish") }
+        if (allergens_dairy) { filters.append("dairy") }
+        if (allergens_fish) { filters.append("fish") }
+        if (allergens_soy) { filters.append("soy") }
         return filters
     }
     

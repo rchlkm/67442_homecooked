@@ -26,7 +26,7 @@ class SearchClient {
         let dispatchGroup = DispatchGroup()
         
         db.collection("meal")
-          .whereField("city", isEqualTo: city)
+            .whereField("city", isEqualTo: city)
             .whereField("year", isEqualTo: year)
             .whereField("month", isEqualTo: month)
             .whereField("day", isEqualTo: day)
@@ -35,7 +35,7 @@ class SearchClient {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    print("in the search client querying!!")
+                    //                    print("in the search client querying!!")
                     for document in querySnapshot!.documents {
                         dispatchGroup.enter()
                         //print("\(document.documentID) => \(document.data())")
@@ -45,7 +45,7 @@ class SearchClient {
                             description: document.get("description") as! String,
                             chef_id: document.get("chef_id") as! String,
                             cuisine: document.get("cuisine") as! [String],
-//                            ingredients: document.get("ingredients") as! [String],
+                            //                            ingredients: document.get("ingredients") as! [String],
                             allergens: document.get("allergens") as! [String],
                             images: document.get("images") as! [String],
                             price: document.get("price") as! Int,
@@ -81,27 +81,23 @@ class SearchClient {
     
     func should_show_meal(_ meal: Meal) -> Bool {
         /*
-         Meal
-         cuisine = ["American"]
-         allergens = ["Shellfish"]
-         
          allergen 1 + cuisine 1 -> false
          allergen 1 + cuisine 0 -> false
          allergen 0 + cuisine 1 -> true
          allergen 0 + cuisine 0 -> true
          */
-        print("==========")
-        print("this meal has these filters: ", meal.cuisine, meal.allergens)
-        print("user filtered by: ", self.user_filters_cuisines, self.user_filters_allergens)
+        //        print("==========")
+        //        print("this meal has these filters: ", meal.cuisine, meal.allergens)
+        //        print("user filtered by: ", self.user_filters_cuisines, self.user_filters_allergens)
         
         var show: Bool = false
-                var bool_updated: Bool = false // if show has been changed, ignore following condition
+        var bool_updated: Bool = false // if show has been changed, ignore following condition
         
         if (self.user_filters_allergens.count > 0) {
             for allergen in self.user_filters_allergens {
-                print("+++User has allergen filter", self.user_filters_allergens)
+//                print("+++User has allergen filter", self.user_filters_allergens)
                 if (meal.allergens.contains(allergen)) {
-                    print("i dont want  ", allergen)
+//                    print("i dont want  ", allergen)
                     show = false
                     return show
                 }
@@ -114,9 +110,7 @@ class SearchClient {
         
         if (self.user_filters_cuisines.count > 0) {
             for cuisine in self.user_filters_cuisines {
-                print("+++User has cuisine filter", self.user_filters_cuisines)
                 if (meal.cuisine.contains(cuisine)) {
-                    print("i want ", cuisine)
                     show = true
                     bool_updated = true
                 }
@@ -124,13 +118,8 @@ class SearchClient {
         } else {
             show = true
             bool_updated = true
-            print("---User has no cuisine filters")
         }
-        
-        print("AFTER should_show_meal", show)
         return show
-        
-        
     }
     
     func setParams(params: SearchParams) {
@@ -156,10 +145,3 @@ class SearchClient {
         //        if (params.allergens_soy) { filter_allergens.append("Soy") }
     }
 }
-
-
-//let cuisines = ["Asian", "American"]
-// or
-
-//allergns
-// and

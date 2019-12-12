@@ -62,14 +62,15 @@ let meal2 = Meal(
 )
 
 let chef1 = Chef (
-    id: "abc",
+    id: "GJFmRADeY9MJCQ4AUTpC",
     first_name: "John",
     last_name: "Doe",
     address: "12345",
     city: "Hamburg",
     latitude: 34.011286,
     longitude: -116.166868,
-    phone: "1234567890"
+    phone: "1234567890",
+    description: "I'm an aspiring chef~ I'm trying to diversify my culinary skills across all sorts of cuisines."
 )
 
 var search_items: [Meal] = [meal1, meal2]

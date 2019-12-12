@@ -36,7 +36,8 @@ class ChefParser {
         city: dict["city"]["stringValue"].stringValue,
         latitude: dict["latitude"]["doubleValue"].doubleValue,
         longitude: dict["address"]["doubleValue"].doubleValue,
-        phone: dict["phone"]["stringValue"].stringValue
+        phone: dict["phone"]["stringValue"].stringValue,
+        description: dict["city"]["stringValue"].stringValue
       )
     }
     return nil

@@ -21,7 +21,6 @@ struct MealListItemView: View {
         self.meal = meal
         self.reservation = reservation
         self.search_guest_count = search_guest_count
-        //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
