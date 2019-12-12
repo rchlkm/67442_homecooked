@@ -24,7 +24,6 @@ class CreateAccountViewModel: ObservableObject {
                 self.client.postUser(user: user)
             }
             completion(success)
-            
             if success {
                 self.create_account_success = true
             }
@@ -35,7 +34,6 @@ class CreateAccountViewModel: ObservableObject {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0..<16).map{ _ in letters.randomElement()! })
     }
-    
     
     var success: Bool = false
     
@@ -49,5 +47,4 @@ class CreateAccountViewModel: ObservableObject {
             }
         }
     }
-    
 }

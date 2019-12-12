@@ -37,6 +37,7 @@ struct LoginView: View {
             Button(action: {
                 self.actionButton_clicked = true
                 self.login()
+                self.is_login_sucess()
             }) {
                 OrangeButton("Login")
             }
@@ -56,24 +57,16 @@ struct LoginView: View {
         let login_params = LoginParams(email: self.user_email, password: self.password)
         self.vm.login(params: login_params) {
             (user) in
-//            self.user = user
         }
-
-          if self.vm.success {
-            self.button_is_active = true
-         }
     }
     
-    func login_valid() -> Bool {
-        var valid: Bool = true
-        if valid {
+    func is_login_sucess() {
+        if self.vm.success {
             self.button_is_active = true
         }
-        print("but is the login valid tho?")
-        return valid
     }
+    
 }
-
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {

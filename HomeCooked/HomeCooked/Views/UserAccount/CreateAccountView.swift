@@ -19,9 +19,6 @@ struct CreateAccountView: View {
     @State var password: String = ""
     @State var confirm_password: String = ""
     @State var errorMsg: String = "Please enter all fields."
-    //    @State var gender: String
-    //    @State var age: String
-    //    @State var country: String
     init(){
         self.vm = CreateAccountViewModel()
     }
@@ -30,12 +27,9 @@ struct CreateAccountView: View {
             Image("logo").frame(width: 50.0, height: 50.0)
             Spacer().frame(height: 75.0)
             
-            //            Text("Personal Info:")
             TextFieldWithBottomLine("First Name", input: $first_name).padding(.bottom, 20)
             TextFieldWithBottomLine("Last Name", input: $last_name).padding(.bottom, 20)
             TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 20)
-            
-            //            Text("Create Password:")
             TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
             //            TextFieldWithBottomLine("Confirm Password", input: $confirm_password, secure: true).padding(.bottom, 40)
             
@@ -46,43 +40,43 @@ struct CreateAccountView: View {
             Button(action: {
                 self.actionButton_clicked = true
                 self.create_account()
+                self.is_create_sucess()
             }) {
                 OrangeButton("Create Account")
             }
             
             Section {
                 if (self.actionButton_clicked && !self.button_is_active) {
-//                    Text("Please enter all fields.")
                     Text(self.errorMsg)
-                } else {
-                    Text("")
-                }
+                } else { Text("") }
             }.padding(.top)
         }.padding(.leading,20).padding(.trailing,20)
     }
     
     func create_account() {
-        
-        //        do {
-        let user_params = CreateAccountParams(
-            first_name: self.first_name,
-            last_name: self.last_name,
-            email: self.user_email,
-            password: self.password)
-        
-        self.vm.createAccount(params: user_params) {
-            (success) in
-        }
-        
         if (self.first_name != "" && self.last_name != "" && self.user_email != "" && self.password != "") {
-            if (self.vm.create_account_success) {
-                self.button_is_active = true
-            } else {
-                self.errorMsg = "Email has already been used."
+            let user_params = CreateAccountParams(
+                first_name: self.first_name,
+                last_name: self.last_name,
+                email: self.user_email,
+                password: self.password)
+            
+            self.vm.createAccount(params: user_params) {
+                (success) in
             }
+            
         }
     }
     
+    
+    func is_create_sucess() {
+        if (self.vm.create_account_success) {
+            self.button_is_active = true
+        } else {
+            self.errorMsg = "Email has already been used."
+        }
+    }
+
 }
 
 struct CreateAccount_Previews: PreviewProvider {
