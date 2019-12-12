@@ -100,17 +100,16 @@ class BookedMealsClient {
       //var meal : Meal
       //var resMeal : ReservationMeal
       let dispatchGroup = DispatchGroup()
-      let res = reservation
+//      let res = reservation
         dispatchGroup.enter()
         db.collection("meal")
-          .document(res.meal_id)
+          .document(reservation.meal_id)
           .getDocument { (documentSnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {
             let document = documentSnapshot!
             //print("\(document.documentID) => \(document.data())")
-            //print(document.get("id"))
             let meal = Meal(
               id: document.get("id") as! String,
               name: document.get("name") as! String,
@@ -171,9 +170,14 @@ class BookedMealsClient {
           //reservationMeals.append(rm)
           //print("BEFORE RESERVATIONMEALZ")
           //print(reservationMeals)
-          self.reservationMeals.append(rm)
+            if self.reservationMeals.contains(rm) {
+                completion(self.reservationMeals)
+            } else {
+                self.reservationMeals.append(rm)
+                completion(self.reservationMeals)
+            }
           //print(self.reservationMeals)
-          completion(self.reservationMeals)
+          //completion(self.reservationMeals)
           //dispatchGroup.leave()
 
         }
