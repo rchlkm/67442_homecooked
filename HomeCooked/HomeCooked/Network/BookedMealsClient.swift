@@ -100,17 +100,16 @@ class BookedMealsClient {
       //var meal : Meal
       //var resMeal : ReservationMeal
       let dispatchGroup = DispatchGroup()
-      let res = reservation
+//      let res = reservation
         dispatchGroup.enter()
         db.collection("meal")
-          .document(res.meal_id)
+          .document(reservation.meal_id)
           .getDocument { (documentSnapshot, err) in
           if let err = err {
             print("Error getting documents: \(err)")
           } else {
             let document = documentSnapshot!
             //print("\(document.documentID) => \(document.data())")
-            //print(document.get("id"))
             let meal = Meal(
               id: document.get("id") as! String,
               name: document.get("name") as! String,

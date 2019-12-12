@@ -41,6 +41,16 @@ extension Meal {
     
     func is_complete() -> Bool {
         let current = Date()
-        return (current.year >= self.year) && (current.month >= self.month) && (current.day >= self.day)
+        
+        let timeLst = time.components(separatedBy: " ")
+        var hour = Int(timeLst[0])!
+        let apm = timeLst[1]
+
+        if apm == "PM" {
+            hour = hour + 12
+        }
+        
+        return (current.year >= self.year) && (current.month >= self.month) && (current.day >= self.day && (current.hour > hour))
     }
 }
+

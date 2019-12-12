@@ -36,8 +36,9 @@ struct BookedMealDetailView: View {
                 PaymentsComponentView(reservation: self.reservation)
                 Divider().padding(.top).padding(.bottom)
                 
-                //                if (meal.is_complete()) {
-                RatePicker()
+                if (meal.is_complete()) {
+                    RatePicker()
+                }
                 //                Divider().padding(.top).padding(.bottom)
                 //                } else {
                 //                Button(action: { self.cancel() }) {
@@ -73,7 +74,7 @@ struct BookedMealDetailView: View {
     
     func cancel() {
         print("cancelling reservation")
-//        self.vm.cancelReservation()
+        //        self.vm.cancelReservation()
     }
 }
 

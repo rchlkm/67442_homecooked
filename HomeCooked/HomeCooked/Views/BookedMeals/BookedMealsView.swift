@@ -32,27 +32,27 @@ struct BookedMealsView: View {
     init(){
         self.vm = BookedMealViewModel()
     }
-  //user_id: String
-  func updateBookedMeals(){
-    self.vm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
-          (reservationMeals) in
-          //print("UWU")
-          //print(reservationMeals)
-          self.reservations = reservationMeals
-      }
-      //print("!!!",self.reservations.count)
-  }
+    //user_id: String
+    func updateBookedMeals(){
+        self.vm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+            (reservationMeals) in
+            //print("UWU")
+            //print(reservationMeals)
+            self.reservations = reservationMeals
+        }
+        //print("!!!",self.reservations.count)
+    }
     
     var body: some View {
         ScrollView {
-            VStack {
-                //            VStack(alignment: .leading) {
+            //            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     LargeTitle("My Meals")
                     Spacer()
                     NavigationLink(destination: HomeView(), isActive:   self.$button_is_active) { EmptyView() }
                     Button(action: {
-                      self.button_is_active = true
+                        self.button_is_active = true
                     }) {
                         Text("Logout")
                     }
@@ -62,10 +62,10 @@ struct BookedMealsView: View {
                     self.updateBookedMeals()
                 }
                 //                if !self.reservations.isEmpty {
-                if (self.reservations.count == 0) {
+                if (self.getUpcomingMeals().count == 0) {
                     SearchForNewMealsView(type: "upcoming")
                 } else {
-                    ForEach(self.reservations, id: \.id) { rm in
+                    ForEach(self.getUpcomingMeals(), id: \.id) { rm in
                         //                    ForEach(bookedMeal_items, id: \.id) { rm in
                         MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
                             .padding(.bottom, 15)
@@ -74,15 +74,14 @@ struct BookedMealsView: View {
                 Divider()
                 
                 Text("Past Meals").font(.title)
-                //                if pastMeal_items.isEmpty {
-                //                    SearchForNewMealsView(type: "past")
-                //                } else {
-                //                    ForEach(pastMeal_items, id: \.self) { rm in
-                //                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
-                //                            .padding(.bottom, 15)
-                //                    }
-                //                }
-                //
+                if (self.getPastMeals().count == 0) {
+                    SearchForNewMealsView(type: "past")
+                } else {
+                    ForEach(self.getPastMeals(), id: \.id) { rm in
+                        MealListItemView(type: "bookedMeal", meal: rm.meal, reservation: rm.reservation)
+                            .padding(.bottom, 15)
+                    }
+                }
                 
             }
         }
@@ -90,6 +89,18 @@ struct BookedMealsView: View {
         .navigationBarTitle("Navbar title")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
+    }
+    
+    func getUpcomingMeals() -> [ReservationMeal] {
+        let meals = self.reservations.filter { !$0.meal.is_complete() }
+        print(meals)
+        return meals
+    }
+    
+    func getPastMeals() -> [ReservationMeal] {
+        let meals = self.reservations.filter { $0.meal.is_complete() }
+        print(meals)
+        return meals
     }
     
 }
