@@ -11,13 +11,20 @@ import Foundation
 class CreateAccountViewModel: ObservableObject {
     let client = UserClient()
     
-    func createAccount(params: CreateAccountParams) {
-        let user = User(id: generateId(),
-                        first_name: params.first_name,
-                        last_name: params.last_name,
-                        email: params.email,
-                        password: params.password)
-        client.postUser(user: user)
+  func createAccount(params: CreateAccountParams, completion: @escaping (Bool) -> ()) {
+      client.checkUserEmail(email: params.email) {
+        (success) in
+        if (success) {
+          let user = User(id: self.generateId(),
+                          first_name: params.first_name,
+                          last_name: params.last_name,
+                          email: params.email,
+                          password: params.password)
+          self.client.postUser(user: user)
+        }
+         
+        completion(success)
+      }
     }
     
     func generateId() -> String {

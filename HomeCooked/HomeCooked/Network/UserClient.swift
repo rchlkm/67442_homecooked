@@ -43,6 +43,27 @@ class UserClient {
     }
   }
   
+  func checkUserEmail(email: String, completion: @escaping (Bool) -> ()) {
+    let dispatchGroup = DispatchGroup()
+    var success = false
+    db.collection("user")
+      .whereField("email", isEqualTo: email)
+      .getDocuments() { (querySnapShot, err) in
+        if let err = err {
+          print("Error getting documents: \(err)")
+        } else {
+          dispatchGroup.enter()
+          if let doc = querySnapShot?.documents, !doc.isEmpty {
+              success = false
+          } else {
+            success = true
+          }
+          dispatchGroup.leave()
+        }
+        completion(success)
+    }
+  }
+  
   func postUser(user: User) {
     let documentId = user.id
     db.collection("user").document(documentId).setData([
@@ -60,8 +81,8 @@ class UserClient {
     }
   }
   
-    func setLoginParams(params: LoginParams) {
-        self.email = params.email
-        self.password = params.password
+  func setLoginParams(params: LoginParams) {
+    self.email = params.email
+    self.password = params.password
   }
 }
