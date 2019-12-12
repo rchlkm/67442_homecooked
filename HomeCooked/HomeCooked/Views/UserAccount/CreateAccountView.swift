@@ -18,6 +18,7 @@ struct CreateAccountView: View {
     @State var user_email: String = ""
     @State var password: String = ""
     @State var confirm_password: String = ""
+    @State var errorMsg: String = "Please enter all fields."
     //    @State var gender: String
     //    @State var age: String
     //    @State var country: String
@@ -46,12 +47,13 @@ struct CreateAccountView: View {
                 self.actionButton_clicked = true
                 self.create_account()
             }) {
-                    OrangeButton("Create Account")
+                OrangeButton("Create Account")
             }
             
             Section {
                 if (self.actionButton_clicked && !self.button_is_active) {
-                    Text("Please enter all fields.")
+//                    Text("Please enter all fields.")
+                    Text(self.errorMsg)
                 } else {
                     Text("")
                 }
@@ -61,19 +63,26 @@ struct CreateAccountView: View {
     
     func create_account() {
         
-        do {
-            let user_params = CreateAccountParams(
-                first_name: self.first_name,
-                last_name: self.last_name,
-                email: self.user_email,
-                password: self.password)
-            self.vm.createAccount(params: user_params)
-            print("account is being created!")
-        } catch {
-            print("account could not be created")
+        //        do {
+        let user_params = CreateAccountParams(
+            first_name: self.first_name,
+            last_name: self.last_name,
+            email: self.user_email,
+            password: self.password)
+        
+        self.vm.createAccount(params: user_params) {
+            (success) in
         }
-//        self.button_is_active = true
+        
+        if (self.first_name != "" && self.last_name != "" && self.user_email != "" && self.password != "") {
+            if (self.vm.create_account_success) {
+                self.button_is_active = true
+            } else {
+                self.errorMsg = "Email has already been used."
+            }
+        }
     }
+    
 }
 
 struct CreateAccount_Previews: PreviewProvider {
