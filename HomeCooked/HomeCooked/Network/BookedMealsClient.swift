@@ -94,12 +94,15 @@ class BookedMealsClient {
   }
   
   func fetchData(user_id: String, completion: @escaping ([Meal]) -> ()) {
+    let dispatchGroup = DispatchGroup()
     self.fetchReservationsForGuestId(user_id: user_id) {
       (reservations) in
       //print(reservations)
+        dispatchGroup.enter()
       self.fetchMealsforReservations(reservations: reservations) {
         (meals) in
         //print(meals)
+        dispatchGroup.leave()
         completion(meals)
       }
     }

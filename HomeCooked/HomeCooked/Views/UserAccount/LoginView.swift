@@ -61,9 +61,9 @@ struct LoginView: View {
     }
     
     func is_login_sucess() {
-        if self.vm.success {
+//        if self.vm.success {
             self.button_is_active = true
-        }
+//        }
     }
     
 }
