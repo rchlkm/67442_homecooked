@@ -8,25 +8,38 @@
 
 import Foundation
 
-class MealDetailViewModel {
-  var meal: Meal
-  var chef: Chef
-
-  let client = ChefClient()
-
-  init(meal: Meal, chef: Chef) {
-    self.meal = meal
-    self.chef = chef
-  }
-  
-  // get chef object by chef id
-  func getChef(chef_id: Int, completion: @escaping (Chef?) -> ()) {
-    client.fetchChef() {
-      (chef) in
-      if let temp = chef {
-        completion(temp)
-      }
+class MealDetailViewModel: ObservableObject {
+    var meal: Meal
+    @Published var chef: Chef?
+//    #var chef: Chef
+    
+    let client = ChefClient()
+    
+    //  init(meal: Meal, chef: Chef) {
+    init(meal: Meal) {
+        self.meal = meal
+        //    self.chef = chef
     }
-  }
+    
+    // get chef object by chef id
+    var got_chef: Bool = false
+    func getChef(chef_id: String, completion: @escaping (Chef?) -> ()) {
+        client.setChefId(chef_id: chef_id)
+        client.fetchChef() {
+            (chef) in
+            completion(chef)
+            self.chef = chef
+//            if chef != nil {
+//                self.got_chef = true
+//            }
+            
+            
+            
+//            if let temp = chef {
+//                print("adsfghjk!@#$%^",temp.first_name)
+//                completion(temp)
+//            }
+        }
+    }
 }
 
