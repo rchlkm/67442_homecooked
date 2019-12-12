@@ -40,7 +40,7 @@ struct BookedMealsView: View {
                 HStack {
                     LargeTitle("My Meals")
                     Spacer()
-                    NavigationLink(destination: HomeView(), isActive: self.$button_is_active) { EmptyView() }
+                    NavigationLink(destination: HomeView(), isActive:   self.$button_is_active) { EmptyView() }
                     Button(action: {
                         self.button_is_active = true
                     }) {
