@@ -50,8 +50,8 @@ class HomeCookedTests: XCTestCase {
     
       
       // TEST CHEF VIEWMODEL
-      let cvm = ChefViewModel()
-      cvm.getChefReviews(chef_id: "GJFmRADeY9MJCQ4AUTpC") {
+      let cvm = ChefViewModel(chef_id: "GJFmRADeY9MJCQ4AUTpC")
+      cvm.getChefReviews() {
         (reviews)
         in
         print(reviews.count)

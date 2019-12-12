@@ -60,7 +60,7 @@ struct MealDetailsView: View {
     @State var button_is_active = false
 //    @State var chef: Chef?
     func get_chef() {
-        print("getting the chef!!")
+//        print("getting the chef!!")
         self.vm.getChef(chef_id: self.meal.chef_id) {
             (chef) in
           if let temp = chef {
@@ -79,9 +79,6 @@ struct MealDetailsView: View {
             HStack {
                 Text(meal.name).font(.largeTitle).bold()
                 Spacer()
-                //                NavigationLink(destination: ChefDetailsView(chef: chef1)) {
-                //                    Text("By Chef")
-                //                }
 
                 if self.vm.chef != nil {
                     NavigationLink(destination: ChefDetailsView(chef: self.vm.chef!), isActive: self.$button_is_active) { EmptyView() }
@@ -89,18 +86,14 @@ struct MealDetailsView: View {
                 Button(action: {
                     self.get_chef()
                 }) {
-                    Text("BY CHEF")
+                    Text("By Chef")
                 }
-                
-                                
             }
             Text(meal.description)
-            Text(meal.chef_id)
             Spacer().frame(height: 20.0)
             
         }
     }
-    
     
     var reserveButton: some View {
         NavigationLink(destination: ReserveView(meal: meal, search_guest_count: search_guest_count)) {

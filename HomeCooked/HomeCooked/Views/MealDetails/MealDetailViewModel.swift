@@ -11,14 +11,10 @@ import Foundation
 class MealDetailViewModel: ObservableObject {
     var meal: Meal
     @Published var chef: Chef?
-//    #var chef: Chef
-    
     let client = ChefClient()
     
-    //  init(meal: Meal, chef: Chef) {
     init(meal: Meal) {
         self.meal = meal
-        //    self.chef = chef
     }
     
     // get chef object by chef id
@@ -32,18 +28,6 @@ class MealDetailViewModel: ObservableObject {
           print("&&&&&&&&&&&&")
             self.chef = chef
           completion(chef)
-
-
-//            if chef != nil {
-//                self.got_chef = true
-//            }
-            
-            
-            
-//            if let temp = chef {
-//                print("adsfghjk!@#$%^",temp.first_name)
-//                completion(temp)
-//            }
         }
     }
 }
