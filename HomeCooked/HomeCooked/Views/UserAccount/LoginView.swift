@@ -53,20 +53,15 @@ struct LoginView: View {
     
     func login() {
         print("in the login function")
-        
-       /* let login_params = LoginParams(email: self.user_email, password: self.password)
+        let login_params = LoginParams(email: self.user_email, password: self.password)
         self.vm.login(params: login_params) {
             (user) in
-            self.user = user
+//            self.user = user
         }
-        */
-        
-        /*  if login is valid {
+
+          if self.vm.success {
             self.button_is_active = true
          }
-         */
-        self.button_is_active = true
-        
     }
     
     func login_valid() -> Bool {

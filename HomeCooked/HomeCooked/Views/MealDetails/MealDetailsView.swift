@@ -27,9 +27,10 @@ struct MealDetailsView: View {
         ScrollView {
             VStack(alignment: .leading) {
 //            VStack {
-              ImageView(urlString: self.meal.images[0])
-                .frame(width:frame_size, height: 250)
-                  .offset(y:-20)
+//              ImageView(urlString: self.meal.images[0])
+                Image(meal.name).resizable()
+                .frame(width:frame_size+48, height: 250)
+                  .offset(y:-10)
 //                Rectangle() // Image(meal.image)
                     
               //UIImageView(data: Data(contentsOf: self.url))
