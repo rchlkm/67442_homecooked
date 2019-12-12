@@ -21,7 +21,6 @@ struct MealListItemView: View {
         self.meal = meal
         self.reservation = reservation
         self.search_guest_count = search_guest_count
-        //        self.chef_name = getChefsById(chef_id: meal.chef_id).first_name
     }
     
     var body: some View {
@@ -29,7 +28,7 @@ struct MealListItemView: View {
             
             HStack {
               ImageView(urlString: self.meal.images[0])
-                .frame(width: frame_size/2)
+//                .frame(width: frame_size/2)
 //                RoundedRectangle(cornerRadius: 20)
 //                    .frame(width: frame_size/2)
 //                    .foregroundColor(OrangeColor)

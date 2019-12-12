@@ -74,6 +74,7 @@ struct ReserveView: View {
               // if invalid payment...
               print("invalid payment")
           }
+        self.button_is_active = true
       }
     
     func valid_payment() -> Bool {
@@ -107,9 +108,8 @@ struct ReserveView: View {
             Button(action: {
                 do {
                     self.reserveMeal()
-                    self.button_is_active = true
                 } catch {
-                    print("idk why it's going in this!!")
+                    print("reservation shouldn't be allowed!!")
                 }
             }) {
                 if (self.valid_payment()) {

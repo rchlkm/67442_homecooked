@@ -91,7 +91,7 @@ struct FullMapView: View {
     }
     
     func open_maps() {
-        print("open maps clicked!!")
+//        print("open maps clicked!!")
 //    }
 //    func openMapForPlace() {
 //            let latitude: CLLocationDegrees = 37.2
@@ -107,7 +107,7 @@ struct FullMapView: View {
             ]
             let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
             let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = "Place Name"
+            mapItem.name = "HomeCooked Meal Location"
             mapItem.openInMaps(launchOptions: options)
         }
      

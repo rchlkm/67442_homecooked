@@ -16,11 +16,11 @@ func date_formater(date_str: String) -> Date {
 
 let meal1 = Meal(
     id: "taCufe3fXB",
-    name: "Udon",
+    name: "Tacos",
     description: "it's yummy! and traditional",
     chef_id: "abc",
     cuisine: ["Asian", "Japanese"],
-    ingredients: [],
+//    ingredients: [],
     allergens: [],
     images: ["udon"],
 //    images: ["https://www.wandercooks.com/wp-content/uploads/2019/04/udon-noodle-soup-recipe-4.jpg"],
@@ -29,8 +29,8 @@ let meal1 = Meal(
 //    cancellation_policy: "",
     time: "6 PM",
     year: 2019,
-    month: 11,
-    day: 8,
+    month: 12,
+    day: 15,
     city: "Pittsburgh",
     latitude: 40.4406,
     longitude: -79.9959,
@@ -44,7 +44,7 @@ let meal2 = Meal(
     description: "it's yummy! and traditional",
     chef_id: "abc",
     cuisine: ["Ukranian"],
-    ingredients: [],
+//    ingredients: [],
     allergens: [],
     images: ["lamb_chops"],
     price: 15,
@@ -62,14 +62,15 @@ let meal2 = Meal(
 )
 
 let chef1 = Chef (
-    id: "abc",
+    id: "GJFmRADeY9MJCQ4AUTpC",
     first_name: "John",
     last_name: "Doe",
     address: "12345",
     city: "Hamburg",
     latitude: 34.011286,
     longitude: -116.166868,
-    phone: "1234567890"
+    phone: "1234567890",
+    description: "I'm an aspiring chef~ I'm trying to diversify my culinary skills across all sorts of cuisines."
 )
 
 var search_items: [Meal] = [meal1, meal2]

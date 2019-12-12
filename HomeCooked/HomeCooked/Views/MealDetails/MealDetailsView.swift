@@ -10,21 +10,23 @@ import SwiftUI
 
 struct MealDetailsView: View {
     let meal: Meal
+    @ObservedObject var cvm : ChefViewModel
     let search_guest_count: Int // used for default count when making reservation
     
     let urlString = "https://www.raspberrykiss.co.uk/wp-content/uploads/2018/07/Shin-Ramyun-The-Best-Spicy-Instant-Noodles.jpg"
     
-    //    UITabBar.appearance().isHidden = true
+    
     
     init(meal: Meal, search_guest_count: Int = 1) {
         self.meal = meal
         self.search_guest_count = search_guest_count
+        self.cvm = ChefViewModel()
     }
     
     var body: some View {
         ScrollView {
-//            VStack(alignment: .leading) {
-            VStack {
+            VStack(alignment: .leading) {
+//            VStack {
               ImageView(urlString: self.meal.images[0])
                 .frame(width:frame_size, height: 250)
                   .offset(y:-20)
@@ -53,14 +55,24 @@ struct MealDetailsView: View {
         .edgesIgnoringSafeArea([.top])
     }
     
+    @State var button_is_active = false
     var description: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(meal.name).font(.largeTitle).bold()
                 Spacer()
-                NavigationLink(destination: ChefDetailsView(chef: chef1)) {
-                    Text("By Chef")
+//                NavigationLink(destination: ChefDetailsView(chef: chef1)) {
+//                    Text("By Chef")
+//                }
+//
+                NavigationLink(destination: ChefDetailsView(chef: chef1), isActive: self.$button_is_active) { EmptyView() }
+                Button(action: {
+                    self.button_is_active = true
+                }) {
+                    Text("BY CHEF")
                 }
+                
+                
             }
             Text(meal.description)
             Spacer().frame(height: 20.0)

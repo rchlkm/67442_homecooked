@@ -11,6 +11,7 @@ import SwiftUI
 struct CreateAccountView: View {
     @ObservedObject var vm : CreateAccountViewModel
     @State var button_is_active = false
+    @State var actionButton_clicked = false
     
     @State var first_name: String = ""
     @State var last_name: String = ""
@@ -31,7 +32,7 @@ struct CreateAccountView: View {
             //            Text("Personal Info:")
             TextFieldWithBottomLine("First Name", input: $first_name).padding(.bottom, 20)
             TextFieldWithBottomLine("Last Name", input: $last_name).padding(.bottom, 20)
-            TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 40)
+            TextFieldWithBottomLine("Email", input: $user_email).padding(.bottom, 20)
             
             //            Text("Create Password:")
             TextFieldWithBottomLine("Password", input: $password, secure: true).padding(.bottom, 20)
@@ -42,26 +43,36 @@ struct CreateAccountView: View {
             NavigationLink(destination: LoggedInView(), isActive: self.$button_is_active) { EmptyView() }
             
             Button(action: {
+                self.actionButton_clicked = true
                 self.create_account()
-                self.button_is_active = true
             }) {
-//                if (self.button_is_active) {
                     OrangeButton("Create Account")
-//                } else {
-//                    WhiteButton("Create Account")
-//                }
-            }//.disabled(!self.button_is_active)
+            }
+            
+            Section {
+                if (self.actionButton_clicked && !self.button_is_active) {
+                    Text("Please enter all fields.")
+                } else {
+                    Text("")
+                }
+            }.padding(.top)
         }.padding(.leading,20).padding(.trailing,20)
     }
     
     func create_account() {
-        print("account is being created!")
-        let user_params = CreateAccountParams(
-            first_name: self.first_name,
-            last_name: self.last_name,
-            email: self.user_email,
-            password: self.password)
-        self.vm.createAccount(params: user_params)
+        
+        do {
+            let user_params = CreateAccountParams(
+                first_name: self.first_name,
+                last_name: self.last_name,
+                email: self.user_email,
+                password: self.password)
+            self.vm.createAccount(params: user_params)
+            print("account is being created!")
+        } catch {
+            print("account could not be created")
+        }
+//        self.button_is_active = true
     }
 }
 

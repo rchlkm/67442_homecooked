@@ -12,48 +12,43 @@ struct ChefDetailsView: View {
     @ObservedObject var vm : ChefViewModel
     let chef: Chef
     @State var chef_reviews: [Review] = [Review]()
+    
     init(chef: Chef) {
         self.chef = chef
         self.vm = ChefViewModel()
-//        self.vm.getChefReviews(chef_id: chef.id) {
-//            (reviews) in
-//            self.chef_reviews = reviews
-//        }
     }
     
-    var body: some View {
-        
+    var body: some View {        
         ScrollView {
             VStack(alignment: .leading) {
-                
-                Text("Hi, I'm \(chef.first_name)!")
-                    .font(.title)
+                HStack {
+                    LargeTitle("Hi, I'm \(chef.first_name)!")
+                    Spacer()
+                }
+                Text(chef.description)
                 Spacer().frame(height: 20.0)
                 reviews
-                
-                
             }
-        }
+        }.padding(.leading,20).padding(.trailing,20)
     }
     
     var reviews: some View {
         VStack(alignment: .leading) {
-            Text("Reviews")
-                .font(.title)
-                .fontWeight(.bold)
             
-            Section {
-                Text("\(self.vm.getAverageRating())")
+            if (self.vm.getReviewsCount() == 0) {
+                Text("I don't have any reviews yet :(")
+            } else {
+                Text("Reviews (\(self.vm.getReviewsCount()))")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(OrangeColor)
+                
+                Section {
+                    Text("\(self.vm.getAverageRating())")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(OrangeColor)
+                }
             }
         }.padding(.top, 5)
-    }
-}
-
-struct ChefDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChefDetailsView(chef: chef1)
     }
 }
