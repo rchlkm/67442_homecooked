@@ -55,9 +55,9 @@ class ChefClient {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                  print("out ########")
+//                  print("out ########")
                   dispatchGroup.enter()
-                  print("in #########")
+//                  print("in #########")
                     let document = documentSnapshot!
                     chef = Chef(
                         id: document.get("id") as! String,
@@ -69,8 +69,8 @@ class ChefClient {
                         longitude: document.get("longitude") as! Double,
                         phone: document.get("phone") as! String,
                         description: document.get("description") as! String)
-                  print(chef == nil)
-                  print("###########")
+//                  print(chef == nil)
+//                  print("###########")
                   dispatchGroup.leave()
 
                 }

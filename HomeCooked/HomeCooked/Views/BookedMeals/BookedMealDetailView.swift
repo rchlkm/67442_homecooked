@@ -34,9 +34,9 @@ struct BookedMealDetailView: View {
                 Divider().padding(.top).padding(.bottom)
                 
                 PaymentsComponentView(reservation: self.reservation)
-                Divider().padding(.top).padding(.bottom)
                 
                 if (meal.is_complete()) {
+                    Divider().padding(.top).padding(.bottom)
                     RatePicker()
                 }
                 //                Divider().padding(.top).padding(.bottom)

@@ -16,7 +16,7 @@ class MealParser {
     do {
       if let d = data {
         let json = try JSON(data: d)
-        print(json)
+//        print(json)
         return json
       }
     } catch {
@@ -32,7 +32,7 @@ class MealParser {
       for (index,mealDict):(String, JSON) in mealDicts {
         let meal = parseMeal(mealDict)
         meals.append(meal)
-        print(index)
+//        print(index)
       }
       return meals
     }

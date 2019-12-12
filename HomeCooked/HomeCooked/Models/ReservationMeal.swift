@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ReservationMeal : Equatable{
+struct ReservationMeal : Equatable {
     let id: String
     let reservation: Reservation
     let meal: Meal

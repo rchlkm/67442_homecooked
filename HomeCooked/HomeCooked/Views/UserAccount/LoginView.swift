@@ -53,7 +53,7 @@ struct LoginView: View {
     }
     
     func login() {
-        print("in the login function")
+//        print("in the login function")
         let login_params = LoginParams(email: self.user_email, password: self.password)
         self.vm.login(params: login_params) {
             (user) in
@@ -61,9 +61,9 @@ struct LoginView: View {
     }
     
     func is_login_sucess() {
-//        if self.vm.success {
+        if self.vm.success {
             self.button_is_active = true
-//        }
+        }
     }
     
 }

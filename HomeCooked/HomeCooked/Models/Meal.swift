@@ -14,7 +14,7 @@ struct Meal {
     var description: String = "This is the default description of the meal."
     let chef_id: String
     let cuisine: [String] //= [""]
-//    let ingredients: [String] //= [""]
+    //    let ingredients: [String] //= [""]
     let allergens: [String] //= [""]
     let images: [String]
     let price: Int
@@ -45,12 +45,11 @@ extension Meal {
         let timeLst = time.components(separatedBy: " ")
         var hour = Int(timeLst[0])!
         let apm = timeLst[1]
-
+        
         if apm == "PM" {
             hour = hour + 12
         }
-        
-        return (current.year >= self.year) && (current.month >= self.month) && (current.day >= self.day && (current.hour > hour))
+        return (current.year > self.year) || (current.month > self.month) || (current.day > self.day) || (current.hour > hour)
     }
 }
 

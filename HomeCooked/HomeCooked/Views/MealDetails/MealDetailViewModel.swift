@@ -23,9 +23,9 @@ class MealDetailViewModel: ObservableObject {
         client.setChefId(chef_id: chef_id)
         client.fetchChef() {
             (chef) in
-          print("&&&&&&&&&&&&")
-          print(chef == nil)
-          print("&&&&&&&&&&&&")
+//          print("&&&&&&&&&&&&")
+//          print(chef == nil)
+//          print("&&&&&&&&&&&&")
             self.chef = chef
           completion(chef)
         }
