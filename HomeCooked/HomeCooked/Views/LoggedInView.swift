@@ -10,11 +10,18 @@ import SwiftUI
 
 struct LoggedInView: View {
     @State var selection = 1
+    let vm = BookedMealViewModel()
+    let view = BookedMealsView()
+    
     init(_ tabSelection: Int = 1) {
         if tabSelection == 2 {
             self.selection = tabSelection
         }
-        BookedMealsView().updateBookedMeals()
+      self.view.updateBookedMeals()
+      //self.vm.updateBookedMeals(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+        //(reservationMeals) in
+        //view.reservations = reservationMeals
+      //}
     }
     var body: some View {
         TabView(selection:$selection) {

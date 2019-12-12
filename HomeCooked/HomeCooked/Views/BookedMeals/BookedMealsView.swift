@@ -32,6 +32,16 @@ struct BookedMealsView: View {
     init(){
         self.vm = BookedMealViewModel()
     }
+  //user_id: String
+  func updateBookedMeals(){
+    self.vm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
+          (reservationMeals) in
+          //print("UWU")
+          //print(reservationMeals)
+          self.reservations = reservationMeals
+      }
+      //print("!!!",self.reservations.count)
+  }
     
     var body: some View {
         ScrollView {
@@ -42,7 +52,7 @@ struct BookedMealsView: View {
                     Spacer()
                     NavigationLink(destination: HomeView(), isActive: self.$button_is_active) { EmptyView() }
                     Button(action: {
-                        self.button_is_active = true
+                      self.button_is_active = true
                     }) {
                         Text("Logout")
                     }
@@ -82,14 +92,6 @@ struct BookedMealsView: View {
         .navigationBarHidden(true)
     }
     
-    func updateBookedMeals(){
-        self.vm.getReservationMealsByUserId(user_id: "tg0jwBTBFrdJHOfkdFTz") {
-            (reservationMeals) in
-            //print(reservationMeals)
-            self.reservations = reservationMeals
-        }
-        print("!!!",self.reservations.count)
-    }
 }
 
 struct SearchForNewMealsView: View {

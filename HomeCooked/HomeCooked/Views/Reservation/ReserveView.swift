@@ -67,7 +67,7 @@ struct ReserveView: View {
         print("trying to reserve the meal!!!!")
           let meal_total = "$\(meal.price * guest_count)"
         if self.valid_payment() {
-            let reservation: Reservation = Reservation(id: randomString(length: 16), user_id: "abc", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
+            let reservation: Reservation = Reservation(id: randomString(length: 16), user_id: "tg0jwBTBFrdJHOfkdFTz", meal_id: self.meal.id, guest_count: guest_count, total: meal_total, card_number: self.card_number, exp_month: self.expiration_month, exp_year: self.expiration_year, cv2: self.security_code)
               let vm = ReservationViewModel(reservation: reservation)
               vm.postReservation(reservation: reservation)
           } else {
