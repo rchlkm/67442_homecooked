@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct ReservationMeal {
+struct ReservationMeal : Equatable{
     let id: String
     let reservation: Reservation
     let meal: Meal
+    
+    static func ==(lhs: ReservationMeal, rhs: ReservationMeal) -> Bool {
+        return lhs.id == rhs.id
+    }
 }

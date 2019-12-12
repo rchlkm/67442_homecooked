@@ -170,9 +170,14 @@ class BookedMealsClient {
           //reservationMeals.append(rm)
           //print("BEFORE RESERVATIONMEALZ")
           //print(reservationMeals)
-          self.reservationMeals.append(rm)
+            if self.reservationMeals.contains(rm) {
+                completion(self.reservationMeals)
+            } else {
+                self.reservationMeals.append(rm)
+                completion(self.reservationMeals)
+            }
           //print(self.reservationMeals)
-          completion(self.reservationMeals)
+          //completion(self.reservationMeals)
           //dispatchGroup.leave()
 
         }
