@@ -48,13 +48,16 @@ class ChefClient {
     func fetchChef(completion: @escaping (Chef?) -> ()) {
         let dispatchGroup = DispatchGroup()
         var chef: Chef? = nil
-        dispatchGroup.enter()
+      print(self.chef_id)
         db.collection("chef")
             .document(self.chef_id)
             .getDocument { (documentSnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                  print("out ########")
+                  dispatchGroup.enter()
+                  print("in #########")
                     let document = documentSnapshot!
                     chef = Chef(
                         id: document.get("id") as! String,
@@ -66,10 +69,14 @@ class ChefClient {
                         longitude: document.get("longitude") as! Double,
                         phone: document.get("phone") as! String,
                         description: document.get("description") as! String)
+                  print(chef == nil)
+                  print("###########")
+                  dispatchGroup.leave()
+
                 }
+              completion(chef)
+
         }
-        dispatchGroup.leave()
-        completion(chef)
     }
     
     func setChefId(chef_id: String) {

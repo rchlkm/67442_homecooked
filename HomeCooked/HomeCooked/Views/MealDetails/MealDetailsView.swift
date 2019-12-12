@@ -63,15 +63,16 @@ struct MealDetailsView: View {
         print("getting the chef!!")
         self.vm.getChef(chef_id: self.meal.chef_id) {
             (chef) in
-            self.chef = chef
+          if let temp = chef {
+            self.chef = temp
+          }
+          if self.chef != nil {
+              print("chef found!")
+              self.button_is_active = true
+          } else {
+              print("the chef is nil")
+          }
         }
-        if self.chef != nil {
-            print("chef found!")
-            self.button_is_active = true
-        } else {
-            print("the chef is nil")
-        }
-
     }
     var description: some View {
         VStack(alignment: .leading) {
