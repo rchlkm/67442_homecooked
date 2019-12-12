@@ -62,7 +62,7 @@ struct BookedMealDetailView: View {
                     Text("Cancel")
                 }.alert(isPresented:$cancel_alert_present) {
                     Alert(title: Text("Are you sure?"),
-                          primaryButton: .destructive(Text("Cancel")) { self.cancel() },
+                          primaryButton: .destructive(Text("Cancel Reservation")) { self.cancel() },
                           secondaryButton: .cancel())
                 }
             } else {

@@ -52,7 +52,7 @@ struct SearchView: View {
                     }
                 }
             }
-        }//.border(Color.blue)
+        }
             .padding(.leading,20).padding(.trailing,20)
             .navigationBarTitle("Search")
             .navigationBarBackButtonHidden(true)

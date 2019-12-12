@@ -44,6 +44,10 @@
 		02AB28E8236FD6FA007AB3AD /* ReserveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AB28E7236FD6FA007AB3AD /* ReserveView.swift */; };
 		02B7B9AC236F91C600743B6D /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B9AB236F91C600743B6D /* DummyData.swift */; };
 		02B7B9AE236F91EB00743B6D /* Chef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7B9AD236F91EB00743B6D /* Chef.swift */; };
+		02CE755623A1EF5500EFCC99 /* Udon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02CE755223A1EF5400EFCC99 /* Udon.jpg */; };
+		02CE755723A1EF5500EFCC99 /* Tacos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02CE755323A1EF5400EFCC99 /* Tacos.jpg */; };
+		02CE755823A1EF5500EFCC99 /* Seafood Linguine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02CE755423A1EF5400EFCC99 /* Seafood Linguine.jpg */; };
+		02CE755923A1EF5500EFCC99 /* Ramen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02CE755523A1EF5400EFCC99 /* Ramen.jpg */; };
 		02D1749A2370784300F3F6C6 /* BookedMealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D174992370784300F3F6C6 /* BookedMealsView.swift */; };
 		02D1749C2370796300F3F6C6 /* MealListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1749B2370796300F3F6C6 /* MealListItemView.swift */; };
 		02DE34602397032800571D44 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE345F2397032800571D44 /* LoginView.swift */; };
@@ -120,6 +124,10 @@
 		02AB28E7236FD6FA007AB3AD /* ReserveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveView.swift; sourceTree = "<group>"; };
 		02B7B9AB236F91C600743B6D /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		02B7B9AD236F91EB00743B6D /* Chef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef.swift; sourceTree = "<group>"; };
+		02CE755223A1EF5400EFCC99 /* Udon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Udon.jpg; path = ../../../../../../../../../Downloads/Udon.jpg; sourceTree = "<group>"; };
+		02CE755323A1EF5400EFCC99 /* Tacos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Tacos.jpg; path = ../../../../../../../../../Downloads/Tacos.jpg; sourceTree = "<group>"; };
+		02CE755423A1EF5400EFCC99 /* Seafood Linguine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Seafood Linguine.jpg"; path = "../../../../../../../../../Downloads/Seafood Linguine.jpg"; sourceTree = "<group>"; };
+		02CE755523A1EF5400EFCC99 /* Ramen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Ramen.jpg; path = ../../../../../../../../../Downloads/Ramen.jpg; sourceTree = "<group>"; };
 		02D174992370784300F3F6C6 /* BookedMealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedMealsView.swift; sourceTree = "<group>"; };
 		02D1749B2370796300F3F6C6 /* MealListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListItemView.swift; sourceTree = "<group>"; };
 		02DE345F2397032800571D44 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -261,6 +269,10 @@
 		02DE3463239708EE00571D44 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				02CE755523A1EF5400EFCC99 /* Ramen.jpg */,
+				02CE755423A1EF5400EFCC99 /* Seafood Linguine.jpg */,
+				02CE755323A1EF5400EFCC99 /* Tacos.jpg */,
+				02CE755223A1EF5400EFCC99 /* Udon.jpg */,
 				02DE346A2397096500571D44 /* logo.png */,
 				02DE34682397094700571D44 /* appicon.png */,
 			);
@@ -497,7 +509,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				02DE34692397094700571D44 /* appicon.png in Resources */,
+				02CE755623A1EF5500EFCC99 /* Udon.jpg in Resources */,
+				02CE755723A1EF5500EFCC99 /* Tacos.jpg in Resources */,
 				4533B5FC236A59B800D99E25 /* LaunchScreen.storyboard in Resources */,
+				02CE755823A1EF5500EFCC99 /* Seafood Linguine.jpg in Resources */,
+				02CE755923A1EF5500EFCC99 /* Ramen.jpg in Resources */,
 				02DE346B2397096500571D44 /* logo.png in Resources */,
 				4533B616236A5CBD00D99E25 /* GoogleService-Info.plist in Resources */,
 				4533B5F9236A59B800D99E25 /* Preview Assets.xcassets in Resources */,

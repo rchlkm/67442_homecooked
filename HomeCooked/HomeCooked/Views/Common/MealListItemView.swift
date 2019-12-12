@@ -27,12 +27,11 @@ struct MealListItemView: View {
         NavigationLink(destination: getItemDesinationView()) {
             
             HStack {
-              ImageView(urlString: self.meal.images[0])
-//                .frame(width: frame_size/2)
-//                RoundedRectangle(cornerRadius: 20)
-//                    .frame(width: frame_size/2)
-//                    .foregroundColor(OrangeColor)
-                //                Image(meal.images[0]).frame(width: frame_size/2)
+//              ImageView(urlString: self.meal.images[0])
+                Image(meal.name).resizable()
+                    .frame(width: frame_size/2)//, height: frame_size/2)
+//                    .border(Color.red)
+
                 mealInfoText()
                     .frame(width: frame_size/2)
             }
@@ -61,3 +60,10 @@ struct MealListItemView: View {
     }
     
 }
+
+                
+//                RoundedRectangle(cornerRadius: 20)
+//                    .frame(width: frame_size/2)
+//                    .foregroundColor(OrangeColor)
+                //                Image(meal.images[0]).frame(width: frame_size/2)
+                
